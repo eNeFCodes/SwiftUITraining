@@ -18,6 +18,7 @@
 		8F8E610627D5DE72003AFA79 /* LoginHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610527D5DE72003AFA79 /* LoginHeaderView.swift */; };
 		8F8E610827D6F195003AFA79 /* LoginWelcomeAtlasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610727D6F195003AFA79 /* LoginWelcomeAtlasView.swift */; };
 		8F8E610A27D74307003AFA79 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610927D74307003AFA79 /* BorderView.swift */; };
+		8F8E610C27D8A8B9003AFA79 /* ScrubWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		8F8E610527D5DE72003AFA79 /* LoginHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHeaderView.swift; sourceTree = "<group>"; };
 		8F8E610727D6F195003AFA79 /* LoginWelcomeAtlasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWelcomeAtlasView.swift; sourceTree = "<group>"; };
 		8F8E610927D74307003AFA79 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
+		8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrubWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				8F8E60FC27D208D9003AFA79 /* LoaderView.swift */,
 				8F8E60FE27D5D1F3003AFA79 /* LoginView_OLD.swift */,
 				8F8E610927D74307003AFA79 /* BorderView.swift */,
+				8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */,
 				8F8E610227D5DDFA003AFA79 /* Login */,
 				8F44128D27D1BD1D009487A6 /* Assets.xcassets */,
 				8F44128F27D1BD1D009487A6 /* Preview Content */,
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F44128C27D1BD1A009487A6 /* ContentView.swift in Sources */,
+				8F8E610C27D8A8B9003AFA79 /* ScrubWrapper.swift in Sources */,
 				8F8E610427D5DE0D003AFA79 /* LoginWelcomeView.swift in Sources */,
 				8F44128A27D1BD1A009487A6 /* SwiftUITrainingApp.swift in Sources */,
 				8F8E60FF27D5D1F3003AFA79 /* LoginView_OLD.swift in Sources */,
