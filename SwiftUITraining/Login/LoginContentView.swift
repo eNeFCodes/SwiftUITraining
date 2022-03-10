@@ -20,16 +20,20 @@ struct LoginContentView: View {
     var body: some View {
         LoaderView(content: { geometry in
             ZStack(alignment: .trailing) {
-                let frameOffset = geometry.size.height * 0.4 / 2
                 let frameHeight = geometry.size.height * 0.6
+                let frameWidth = geometry.size.width * 0.75
 
-                VStack { }
-                .frame(width: geometry.size.width * 0.75,
-                       height: frameHeight,
-                       alignment: .trailing)
-                .background(.gray)
-                .offset(y: -frameOffset)
-
+                VStack {
+                    Image("img_bg_login")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .ignoresSafeArea()
+                        .frame(width: frameWidth,
+                               height: frameHeight,
+                               alignment: .trailing)
+                    Spacer()
+                }
+                
                 VStack(alignment: .leading) {
                     LoginHeaderView(geometry: geometry)
                     Spacer(minLength: 60)
