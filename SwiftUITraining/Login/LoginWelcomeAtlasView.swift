@@ -8,38 +8,35 @@
 import SwiftUI
 
 struct LoginWelcomeAtlasView: View {
-    var title: String = "WELCOME"
-    var subTitle: String = "Please select how you wish to log in:"
+
+    @State var model: LoginModel
     var geometry: GeometryProxy
     var loginAction: (_ username: String, _ password: String) -> Void
 
-    @State var username: String = ""
-    @State var password: String = ""
-
     private var canProceed: Bool {
-        !username.isEmpty && !password.isEmpty
+        !model.username.isEmpty && !model.password.isEmpty
     }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             VStack(alignment: .leading, spacing: 20) {
-                Text(title)
+                Text(model.title)
                     .font(.headline)
-                Text(subTitle)
+                Text(model.subTitle)
                     .font(.subheadline)
             }
             .padding(.bottom, 20)
 
             VStack(spacing: 20) {
                 ZStack(alignment: .leading) {
-                    if username.isEmpty {
+                    if model.username.isEmpty {
                         Text("EMAIL",
                              comment: "Enter your registered username here")
                             .foregroundColor(.white)
                     }
 
                     TextField("",
-                              text: $username)
+                              text: $model.username)
                         .frame(height: 56,
                                alignment: .leading)
                 }
@@ -47,21 +44,21 @@ struct LoginWelcomeAtlasView: View {
                        alignment: .leading)
 
                 ZStack(alignment: .leading) {
-                    if password.isEmpty {
+                    if model.password.isEmpty {
                         Text("PASSWORD",
                              comment: "Enter your registered password here")
                             .foregroundColor(.white)
                     }
 
                     SecureField("",
-                                text: $password)
+                                text: $model.password)
                         .frame(height: 56,
                                alignment: .leading)
                 }
                 .padding(.bottom, 60)
 
                 Button("LOG IN") {
-                    loginAction(username, password)
+                    loginAction(model.username, model.password)
                 }
                 .frame(width: geometry.size.width - 40,
                        height: 56)

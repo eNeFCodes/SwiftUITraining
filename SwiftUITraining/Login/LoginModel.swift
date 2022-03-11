@@ -9,7 +9,9 @@ import Foundation
 import SwiftUI
 
 struct LoginModel {
-    @State var username: String = ""
-    @State var password: String = ""
+    var title: String = "WELCOME"
+    var subTitle: String = "Please select how you wish to log in:"
 
+    var username: String = ""
+    var password: String = ""
 }

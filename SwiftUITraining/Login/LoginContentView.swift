@@ -13,9 +13,18 @@ private enum LoginType {
     case faceAndTouchID
 }
 
+private struct AlertItem: Identifiable {
+    var id: String
+    var title: String
+    var message: String
+}
+
 struct LoginContentView: View {
+
     @State private var isLoading: Bool = false
     @State private var loginType: LoginType = .default
+    @State private var showAlert: Bool = false
+    @State private var alertItem: AlertItem?
 
     var body: some View {
         LoaderView(content: { geometry in
@@ -40,7 +49,8 @@ struct LoginContentView: View {
 
                     switch loginType {
                     case .atlas:
-                        LoginWelcomeAtlasView(geometry: geometry,
+                        LoginWelcomeAtlasView(model: .init(),
+                                              geometry: geometry,
                                               loginAction: loginAction)
                     default:
                         LoginWelcomeView(geometry: geometry,
@@ -51,6 +61,16 @@ struct LoginContentView: View {
             }
             .background(Color.black)
         }, isLoading: $isLoading)
+            .alert(Text(alertItem?.title ?? ""),
+                   isPresented: $showAlert,
+                   presenting: alertItem,
+                   actions: { item in
+                Button("OK") {
+                    loginType = .default
+                }
+            }, message: { item in
+                Text(item.message)
+            })
     }
 
     private func atlasLogin() {
@@ -65,10 +85,12 @@ struct LoginContentView: View {
         Biometrics.triggerBiometrics { status in
             switch status {
             case .authenticated:
+                alertItem = nil
                 print("Biometrics status: \(status)")
 
             case .failed(let error):
-                showAlert(with: error)
+                showAlert = true
+                alertItem = .init(id: "1", title: "Error", message: error.localizedDescription)
             }
         }
     }
@@ -79,11 +101,9 @@ struct LoginContentView: View {
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
             isLoading = false
+            showAlert = true
+            alertItem = .init(id: "2", title: "Success", message: "You're now logged in")
         }
-    }
-
-    private func showAlert(with error: Error) {
-
     }
 }
 
