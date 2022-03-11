@@ -61,6 +61,16 @@ struct LoginContentView: View {
     private func faceAndTouchIDLogin() {
         print("faceAndTouchIDLogin")
         loginType = .faceAndTouchID
+
+        Biometrics.triggerBiometrics { status in
+            switch status {
+            case .authenticated:
+                print("Biometrics status: \(status)")
+
+            case .failed(let error):
+                showAlert(with: error)
+            }
+        }
     }
 
     private func loginAction(username: String, password: String) {
@@ -70,6 +80,10 @@ struct LoginContentView: View {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
             isLoading = false
         }
+    }
+
+    private func showAlert(with error: Error) {
+
     }
 }
 
