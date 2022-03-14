@@ -7,11 +7,19 @@
 
 import SwiftUI
 
+class TestEnv: ObservableObject {
+    @Published var stateTest: Bool = false
+}
+
 struct ContentView: View {
+    @StateObject var testEnv: TestEnv = TestEnv()
+
     var body: some View {
         NavigationView {
             LoginContentView()
         }
+        .navigationViewStyle(.stack)
+        .environmentObject(testEnv)
     }
 }
 

@@ -53,8 +53,12 @@ struct LoginContentView: View {
                         LoginWelcomeAtlasView(model: .init(),
                                               geometry: geometry,
                                               loginAction: loginAction)
-                        NavigationLink("", isActive: $isLoggedIn) {
-                            HomeView()
+                        if isLoggedIn {
+                            NavigationLink("", isActive: $isLoggedIn) {
+                                HomeView()
+                            }
+                            .navigationTitle("HOME NAVIGATION")
+                            .foregroundColor(.white)
                         }
                     default:
                         LoginWelcomeView(geometry: geometry,
