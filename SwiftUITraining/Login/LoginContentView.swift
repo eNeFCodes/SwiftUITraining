@@ -25,6 +25,7 @@ struct LoginContentView: View {
     @State private var loginType: LoginType = .default
     @State private var showAlert: Bool = false
     @State private var alertItem: AlertItem?
+    @State private var isLoggedIn: Bool = false
 
     var body: some View {
         LoaderView(content: { geometry in
@@ -36,12 +37,12 @@ struct LoginContentView: View {
                     Image("img_bg_login")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .ignoresSafeArea()
                         .frame(width: frameWidth,
                                height: frameHeight,
                                alignment: .trailing)
                     Spacer()
                 }
+                .ignoresSafeArea()
                 
                 VStack(alignment: .leading) {
                     LoginHeaderView(geometry: geometry)
@@ -52,12 +53,17 @@ struct LoginContentView: View {
                         LoginWelcomeAtlasView(model: .init(),
                                               geometry: geometry,
                                               loginAction: loginAction)
+                        NavigationLink("", isActive: $isLoggedIn) {
+                            HomeView()
+                        }
                     default:
                         LoginWelcomeView(geometry: geometry,
                                          atlasLogin: atlasLogin,
                                          faceAndTouchIDLogin: faceAndTouchIDLogin)
                     }
                 }
+                .ignoresSafeArea()
+                .padding(.bottom, 40)
             }
             .background(Color.black)
         }, isLoading: $isLoading)
@@ -101,8 +107,7 @@ struct LoginContentView: View {
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
             isLoading = false
-            showAlert = true
-            alertItem = .init(id: "2", title: "Success", message: "You're now logged in")
+            isLoggedIn = true
         }
     }
 }

@@ -71,7 +71,6 @@ struct LoginWelcomeAtlasView: View {
         .foregroundColor(.white)
         .padding(20)
         .frame(height: 290)
-        .padding(.bottom, 40)
     }
 }
 

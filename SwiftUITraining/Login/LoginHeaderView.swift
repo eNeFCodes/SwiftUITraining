@@ -18,7 +18,7 @@ struct LoginHeaderView: View {
                 Text("CNT\nJEWERLY")
                     .font(.largeTitle)
                     .foregroundColor(.white)
-                    .frame(width: frameSize.width,
+                    .frame(width: abs(frameSize.width),
                            height: frameSize.height,
                            alignment: .leading)
                     .padding(.leading, 20)
@@ -38,7 +38,7 @@ struct LoginHeaderView: View {
                     }
                 Spacer()
             }
-            .padding(.top, 40)
+            .padding(.top, 60)
 
             HStack {
                 Spacer()

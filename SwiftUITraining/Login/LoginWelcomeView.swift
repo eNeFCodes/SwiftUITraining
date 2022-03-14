@@ -28,14 +28,14 @@ struct LoginWelcomeView: View {
                 Button("ATLAS LOGIN") {
                     atlasLogin()
                 }
-                .frame(width: geometry.size.width - 40,
+                .frame(width: abs(geometry.size.width - 40),
                        height: 56)
                 .background(Color.red)
 
                 Button("FACE/TOUCH ID LOGIN") {
                     faceAndTouchIDLogin()
                 }
-                .frame(width: geometry.size.width - 40,
+                .frame(width: abs(geometry.size.width - 40),
                        height: 56)
                 .background(Color.red)
             }

@@ -21,6 +21,7 @@
 		8F8E610C27D8A8B9003AFA79 /* ScrubWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */; };
 		8F8E610E27DAD394003AFA79 /* Biometrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610D27DAD394003AFA79 /* Biometrics.swift */; };
 		8F8E611027DAD68D003AFA79 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610F27DAD68D003AFA79 /* LoginModel.swift */; };
+		8FA8789E27DF3572008C2837 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8789D27DF3572008C2837 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrubWrapper.swift; sourceTree = "<group>"; };
 		8F8E610D27DAD394003AFA79 /* Biometrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biometrics.swift; sourceTree = "<group>"; };
 		8F8E610F27DAD68D003AFA79 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		8FA8789D27DF3572008C2837 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				8F8E610927D74307003AFA79 /* BorderView.swift */,
 				8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */,
 				8F8E610D27DAD394003AFA79 /* Biometrics.swift */,
+				8FA8789D27DF3572008C2837 /* HomeView.swift */,
 				8F8E610227D5DDFA003AFA79 /* Login */,
 				8F44128D27D1BD1D009487A6 /* Assets.xcassets */,
 				8F44128F27D1BD1D009487A6 /* Preview Content */,
@@ -177,6 +180,7 @@
 			files = (
 				8F44128C27D1BD1A009487A6 /* ContentView.swift in Sources */,
 				8F8E611027DAD68D003AFA79 /* LoginModel.swift in Sources */,
+				8FA8789E27DF3572008C2837 /* HomeView.swift in Sources */,
 				8F8E610C27D8A8B9003AFA79 /* ScrubWrapper.swift in Sources */,
 				8F8E610427D5DE0D003AFA79 /* LoginWelcomeView.swift in Sources */,
 				8F8E610E27DAD394003AFA79 /* Biometrics.swift in Sources */,
