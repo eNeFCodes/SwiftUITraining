@@ -25,7 +25,7 @@ struct LoginContentView: View {
     @State private var loginType: LoginType = .default
     @State private var showAlert: Bool = false
     @State private var alertItem: AlertItem?
-    @State private var isLoggedIn: Bool = false
+    @EnvironmentObject private var appEnv: AppEnv
 
     var body: some View {
         LoaderView(content: { geometry in
@@ -53,8 +53,8 @@ struct LoginContentView: View {
                         LoginWelcomeAtlasView(model: .init(),
                                               geometry: geometry,
                                               loginAction: loginAction)
-                        if isLoggedIn {
-                            NavigationLink("", isActive: $isLoggedIn) {
+                        if appEnv.isLoggedIn {
+                            NavigationLink("", isActive: $appEnv.isLoggedIn) {
                                 HomeView()
                             }
                             .navigationTitle("HOME NAVIGATION")
@@ -111,7 +111,7 @@ struct LoginContentView: View {
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
             isLoading = false
-            isLoggedIn = true
+            appEnv.isLoggedIn = true
         }
     }
 }

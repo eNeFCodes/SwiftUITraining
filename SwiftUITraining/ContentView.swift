@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-class TestEnv: ObservableObject {
-    @Published var stateTest: Bool = false
+class AppEnv: ObservableObject {
+    @Published var isLoggedIn: Bool = false
 }
 
 struct ContentView: View {
-    @StateObject var testEnv: TestEnv = TestEnv()
+    @StateObject var appEnv: AppEnv = AppEnv()
 
     var body: some View {
         NavigationView {
             LoginContentView()
         }
         .navigationViewStyle(.stack)
-        .environmentObject(testEnv)
+        .environmentObject(appEnv)
     }
 }
 
