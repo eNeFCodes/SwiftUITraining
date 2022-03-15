@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-private enum LoginType {
-    case `default`
-    case atlas
-    case faceAndTouchID
-}
-
 private struct AlertItem: Identifiable {
     var id: String
     var title: String
@@ -22,7 +16,6 @@ private struct AlertItem: Identifiable {
 struct LoginContentView: View {
 
     @State private var isLoading: Bool = false
-    @State private var loginType: LoginType = .default
     @State private var showAlert: Bool = false
     @State private var alertItem: AlertItem?
     @EnvironmentObject private var appEnv: AppEnv
@@ -48,17 +41,13 @@ struct LoginContentView: View {
                     LoginHeaderView(geometry: geometry)
                     Spacer(minLength: 60)
 
-                    switch loginType {
+                    switch appEnv.loginType {
                     case .atlas:
                         LoginWelcomeAtlasView(model: .init(),
                                               geometry: geometry,
                                               loginAction: loginAction)
-                        if appEnv.isLoggedIn {
-                            NavigationLink("", isActive: $appEnv.isLoggedIn) {
-                                HomeView()
-                            }
-                            .navigationTitle("HOME NAVIGATION")
-                            .foregroundColor(.white)
+                        NavigationLink("", isActive: $appEnv.isLoggedIn) {
+                            HomeView()
                         }
                     default:
                         LoginWelcomeView(geometry: geometry,
@@ -76,7 +65,7 @@ struct LoginContentView: View {
                    presenting: alertItem,
                    actions: { item in
                 Button("OK") {
-                    loginType = .default
+                    appEnv.loginType = .default
                 }
             }, message: { item in
                 Text(item.message)
@@ -85,12 +74,12 @@ struct LoginContentView: View {
 
     private func atlasLogin() {
         print("atlasLogin")
-        loginType = .atlas
+        appEnv.loginType = .atlas
     }
 
     private func faceAndTouchIDLogin() {
         print("faceAndTouchIDLogin")
-        loginType = .faceAndTouchID
+        appEnv.loginType = .faceAndTouchID
 
         Biometrics.triggerBiometrics { status in
             switch status {

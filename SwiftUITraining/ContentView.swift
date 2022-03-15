@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-class AppEnv: ObservableObject {
-    @Published var isLoggedIn: Bool = false
-}
-
 struct ContentView: View {
     @StateObject var appEnv: AppEnv = AppEnv()
 

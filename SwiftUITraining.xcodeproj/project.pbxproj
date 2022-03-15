@@ -58,6 +58,7 @@
 		8FA878EA27E028EC008C2837 /* FancyCutProB7-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878E027E028EC008C2837 /* FancyCutProB7-MediumItalic.otf */; };
 		8FA878EB27E028EC008C2837 /* FancyCutProB7-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878E127E028EC008C2837 /* FancyCutProB7-ThinItalic.otf */; };
 		8FA878EC27E028EC008C2837 /* FancyCutProB7-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878E227E028EC008C2837 /* FancyCutProB7-Light.otf */; };
+		8FA878EF27E043F8008C2837 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA878EE27E043F8008C2837 /* AppEnvironment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		8FA878E127E028EC008C2837 /* FancyCutProB7-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutProB7-ThinItalic.otf"; sourceTree = "<group>"; };
 		8FA878E227E028EC008C2837 /* FancyCutProB7-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutProB7-Light.otf"; sourceTree = "<group>"; };
 		8FA878ED27E02A7E008C2837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8FA878EE27E043F8008C2837 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				8FA8789F27E0286E008C2837 /* Fonts */,
 				8F44128927D1BD1A009487A6 /* SwiftUITrainingApp.swift */,
 				8F44128B27D1BD1A009487A6 /* ContentView.swift */,
+				8FA878EE27E043F8008C2837 /* AppEnvironment.swift */,
 				8F8E60FC27D208D9003AFA79 /* LoaderView.swift */,
 				8F8E60FE27D5D1F3003AFA79 /* LoginView_OLD.swift */,
 				8F8E610927D74307003AFA79 /* BorderView.swift */,
@@ -371,6 +374,7 @@
 				8F8E610427D5DE0D003AFA79 /* LoginWelcomeView.swift in Sources */,
 				8F8E610E27DAD394003AFA79 /* Biometrics.swift in Sources */,
 				8F44128A27D1BD1A009487A6 /* SwiftUITrainingApp.swift in Sources */,
+				8FA878EF27E043F8008C2837 /* AppEnvironment.swift in Sources */,
 				8F8E60FF27D5D1F3003AFA79 /* LoginView_OLD.swift in Sources */,
 				8F8E610627D5DE72003AFA79 /* LoginHeaderView.swift in Sources */,
 				8F8E610127D5D492003AFA79 /* LoginContentView.swift in Sources */,
