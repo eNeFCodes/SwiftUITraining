@@ -67,6 +67,7 @@ struct LoginContentView: View {
                    actions: { item in
                 Button("OK") {
                     appEnv.loginType = .default
+                    appEnv.isLoggedIn = item.id == "1"
                 }
             }, message: { item in
                 Text(item.message)
@@ -87,13 +88,10 @@ struct LoginContentView: View {
             switch status {
             case .authenticated:
                 print("Biometrics status: \(status)")
-                alertItem = nil
-                appEnv.isLoggedIn = true
+                showAlert = true
+                alertItem = .init(id: "1", title: "Biometrics", message: "You have successfully logged in.")
 
             case .failed(let error):
-//                showAlert = true
-//                alertItem = .init(id: "1", title: "Error", message: error.localizedDescription)
-
                 appEnv.showingToast = true
                 appEnv.toastModel = .init(title: "Error", message: error.localizedDescription, icon: .init(systemName: "error"))
             }
