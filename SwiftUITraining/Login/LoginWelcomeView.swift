@@ -17,10 +17,11 @@ struct LoginWelcomeView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             VStack(alignment: .leading, spacing: 20) {
+                let subTitleFont = Font.custom("FancyCutProB7-ThinItalic", size: 20)
                 Text(title)
                     .font(.headline)
                 Text(subTitle)
-                    .font(.subheadline)
+                    .font(subTitleFont)
             }
             .padding(.bottom, 40)
 

@@ -14,9 +14,9 @@ struct LoginHeaderView: View {
         ZStack {
             HStack {
                 let frameSize = CGSize(width: geometry.size.width - 80, height: 180)
-
+                let font = Font.custom("FancyCutCondProB7-Bold", size: 50)
                 Text("CNT\nJEWERLY")
-                    .font(.largeTitle)
+                    .font(font)
                     .foregroundColor(.white)
                     .frame(width: abs(frameSize.width),
                            height: frameSize.height,

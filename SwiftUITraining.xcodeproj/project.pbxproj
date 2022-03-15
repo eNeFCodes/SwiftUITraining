@@ -22,6 +22,42 @@
 		8F8E610E27DAD394003AFA79 /* Biometrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610D27DAD394003AFA79 /* Biometrics.swift */; };
 		8F8E611027DAD68D003AFA79 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610F27DAD68D003AFA79 /* LoginModel.swift */; };
 		8FA8789E27DF3572008C2837 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8789D27DF3572008C2837 /* HomeView.swift */; };
+		8FA878A627E02884008C2837 /* BrilliantCutProB7-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878A027E02884008C2837 /* BrilliantCutProB7-Bold.otf */; };
+		8FA878A727E02884008C2837 /* BrilliantCutProB7-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878A127E02884008C2837 /* BrilliantCutProB7-Medium.otf */; };
+		8FA878A827E02884008C2837 /* BrilliantCutProB7-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878A227E02884008C2837 /* BrilliantCutProB7-Light.otf */; };
+		8FA878A927E02884008C2837 /* BrilliantCutProB7-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878A327E02884008C2837 /* BrilliantCutProB7-Thin.otf */; };
+		8FA878AA27E02884008C2837 /* BrilliantCutProB7-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878A427E02884008C2837 /* BrilliantCutProB7-Black.otf */; };
+		8FA878AB27E02884008C2837 /* BrilliantCutProB7-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878A527E02884008C2837 /* BrilliantCutProB7-Regular.otf */; };
+		8FA878B727E028A2008C2837 /* FancyCutCondProB7-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878AD27E028A1008C2837 /* FancyCutCondProB7-BoldItalic.otf */; };
+		8FA878B827E028A2008C2837 /* FancyCutCondProB7-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878AE27E028A1008C2837 /* FancyCutCondProB7-Light.otf */; };
+		8FA878B927E028A2008C2837 /* FancyCutCondProB7-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878AF27E028A1008C2837 /* FancyCutCondProB7-RegularItalic.otf */; };
+		8FA878BA27E028A2008C2837 /* FancyCutCondProB7-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878B027E028A1008C2837 /* FancyCutCondProB7-LightItalic.otf */; };
+		8FA878BB27E028A2008C2837 /* FancyCutCondProB7-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878B127E028A1008C2837 /* FancyCutCondProB7-MediumItalic.otf */; };
+		8FA878BC27E028A2008C2837 /* FancyCutCondProB7-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878B227E028A1008C2837 /* FancyCutCondProB7-Regular.otf */; };
+		8FA878BD27E028A2008C2837 /* FancyCutCondProB7-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878B327E028A2008C2837 /* FancyCutCondProB7-Medium.otf */; };
+		8FA878BE27E028A2008C2837 /* FancyCutCondProB7-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878B427E028A2008C2837 /* FancyCutCondProB7-Bold.otf */; };
+		8FA878BF27E028A2008C2837 /* FancyCutCondProB7-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878B527E028A2008C2837 /* FancyCutCondProB7-Thin.otf */; };
+		8FA878C027E028A2008C2837 /* FancyCutCondProB7-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878B627E028A2008C2837 /* FancyCutCondProB7-ThinItalic.otf */; };
+		8FA878CE27E028D5008C2837 /* FancyCutExtProB7-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878C427E028D5008C2837 /* FancyCutExtProB7-RegularItalic.otf */; };
+		8FA878CF27E028D5008C2837 /* FancyCutExtProB7-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878C527E028D5008C2837 /* FancyCutExtProB7-Regular.otf */; };
+		8FA878D027E028D5008C2837 /* FancyCutExtProB7-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878C627E028D5008C2837 /* FancyCutExtProB7-ThinItalic.otf */; };
+		8FA878D127E028D5008C2837 /* FancyCutExtProB7-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878C727E028D5008C2837 /* FancyCutExtProB7-Medium.otf */; };
+		8FA878D227E028D5008C2837 /* FancyCutExtProB7-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878C827E028D5008C2837 /* FancyCutExtProB7-MediumItalic.otf */; };
+		8FA878D327E028D5008C2837 /* FancyCutExtProB7-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878C927E028D5008C2837 /* FancyCutExtProB7-Thin.otf */; };
+		8FA878D427E028D5008C2837 /* FancyCutExtProB7-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878CA27E028D5008C2837 /* FancyCutExtProB7-LightItalic.otf */; };
+		8FA878D527E028D5008C2837 /* FancyCutExtProB7-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878CB27E028D5008C2837 /* FancyCutExtProB7-Light.otf */; };
+		8FA878D627E028D5008C2837 /* FancyCutExtProB7-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878CC27E028D5008C2837 /* FancyCutExtProB7-Bold.otf */; };
+		8FA878D727E028D5008C2837 /* FancyCutExtProB7-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878CD27E028D5008C2837 /* FancyCutExtProB7-BoldItalic.otf */; };
+		8FA878E327E028EC008C2837 /* FancyCutProB7-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878D927E028EB008C2837 /* FancyCutProB7-LightItalic.otf */; };
+		8FA878E427E028EC008C2837 /* FancyCutProB7-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878DA27E028EB008C2837 /* FancyCutProB7-Bold.otf */; };
+		8FA878E527E028EC008C2837 /* FancyCutProB7-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878DB27E028EB008C2837 /* FancyCutProB7-Regular.otf */; };
+		8FA878E627E028EC008C2837 /* FancyCutProB7-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878DC27E028EB008C2837 /* FancyCutProB7-Thin.otf */; };
+		8FA878E727E028EC008C2837 /* FancyCutProB7-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878DD27E028EB008C2837 /* FancyCutProB7-Medium.otf */; };
+		8FA878E827E028EC008C2837 /* FancyCutProB7-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878DE27E028EB008C2837 /* FancyCutProB7-RegularItalic.otf */; };
+		8FA878E927E028EC008C2837 /* FancyCutProB7-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878DF27E028EC008C2837 /* FancyCutProB7-BoldItalic.otf */; };
+		8FA878EA27E028EC008C2837 /* FancyCutProB7-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878E027E028EC008C2837 /* FancyCutProB7-MediumItalic.otf */; };
+		8FA878EB27E028EC008C2837 /* FancyCutProB7-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878E127E028EC008C2837 /* FancyCutProB7-ThinItalic.otf */; };
+		8FA878EC27E028EC008C2837 /* FancyCutProB7-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878E227E028EC008C2837 /* FancyCutProB7-Light.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +77,43 @@
 		8F8E610D27DAD394003AFA79 /* Biometrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biometrics.swift; sourceTree = "<group>"; };
 		8F8E610F27DAD68D003AFA79 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		8FA8789D27DF3572008C2837 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8FA878A027E02884008C2837 /* BrilliantCutProB7-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrilliantCutProB7-Bold.otf"; sourceTree = "<group>"; };
+		8FA878A127E02884008C2837 /* BrilliantCutProB7-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrilliantCutProB7-Medium.otf"; sourceTree = "<group>"; };
+		8FA878A227E02884008C2837 /* BrilliantCutProB7-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrilliantCutProB7-Light.otf"; sourceTree = "<group>"; };
+		8FA878A327E02884008C2837 /* BrilliantCutProB7-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrilliantCutProB7-Thin.otf"; sourceTree = "<group>"; };
+		8FA878A427E02884008C2837 /* BrilliantCutProB7-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrilliantCutProB7-Black.otf"; sourceTree = "<group>"; };
+		8FA878A527E02884008C2837 /* BrilliantCutProB7-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrilliantCutProB7-Regular.otf"; sourceTree = "<group>"; };
+		8FA878AD27E028A1008C2837 /* FancyCutCondProB7-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutCondProB7-BoldItalic.otf"; sourceTree = "<group>"; };
+		8FA878AE27E028A1008C2837 /* FancyCutCondProB7-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutCondProB7-Light.otf"; sourceTree = "<group>"; };
+		8FA878AF27E028A1008C2837 /* FancyCutCondProB7-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutCondProB7-RegularItalic.otf"; sourceTree = "<group>"; };
+		8FA878B027E028A1008C2837 /* FancyCutCondProB7-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutCondProB7-LightItalic.otf"; sourceTree = "<group>"; };
+		8FA878B127E028A1008C2837 /* FancyCutCondProB7-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutCondProB7-MediumItalic.otf"; sourceTree = "<group>"; };
+		8FA878B227E028A1008C2837 /* FancyCutCondProB7-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutCondProB7-Regular.otf"; sourceTree = "<group>"; };
+		8FA878B327E028A2008C2837 /* FancyCutCondProB7-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutCondProB7-Medium.otf"; sourceTree = "<group>"; };
+		8FA878B427E028A2008C2837 /* FancyCutCondProB7-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutCondProB7-Bold.otf"; sourceTree = "<group>"; };
+		8FA878B527E028A2008C2837 /* FancyCutCondProB7-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutCondProB7-Thin.otf"; sourceTree = "<group>"; };
+		8FA878B627E028A2008C2837 /* FancyCutCondProB7-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutCondProB7-ThinItalic.otf"; sourceTree = "<group>"; };
+		8FA878C427E028D5008C2837 /* FancyCutExtProB7-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutExtProB7-RegularItalic.otf"; sourceTree = "<group>"; };
+		8FA878C527E028D5008C2837 /* FancyCutExtProB7-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutExtProB7-Regular.otf"; sourceTree = "<group>"; };
+		8FA878C627E028D5008C2837 /* FancyCutExtProB7-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutExtProB7-ThinItalic.otf"; sourceTree = "<group>"; };
+		8FA878C727E028D5008C2837 /* FancyCutExtProB7-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutExtProB7-Medium.otf"; sourceTree = "<group>"; };
+		8FA878C827E028D5008C2837 /* FancyCutExtProB7-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutExtProB7-MediumItalic.otf"; sourceTree = "<group>"; };
+		8FA878C927E028D5008C2837 /* FancyCutExtProB7-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutExtProB7-Thin.otf"; sourceTree = "<group>"; };
+		8FA878CA27E028D5008C2837 /* FancyCutExtProB7-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutExtProB7-LightItalic.otf"; sourceTree = "<group>"; };
+		8FA878CB27E028D5008C2837 /* FancyCutExtProB7-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutExtProB7-Light.otf"; sourceTree = "<group>"; };
+		8FA878CC27E028D5008C2837 /* FancyCutExtProB7-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutExtProB7-Bold.otf"; sourceTree = "<group>"; };
+		8FA878CD27E028D5008C2837 /* FancyCutExtProB7-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutExtProB7-BoldItalic.otf"; sourceTree = "<group>"; };
+		8FA878D927E028EB008C2837 /* FancyCutProB7-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutProB7-LightItalic.otf"; sourceTree = "<group>"; };
+		8FA878DA27E028EB008C2837 /* FancyCutProB7-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutProB7-Bold.otf"; sourceTree = "<group>"; };
+		8FA878DB27E028EB008C2837 /* FancyCutProB7-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutProB7-Regular.otf"; sourceTree = "<group>"; };
+		8FA878DC27E028EB008C2837 /* FancyCutProB7-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutProB7-Thin.otf"; sourceTree = "<group>"; };
+		8FA878DD27E028EB008C2837 /* FancyCutProB7-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutProB7-Medium.otf"; sourceTree = "<group>"; };
+		8FA878DE27E028EB008C2837 /* FancyCutProB7-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutProB7-RegularItalic.otf"; sourceTree = "<group>"; };
+		8FA878DF27E028EC008C2837 /* FancyCutProB7-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutProB7-BoldItalic.otf"; sourceTree = "<group>"; };
+		8FA878E027E028EC008C2837 /* FancyCutProB7-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutProB7-MediumItalic.otf"; sourceTree = "<group>"; };
+		8FA878E127E028EC008C2837 /* FancyCutProB7-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutProB7-ThinItalic.otf"; sourceTree = "<group>"; };
+		8FA878E227E028EC008C2837 /* FancyCutProB7-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FancyCutProB7-Light.otf"; sourceTree = "<group>"; };
+		8FA878ED27E02A7E008C2837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +146,8 @@
 		8F44128827D1BD1A009487A6 /* SwiftUITraining */ = {
 			isa = PBXGroup;
 			children = (
+				8FA878ED27E02A7E008C2837 /* Info.plist */,
+				8FA8789F27E0286E008C2837 /* Fonts */,
 				8F44128927D1BD1A009487A6 /* SwiftUITrainingApp.swift */,
 				8F44128B27D1BD1A009487A6 /* ContentView.swift */,
 				8F8E60FC27D208D9003AFA79 /* LoaderView.swift */,
@@ -106,6 +181,81 @@
 				8F8E610F27DAD68D003AFA79 /* LoginModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		8FA8789F27E0286E008C2837 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8FA878D827E028E0008C2837 /* FancyCutPro */,
+				8FA878C327E028C6008C2837 /* FancyCutExt */,
+				8FA878C127E028A7008C2837 /* FancyCutCond */,
+				8FA878AC27E02891008C2837 /* BriilliantCutPro */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8FA878AC27E02891008C2837 /* BriilliantCutPro */ = {
+			isa = PBXGroup;
+			children = (
+				8FA878A427E02884008C2837 /* BrilliantCutProB7-Black.otf */,
+				8FA878A027E02884008C2837 /* BrilliantCutProB7-Bold.otf */,
+				8FA878A227E02884008C2837 /* BrilliantCutProB7-Light.otf */,
+				8FA878A127E02884008C2837 /* BrilliantCutProB7-Medium.otf */,
+				8FA878A527E02884008C2837 /* BrilliantCutProB7-Regular.otf */,
+				8FA878A327E02884008C2837 /* BrilliantCutProB7-Thin.otf */,
+			);
+			path = BriilliantCutPro;
+			sourceTree = "<group>";
+		};
+		8FA878C127E028A7008C2837 /* FancyCutCond */ = {
+			isa = PBXGroup;
+			children = (
+				8FA878B427E028A2008C2837 /* FancyCutCondProB7-Bold.otf */,
+				8FA878AD27E028A1008C2837 /* FancyCutCondProB7-BoldItalic.otf */,
+				8FA878AE27E028A1008C2837 /* FancyCutCondProB7-Light.otf */,
+				8FA878B027E028A1008C2837 /* FancyCutCondProB7-LightItalic.otf */,
+				8FA878B327E028A2008C2837 /* FancyCutCondProB7-Medium.otf */,
+				8FA878B127E028A1008C2837 /* FancyCutCondProB7-MediumItalic.otf */,
+				8FA878B227E028A1008C2837 /* FancyCutCondProB7-Regular.otf */,
+				8FA878AF27E028A1008C2837 /* FancyCutCondProB7-RegularItalic.otf */,
+				8FA878B527E028A2008C2837 /* FancyCutCondProB7-Thin.otf */,
+				8FA878B627E028A2008C2837 /* FancyCutCondProB7-ThinItalic.otf */,
+			);
+			path = FancyCutCond;
+			sourceTree = "<group>";
+		};
+		8FA878C327E028C6008C2837 /* FancyCutExt */ = {
+			isa = PBXGroup;
+			children = (
+				8FA878CC27E028D5008C2837 /* FancyCutExtProB7-Bold.otf */,
+				8FA878CD27E028D5008C2837 /* FancyCutExtProB7-BoldItalic.otf */,
+				8FA878CB27E028D5008C2837 /* FancyCutExtProB7-Light.otf */,
+				8FA878CA27E028D5008C2837 /* FancyCutExtProB7-LightItalic.otf */,
+				8FA878C727E028D5008C2837 /* FancyCutExtProB7-Medium.otf */,
+				8FA878C827E028D5008C2837 /* FancyCutExtProB7-MediumItalic.otf */,
+				8FA878C527E028D5008C2837 /* FancyCutExtProB7-Regular.otf */,
+				8FA878C427E028D5008C2837 /* FancyCutExtProB7-RegularItalic.otf */,
+				8FA878C927E028D5008C2837 /* FancyCutExtProB7-Thin.otf */,
+				8FA878C627E028D5008C2837 /* FancyCutExtProB7-ThinItalic.otf */,
+			);
+			path = FancyCutExt;
+			sourceTree = "<group>";
+		};
+		8FA878D827E028E0008C2837 /* FancyCutPro */ = {
+			isa = PBXGroup;
+			children = (
+				8FA878DA27E028EB008C2837 /* FancyCutProB7-Bold.otf */,
+				8FA878DF27E028EC008C2837 /* FancyCutProB7-BoldItalic.otf */,
+				8FA878E227E028EC008C2837 /* FancyCutProB7-Light.otf */,
+				8FA878D927E028EB008C2837 /* FancyCutProB7-LightItalic.otf */,
+				8FA878DD27E028EB008C2837 /* FancyCutProB7-Medium.otf */,
+				8FA878E027E028EC008C2837 /* FancyCutProB7-MediumItalic.otf */,
+				8FA878DB27E028EB008C2837 /* FancyCutProB7-Regular.otf */,
+				8FA878DE27E028EB008C2837 /* FancyCutProB7-RegularItalic.otf */,
+				8FA878DC27E028EB008C2837 /* FancyCutProB7-Thin.otf */,
+				8FA878E127E028EC008C2837 /* FancyCutProB7-ThinItalic.otf */,
+			);
+			path = FancyCutPro;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,8 +316,44 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FA878D127E028D5008C2837 /* FancyCutExtProB7-Medium.otf in Resources */,
+				8FA878B927E028A2008C2837 /* FancyCutCondProB7-RegularItalic.otf in Resources */,
+				8FA878E427E028EC008C2837 /* FancyCutProB7-Bold.otf in Resources */,
+				8FA878A727E02884008C2837 /* BrilliantCutProB7-Medium.otf in Resources */,
+				8FA878CF27E028D5008C2837 /* FancyCutExtProB7-Regular.otf in Resources */,
+				8FA878E727E028EC008C2837 /* FancyCutProB7-Medium.otf in Resources */,
+				8FA878D027E028D5008C2837 /* FancyCutExtProB7-ThinItalic.otf in Resources */,
+				8FA878E527E028EC008C2837 /* FancyCutProB7-Regular.otf in Resources */,
+				8FA878BC27E028A2008C2837 /* FancyCutCondProB7-Regular.otf in Resources */,
+				8FA878D227E028D5008C2837 /* FancyCutExtProB7-MediumItalic.otf in Resources */,
+				8FA878A627E02884008C2837 /* BrilliantCutProB7-Bold.otf in Resources */,
+				8FA878AB27E02884008C2837 /* BrilliantCutProB7-Regular.otf in Resources */,
+				8FA878CE27E028D5008C2837 /* FancyCutExtProB7-RegularItalic.otf in Resources */,
+				8FA878D727E028D5008C2837 /* FancyCutExtProB7-BoldItalic.otf in Resources */,
+				8FA878EC27E028EC008C2837 /* FancyCutProB7-Light.otf in Resources */,
+				8FA878BD27E028A2008C2837 /* FancyCutCondProB7-Medium.otf in Resources */,
+				8FA878B727E028A2008C2837 /* FancyCutCondProB7-BoldItalic.otf in Resources */,
+				8FA878EA27E028EC008C2837 /* FancyCutProB7-MediumItalic.otf in Resources */,
+				8FA878D627E028D5008C2837 /* FancyCutExtProB7-Bold.otf in Resources */,
+				8FA878EB27E028EC008C2837 /* FancyCutProB7-ThinItalic.otf in Resources */,
+				8FA878E927E028EC008C2837 /* FancyCutProB7-BoldItalic.otf in Resources */,
 				8F44129127D1BD1D009487A6 /* Preview Assets.xcassets in Resources */,
+				8FA878C027E028A2008C2837 /* FancyCutCondProB7-ThinItalic.otf in Resources */,
+				8FA878E327E028EC008C2837 /* FancyCutProB7-LightItalic.otf in Resources */,
+				8FA878BB27E028A2008C2837 /* FancyCutCondProB7-MediumItalic.otf in Resources */,
+				8FA878E627E028EC008C2837 /* FancyCutProB7-Thin.otf in Resources */,
+				8FA878E827E028EC008C2837 /* FancyCutProB7-RegularItalic.otf in Resources */,
+				8FA878BA27E028A2008C2837 /* FancyCutCondProB7-LightItalic.otf in Resources */,
+				8FA878D327E028D5008C2837 /* FancyCutExtProB7-Thin.otf in Resources */,
+				8FA878BE27E028A2008C2837 /* FancyCutCondProB7-Bold.otf in Resources */,
+				8FA878D527E028D5008C2837 /* FancyCutExtProB7-Light.otf in Resources */,
 				8F44128E27D1BD1D009487A6 /* Assets.xcassets in Resources */,
+				8FA878B827E028A2008C2837 /* FancyCutCondProB7-Light.otf in Resources */,
+				8FA878AA27E02884008C2837 /* BrilliantCutProB7-Black.otf in Resources */,
+				8FA878D427E028D5008C2837 /* FancyCutExtProB7-LightItalic.otf in Resources */,
+				8FA878A927E02884008C2837 /* BrilliantCutProB7-Thin.otf in Resources */,
+				8FA878BF27E028A2008C2837 /* FancyCutCondProB7-Thin.otf in Resources */,
+				8FA878A827E02884008C2837 /* BrilliantCutProB7-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +510,7 @@
 				DEVELOPMENT_TEAM = 38JND4AWYP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUITraining/Info.plist;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use biometrics to login";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -355,6 +542,7 @@
 				DEVELOPMENT_TEAM = 38JND4AWYP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUITraining/Info.plist;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use biometrics to login";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

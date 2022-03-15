@@ -20,10 +20,11 @@ struct LoginWelcomeAtlasView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             VStack(alignment: .leading, spacing: 20) {
+                let subTitleFont = Font.custom("FancyCutProB7-ThinItalic", size: 20)
                 Text(model.title)
                     .font(.headline)
                 Text(model.subTitle)
-                    .font(.subheadline)
+                    .font(subTitleFont)
             }
             .padding(.bottom, 20)
 
