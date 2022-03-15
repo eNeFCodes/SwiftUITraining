@@ -46,13 +46,14 @@ struct LoginContentView: View {
                         LoginWelcomeAtlasView(model: .init(),
                                               geometry: geometry,
                                               loginAction: loginAction)
-                        NavigationLink("", isActive: $appEnv.isLoggedIn) {
-                            HomeView()
-                        }
                     default:
                         LoginWelcomeView(geometry: geometry,
                                          atlasLogin: atlasLogin,
                                          faceAndTouchIDLogin: faceAndTouchIDLogin)
+                    }
+
+                    NavigationLink("", isActive: $appEnv.isLoggedIn) {
+                        HomeView()
                     }
                 }
                 .ignoresSafeArea()
@@ -75,6 +76,7 @@ struct LoginContentView: View {
     private func atlasLogin() {
         print("atlasLogin")
         appEnv.loginType = .atlas
+        appEnv.showingToast = false
     }
 
     private func faceAndTouchIDLogin() {
@@ -84,12 +86,16 @@ struct LoginContentView: View {
         Biometrics.triggerBiometrics { status in
             switch status {
             case .authenticated:
-                alertItem = nil
                 print("Biometrics status: \(status)")
+                alertItem = nil
+                appEnv.isLoggedIn = true
 
             case .failed(let error):
-                showAlert = true
-                alertItem = .init(id: "1", title: "Error", message: error.localizedDescription)
+//                showAlert = true
+//                alertItem = .init(id: "1", title: "Error", message: error.localizedDescription)
+
+                appEnv.showingToast = true
+                appEnv.toastModel = .init(title: "Error", message: error.localizedDescription, icon: .init(systemName: "error"))
             }
         }
     }

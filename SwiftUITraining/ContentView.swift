@@ -11,11 +11,13 @@ struct ContentView: View {
     @StateObject var appEnv: AppEnv = AppEnv()
 
     var body: some View {
-        NavigationView {
-            LoginContentView()
+        ToastView(model: $appEnv.toastModel, showingToast: $appEnv.showingToast) {
+            NavigationView {
+                LoginContentView()
+            }
+            .navigationViewStyle(.stack)
+            .environmentObject(appEnv)
         }
-        .navigationViewStyle(.stack)
-        .environmentObject(appEnv)
     }
 }
 
