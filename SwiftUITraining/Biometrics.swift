@@ -25,10 +25,13 @@ class Biometrics {
         if context.canEvaluatePolicy(policy, error: &error) {
             context.evaluatePolicy(policy, localizedReason: "Log in using biometrics") { success, error in
                 DispatchQueue.main.async {
-                    let errMsg = error?.localizedDescription ?? "Can't evaluate policy"
-                    let err = NSError.init(domain: "com.Biometrics.error", code: 9999, userInfo: ["message": errMsg])
-                    let status: AuthStatus = success ? .authenticated : .failed(error: err)
-                    completion(status)
+                    if success {
+                        completion(.authenticated)
+                    } else {
+                        let errMsg = error?.localizedDescription ?? "Can't evaluate policy"
+                        let err = NSError.init(domain: "com.Biometrics.error", code: 9999, userInfo: ["message": errMsg])
+                        completion(.failed(error: err))
+                    }
                 }
             }
         } else {
