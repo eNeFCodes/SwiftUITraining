@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LoginWelcomeView: View {
-    var title: String = "WELCOME"
-    var subTitle: String = "Please select how you wish to log in:"
+    @EnvironmentObject private var uSettings: UserSettings
+
     var geometry: GeometryProxy
     var atlasLogin: () -> Void
     var faceAndTouchIDLogin: () -> Void
@@ -18,9 +18,9 @@ struct LoginWelcomeView: View {
         VStack(alignment: .leading, spacing: 20) {
             VStack(alignment: .leading, spacing: 20) {
                 let subTitleFont = Font.custom("FancyCutProB7-ThinItalic", size: 20)
-                Text(title)
+                Text(uSettings.welcomeTitle)
                     .font(.headline)
-                Text(subTitle)
+                Text(uSettings.welcomeMessage)
                     .font(subTitleFont)
             }
             .padding(.bottom, 40)

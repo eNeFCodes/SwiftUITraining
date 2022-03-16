@@ -9,7 +9,9 @@ import SwiftUI
 
 struct LoginWelcomeAtlasView: View {
 
+    @EnvironmentObject private var uSettings: UserSettings
     @State var model: LoginModel
+
     var geometry: GeometryProxy
     var loginAction: (_ username: String, _ password: String) -> Void
 
@@ -21,9 +23,9 @@ struct LoginWelcomeAtlasView: View {
         VStack(alignment: .leading, spacing: 20) {
             VStack(alignment: .leading, spacing: 20) {
                 let subTitleFont = Font.custom("FancyCutProB7-ThinItalic", size: 20)
-                Text(model.title)
+                Text(uSettings.welcomeTitle)
                     .font(.headline)
-                Text(model.subTitle)
+                Text(uSettings.welcomeMessage)
                     .font(subTitleFont)
             }
             .padding(.bottom, 20)

@@ -22,3 +22,8 @@ class AppEnv: ObservableObject {
                                                                message: "Message",
                                                                icon: Image(systemName: "gear"))
 }
+
+class UserSettings: ObservableObject {
+    @Published var welcomeTitle: String = "WELCOME"
+    @Published var welcomeMessage: String = "Please select how you wish to log in:"
+}

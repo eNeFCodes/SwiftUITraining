@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var appEnv: AppEnv = AppEnv()
+    @StateObject var appEnv = AppEnv()
+    @StateObject var uSettings = UserSettings()
 
     var body: some View {
         ToastView(model: $appEnv.toastModel, showingToast: $appEnv.showingToast) {
@@ -17,6 +18,7 @@ struct ContentView: View {
             }
             .navigationViewStyle(.stack)
             .environmentObject(appEnv)
+            .environmentObject(uSettings)
         }
     }
 }

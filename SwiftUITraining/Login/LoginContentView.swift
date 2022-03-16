@@ -83,6 +83,7 @@ struct LoginContentView: View {
     private func faceAndTouchIDLogin() {
         print("faceAndTouchIDLogin")
         appEnv.loginType = .faceAndTouchID
+        appEnv.showingToast = false
 
         Biometrics.triggerBiometrics { status in
             switch status {
@@ -91,9 +92,10 @@ struct LoginContentView: View {
                 showAlert = true
                 alertItem = .init(id: "1", title: "Biometrics", message: "You have successfully logged in.")
 
-            case .failed(let error):
+            case .failed(let error as NSError):
                 appEnv.showingToast = true
-                appEnv.toastModel = .init(title: "Error", message: error.localizedDescription, icon: .init(systemName: "error"))
+                let message: String = (error.userInfo["message"] as? String) ?? error.localizedDescription
+                appEnv.toastModel = .init(title: "Error", message: message, icon: .init(systemName: "warning"))
             }
         }
     }
