@@ -1,16 +1,23 @@
 //
-//  LoginContentView.swift
+//  LoginAtlasView.swift
 //  SwiftUITraining
 //
-//  Created by Neil Francis Hipona on 3/7/22.
+//  Created by Neil Francis Hipona on 3/16/22.
 //
 
 import SwiftUI
 
-struct LoginContentView: View {
+private struct AlertItem: Identifiable {
+    var id: String
+    var title: String
+    var message: String
+}
 
+struct LoginAtlasView: View {
+
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var appEnv: AppEnv
-    @State private var isLoginModeAtlast: Bool = false
+    @State private var model = LoginModel()
 
     var body: some View {
         ZStack(alignment: .trailing) {
@@ -32,21 +39,23 @@ struct LoginContentView: View {
                 VStack(alignment: .leading) {
                     LoginHeaderView(geometry: geometry)
                     LoginWelcomeView()
-                    LoginButtonView(isLoginModeAtlast: $isLoginModeAtlast)
-
-                    NavigationLink("", isActive: $isLoginModeAtlast) {
-                        LoginAtlasView()
-                    }
+                    LoginAtlasInputView(model: $model)
                 }
                 .ignoresSafeArea()
             }
         }
         .background(Color.black)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }, label: {
+            Image("ic_back")
+        }))
     }
 }
 
-struct LoginContentView_Previews: PreviewProvider {
+struct LoginAtlasView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginContentView()
+        LoginAtlasView()
     }
 }

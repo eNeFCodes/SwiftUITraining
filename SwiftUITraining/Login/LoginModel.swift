@@ -9,6 +9,11 @@ import Foundation
 import SwiftUI
 
 struct LoginModel {
+    
     var username: String = ""
     var password: String = ""
+
+    var canProceed: Bool {
+        !username.isEmpty && !password.isEmpty
+    }
 }

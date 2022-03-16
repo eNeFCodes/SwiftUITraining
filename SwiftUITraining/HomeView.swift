@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct Tab1: View {
-    @State var name: String
-    var body: some View {
-        Text("\(name) Tab")
+    enum PickerOptions: Hashable, CaseIterable {
+        case test1
+        case test2
     }
 
+    @State var pickerSelection: PickerOptions = .test1
+    @State var name: String
+
+    var body: some View {
+        Text("\(name) Tab")
+
+//        Picker("Test Picker", selection: $pickerSelection) {
+//            Text("A").tag(PickerOptions.test1)
+//            Text("B").tag(PickerOptions.test2)
+//        }
+//        .onSubmit {
+//            print("pickerSelection: ", pickerSelection)
+//        }
+    }
 }
 
 struct HomeView: View {
@@ -42,7 +56,6 @@ struct HomeView: View {
         .navigationTitle("Home View")
         .navigationBarItems(trailing: Button("Logout") {
             appEnv.isLoggedIn = false
-            appEnv.loginType = .default
             presentationMode.wrappedValue.dismiss()
         })
     }

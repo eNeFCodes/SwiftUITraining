@@ -16,7 +16,7 @@
 		8F8E610127D5D492003AFA79 /* LoginContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610027D5D492003AFA79 /* LoginContentView.swift */; };
 		8F8E610427D5DE0D003AFA79 /* LoginWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610327D5DE0D003AFA79 /* LoginWelcomeView.swift */; };
 		8F8E610627D5DE72003AFA79 /* LoginHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610527D5DE72003AFA79 /* LoginHeaderView.swift */; };
-		8F8E610827D6F195003AFA79 /* LoginWelcomeAtlasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610727D6F195003AFA79 /* LoginWelcomeAtlasView.swift */; };
+		8F8E610827D6F195003AFA79 /* LoginAtlasInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610727D6F195003AFA79 /* LoginAtlasInputView.swift */; };
 		8F8E610A27D74307003AFA79 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610927D74307003AFA79 /* BorderView.swift */; };
 		8F8E610C27D8A8B9003AFA79 /* ScrubWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */; };
 		8F8E610E27DAD394003AFA79 /* Biometrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610D27DAD394003AFA79 /* Biometrics.swift */; };
@@ -60,6 +60,8 @@
 		8FA878EC27E028EC008C2837 /* FancyCutProB7-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878E227E028EC008C2837 /* FancyCutProB7-Light.otf */; };
 		8FA878EF27E043F8008C2837 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA878EE27E043F8008C2837 /* AppEnvironment.swift */; };
 		8FA878F127E08422008C2837 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA878F027E08422008C2837 /* ToastView.swift */; };
+		8FA878F327E1EC69008C2837 /* LoginAtlasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA878F227E1EC69008C2837 /* LoginAtlasView.swift */; };
+		8FA878F527E1EFF3008C2837 /* LoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA878F427E1EFF3008C2837 /* LoginButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +75,7 @@
 		8F8E610027D5D492003AFA79 /* LoginContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContentView.swift; sourceTree = "<group>"; };
 		8F8E610327D5DE0D003AFA79 /* LoginWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWelcomeView.swift; sourceTree = "<group>"; };
 		8F8E610527D5DE72003AFA79 /* LoginHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHeaderView.swift; sourceTree = "<group>"; };
-		8F8E610727D6F195003AFA79 /* LoginWelcomeAtlasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWelcomeAtlasView.swift; sourceTree = "<group>"; };
+		8F8E610727D6F195003AFA79 /* LoginAtlasInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAtlasInputView.swift; sourceTree = "<group>"; };
 		8F8E610927D74307003AFA79 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
 		8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrubWrapper.swift; sourceTree = "<group>"; };
 		8F8E610D27DAD394003AFA79 /* Biometrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biometrics.swift; sourceTree = "<group>"; };
@@ -118,6 +120,8 @@
 		8FA878ED27E02A7E008C2837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8FA878EE27E043F8008C2837 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		8FA878F027E08422008C2837 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		8FA878F227E1EC69008C2837 /* LoginAtlasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAtlasView.swift; sourceTree = "<group>"; };
+		8FA878F427E1EFF3008C2837 /* LoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,8 +187,10 @@
 				8F8E610027D5D492003AFA79 /* LoginContentView.swift */,
 				8F8E610527D5DE72003AFA79 /* LoginHeaderView.swift */,
 				8F8E610327D5DE0D003AFA79 /* LoginWelcomeView.swift */,
-				8F8E610727D6F195003AFA79 /* LoginWelcomeAtlasView.swift */,
+				8FA878F427E1EFF3008C2837 /* LoginButtonView.swift */,
 				8F8E610F27DAD68D003AFA79 /* LoginModel.swift */,
+				8FA878F227E1EC69008C2837 /* LoginAtlasView.swift */,
+				8F8E610727D6F195003AFA79 /* LoginAtlasInputView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -377,12 +383,14 @@
 				8FA878F127E08422008C2837 /* ToastView.swift in Sources */,
 				8F8E610427D5DE0D003AFA79 /* LoginWelcomeView.swift in Sources */,
 				8F8E610E27DAD394003AFA79 /* Biometrics.swift in Sources */,
+				8FA878F527E1EFF3008C2837 /* LoginButtonView.swift in Sources */,
 				8F44128A27D1BD1A009487A6 /* SwiftUITrainingApp.swift in Sources */,
+				8FA878F327E1EC69008C2837 /* LoginAtlasView.swift in Sources */,
 				8FA878EF27E043F8008C2837 /* AppEnvironment.swift in Sources */,
 				8F8E60FF27D5D1F3003AFA79 /* LoginView_OLD.swift in Sources */,
 				8F8E610627D5DE72003AFA79 /* LoginHeaderView.swift in Sources */,
 				8F8E610127D5D492003AFA79 /* LoginContentView.swift in Sources */,
-				8F8E610827D6F195003AFA79 /* LoginWelcomeAtlasView.swift in Sources */,
+				8F8E610827D6F195003AFA79 /* LoginAtlasInputView.swift in Sources */,
 				8F8E610A27D74307003AFA79 /* BorderView.swift in Sources */,
 				8F8E60FD27D208D9003AFA79 /* LoaderView.swift in Sources */,
 			);
