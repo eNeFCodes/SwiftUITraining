@@ -17,7 +17,7 @@ struct LoginAtlasView: View {
 
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var appEnv: AppEnv
-    @StateObject private var model = LoginModel()
+    @StateObject private var model = LoginAtlasModel()
 
     var body: some View {
         ZStack(alignment: .trailing) {

@@ -19,7 +19,7 @@
 		8F8E610A27D74307003AFA79 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610927D74307003AFA79 /* BorderView.swift */; };
 		8F8E610C27D8A8B9003AFA79 /* ScrubWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */; };
 		8F8E610E27DAD394003AFA79 /* Biometrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610D27DAD394003AFA79 /* Biometrics.swift */; };
-		8F8E611027DAD68D003AFA79 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610F27DAD68D003AFA79 /* LoginModel.swift */; };
+		8F8E611027DAD68D003AFA79 /* LoginAtlasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610F27DAD68D003AFA79 /* LoginAtlasModel.swift */; };
 		8FA8789E27DF3572008C2837 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8789D27DF3572008C2837 /* HomeView.swift */; };
 		8FA878A627E02884008C2837 /* BrilliantCutProB7-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878A027E02884008C2837 /* BrilliantCutProB7-Bold.otf */; };
 		8FA878A727E02884008C2837 /* BrilliantCutProB7-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA878A127E02884008C2837 /* BrilliantCutProB7-Medium.otf */; };
@@ -61,6 +61,7 @@
 		8FA878F127E08422008C2837 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA878F027E08422008C2837 /* ToastView.swift */; };
 		8FA878F327E1EC69008C2837 /* LoginAtlasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA878F227E1EC69008C2837 /* LoginAtlasView.swift */; };
 		8FA878F527E1EFF3008C2837 /* LoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA878F427E1EFF3008C2837 /* LoginButtonView.swift */; };
+		8FA878FC27E33C9E008C2837 /* LoginContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA878FB27E33C9E008C2837 /* LoginContentModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,7 +78,7 @@
 		8F8E610927D74307003AFA79 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
 		8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrubWrapper.swift; sourceTree = "<group>"; };
 		8F8E610D27DAD394003AFA79 /* Biometrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biometrics.swift; sourceTree = "<group>"; };
-		8F8E610F27DAD68D003AFA79 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		8F8E610F27DAD68D003AFA79 /* LoginAtlasModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAtlasModel.swift; sourceTree = "<group>"; };
 		8FA8789D27DF3572008C2837 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8FA878A027E02884008C2837 /* BrilliantCutProB7-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrilliantCutProB7-Bold.otf"; sourceTree = "<group>"; };
 		8FA878A127E02884008C2837 /* BrilliantCutProB7-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrilliantCutProB7-Medium.otf"; sourceTree = "<group>"; };
@@ -120,6 +121,7 @@
 		8FA878F027E08422008C2837 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		8FA878F227E1EC69008C2837 /* LoginAtlasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAtlasView.swift; sourceTree = "<group>"; };
 		8FA878F427E1EFF3008C2837 /* LoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonView.swift; sourceTree = "<group>"; };
+		8FA878FB27E33C9E008C2837 /* LoginContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContentModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,12 +181,10 @@
 			isa = PBXGroup;
 			children = (
 				8F8E610027D5D492003AFA79 /* LoginContentView.swift */,
-				8F8E610527D5DE72003AFA79 /* LoginHeaderView.swift */,
-				8F8E610327D5DE0D003AFA79 /* LoginWelcomeView.swift */,
+				8FA878FB27E33C9E008C2837 /* LoginContentModel.swift */,
 				8FA878F427E1EFF3008C2837 /* LoginButtonView.swift */,
-				8F8E610F27DAD68D003AFA79 /* LoginModel.swift */,
-				8FA878F227E1EC69008C2837 /* LoginAtlasView.swift */,
-				8F8E610727D6F195003AFA79 /* LoginAtlasInputView.swift */,
+				8FA878FD27E340A3008C2837 /* Reusables */,
+				8FA878FA27E33C7E008C2837 /* AtlasLogin */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -299,6 +299,25 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		8FA878FA27E33C7E008C2837 /* AtlasLogin */ = {
+			isa = PBXGroup;
+			children = (
+				8F8E610F27DAD68D003AFA79 /* LoginAtlasModel.swift */,
+				8FA878F227E1EC69008C2837 /* LoginAtlasView.swift */,
+				8F8E610727D6F195003AFA79 /* LoginAtlasInputView.swift */,
+			);
+			path = AtlasLogin;
+			sourceTree = "<group>";
+		};
+		8FA878FD27E340A3008C2837 /* Reusables */ = {
+			isa = PBXGroup;
+			children = (
+				8F8E610527D5DE72003AFA79 /* LoginHeaderView.swift */,
+				8F8E610327D5DE0D003AFA79 /* LoginWelcomeView.swift */,
+			);
+			path = Reusables;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -406,7 +425,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F44128C27D1BD1A009487A6 /* ContentView.swift in Sources */,
-				8F8E611027DAD68D003AFA79 /* LoginModel.swift in Sources */,
+				8FA878FC27E33C9E008C2837 /* LoginContentModel.swift in Sources */,
+				8F8E611027DAD68D003AFA79 /* LoginAtlasModel.swift in Sources */,
 				8FA8789E27DF3572008C2837 /* HomeView.swift in Sources */,
 				8F8E610C27D8A8B9003AFA79 /* ScrubWrapper.swift in Sources */,
 				8FA878F127E08422008C2837 /* ToastView.swift in Sources */,

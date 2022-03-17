@@ -15,6 +15,12 @@ class Biometrics {
         case failed(error: Error)
     }
 
+    enum LoginAuthStatus {
+        case loggingIn
+        case authenticated
+        case failed(error: Error)
+    }
+
     class func triggerBiometrics(completion: @escaping (AuthStatus) -> Void) {
         let context = LAContext()
         context.localizedReason = "Use to login to your account"

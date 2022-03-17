@@ -10,7 +10,7 @@ import SwiftUI
 struct LoginContentView: View {
 
     @EnvironmentObject private var appEnv: AppEnv
-    @State private var isLoginModeAtlast: Bool = false
+    @StateObject private var model = LoginContentModel()
 
     var body: some View {
         ZStack(alignment: .trailing) {
@@ -33,10 +33,17 @@ struct LoginContentView: View {
                     LoginHeaderView(geometry: geometry)
                         .padding(.top, 50)
                     LoginWelcomeView()
-                    LoginButtonView(isLoginModeAtlast: $isLoginModeAtlast)
+                    LoginButtonView(model: model)
 
-                    NavigationLink("", isActive: $isLoginModeAtlast) {
-                        LoginAtlasView()
+                    Group {
+                        NavigationLink("", isActive: $model.isLoginModeAtlas) {
+                            LoginAtlasView()
+                        }
+                        if !model.isLoginModeAtlas {
+                            NavigationLink("", isActive: $appEnv.isLoggedIn) {
+                                HomeView()
+                            }
+                        }
                     }
                 }
                 .ignoresSafeArea()

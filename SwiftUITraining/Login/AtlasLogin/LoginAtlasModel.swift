@@ -1,5 +1,5 @@
 //
-//  LoginModel.swift
+//  LoginAtlasModel.swift
 //  SwiftUITraining
 //
 //  Created by Neil Francis Hipona on 3/11/22.
@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-class LoginModel: ObservableObject {
+class LoginAtlasModel: ObservableObject {
 
     private var subscriptions = Set<AnyCancellable>()
     private var loginPublisher = PassthroughSubject<Void, Never>()
@@ -25,7 +25,7 @@ class LoginModel: ObservableObject {
     }
 }
 
-extension LoginModel {
+extension LoginAtlasModel {
 
     private func networkRequest() -> AnyPublisher<Bool, Never> {
         return URLSession.shared

@@ -10,8 +10,7 @@ import SwiftUI
 struct LoginAtlasInputView: View {
 
     @EnvironmentObject private var appEnv: AppEnv
-    @EnvironmentObject private var uSettings: UserSettings
-    @ObservedObject var model: LoginModel
+    @ObservedObject var model: LoginAtlasModel
 
     var body: some View {
         GeometryReader { geometry in
