@@ -14,8 +14,10 @@ struct LoginWelcomeView: View {
         VStack(alignment: .leading, spacing: 20) {
             let subTitleFont = Font.custom("FancyCutProB7-ThinItalic", size: 20)
             Text(uSettings.welcomeTitle)
+                .accessibilityLabel(uSettings.welcomeTitle)
                 .font(.headline)
             Text(uSettings.welcomeMessage)
+                .accessibilityLabel(uSettings.welcomeMessage)
                 .font(subTitleFont)
         }
         .padding(20)

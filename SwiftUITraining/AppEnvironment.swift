@@ -17,6 +17,7 @@ class AppEnv: ObservableObject {
 }
 
 class UserSettings: ObservableObject {
+    @Published var appName: String = "CNT\nJEWERLY"
     @Published var welcomeTitle: String = "WELCOME"
     @Published var welcomeMessage: String = "Please select how you wish to log in:"
 }

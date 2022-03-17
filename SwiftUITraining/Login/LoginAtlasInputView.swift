@@ -17,13 +17,13 @@ struct LoginAtlasInputView: View {
             VStack(spacing: 20) {
                 ZStack(alignment: .leading) {
                     if model.username.isEmpty {
-                        Text("EMAIL",
-                             comment: "Enter your registered username here")
+                        Text("EMAIL", comment: "Enter your registered username here")
+                            .accessibility(hidden: true)
                             .foregroundColor(.white)
                     }
 
-                    TextField("",
-                              text: $model.username)
+                    TextField("", text: $model.username)
+                        .accessibilityLabel("EMAIL")
                         .frame(height: 56,
                                alignment: .leading)
                         .foregroundColor(.white)
@@ -32,22 +32,24 @@ struct LoginAtlasInputView: View {
 
                 ZStack(alignment: .leading) {
                     if model.password.isEmpty {
-                        Text("PASSWORD",
-                             comment: "Enter your registered password here")
+                        Text("PASSWORD", comment: "Enter your registered password here")
+                            .accessibility(hidden: true)
                             .foregroundColor(.white)
                     }
 
-                    SecureField("",
-                                text: $model.password)
+                    SecureField("", text: $model.password)
+                        .accessibilityLabel("PASSWORD")
                         .frame(height: 56,
                                alignment: .leading)
                         .foregroundColor(.white)
                 }
                 Spacer()
 
-                Button("LOG IN") {
+                let loginString = "LOG IN"
+                Button(loginString) {
 
                 }
+                .accessibilityLabel(loginString)
                 .frame(width: abs(geometry.size.width - 40),
                        height: 60,
                        alignment: .center)

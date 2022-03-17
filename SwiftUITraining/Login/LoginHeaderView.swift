@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LoginHeaderView: View {
+
+    @EnvironmentObject private var uSettings: UserSettings
     var geometry: GeometryProxy
     
     var body: some View {
@@ -15,7 +17,8 @@ struct LoginHeaderView: View {
             HStack {
                 let frameSize = CGSize(width: geometry.size.width - 80, height: 180)
                 let font = Font.custom("FancyCutCondProB7-Bold", size: 50)
-                Text("CNT\nJEWERLY")
+                Text(uSettings.appName)
+                    .accessibilityLabel(uSettings.appName)
                     .font(font)
                     .foregroundColor(.white)
                     .frame(width: abs(frameSize.width),

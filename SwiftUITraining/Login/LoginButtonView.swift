@@ -16,16 +16,20 @@ struct LoginButtonView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 20) {
-                Button("ATLAS LOGIN") {
+                let atlasLogin = "ATLAS LOGIN"
+                Button(atlasLogin) {
                     isLoginModeAtlast = true
                 }
+                .accessibilityLabel(atlasLogin)
                 .frame(width: abs(geometry.size.width),
                        height: 56)
                 .background(Color.red)
 
-                Button("FACE/TOUCH ID LOGIN") {
+                let touchIDLogin = "FACE/TOUCH ID LOGIN"
+                Button(touchIDLogin) {
                     faceAndTouchIDLogin()
                 }
+                .accessibilityLabel(touchIDLogin)
                 .frame(width: abs(geometry.size.width),
                        height: 56)
                 .background(Color.red)
