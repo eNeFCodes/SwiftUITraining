@@ -20,7 +20,7 @@ struct LoginWelcomeView: View {
         }
         .padding(20)
         .foregroundColor(.white)
-        .padding(.top, 200)
+        .padding(.top, 150)
     }
 }
 

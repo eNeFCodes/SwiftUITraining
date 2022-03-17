@@ -38,6 +38,7 @@ struct LoginAtlasView: View {
 
                 VStack(alignment: .leading) {
                     LoginHeaderView(geometry: geometry)
+                        .padding(.top, 50)
                     LoginWelcomeView()
                     LoginAtlasInputView(model: model)
                 }
