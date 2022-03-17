@@ -50,7 +50,7 @@ struct LoginAtlasInputView: View {
                     appEnv.isLoading = true
                     model.processLogin { isLoggedIn in
                         appEnv.isLoading = false
-                        appEnv.isLoggedIn = true
+                        appEnv.isLoggedIn = isLoggedIn
                     }
                 }
                 .accessibilityLabel(model.loginBtnTitle)

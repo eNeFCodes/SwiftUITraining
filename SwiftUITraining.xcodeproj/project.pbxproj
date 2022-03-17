@@ -156,7 +156,7 @@
 				8FA8789F27E0286E008C2837 /* Fonts */,
 				8F44128927D1BD1A009487A6 /* SwiftUITrainingApp.swift */,
 				8F44128B27D1BD1A009487A6 /* ContentView.swift */,
-				8FA8789D27DF3572008C2837 /* HomeView.swift */,
+				8FA878F927E33438008C2837 /* Home */,
 				8F8E610227D5DDFA003AFA79 /* Login */,
 				8FA878F827E32D5B008C2837 /* Models */,
 				8FA878F727E32D42008C2837 /* Helpers */,
@@ -289,6 +289,14 @@
 				8FA878EE27E043F8008C2837 /* AppEnvironment.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8FA878F927E33438008C2837 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8FA8789D27DF3572008C2837 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
