@@ -12,7 +12,6 @@
 		8F44128E27D1BD1D009487A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F44128D27D1BD1D009487A6 /* Assets.xcassets */; };
 		8F44129127D1BD1D009487A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F44129027D1BD1D009487A6 /* Preview Assets.xcassets */; };
 		8F8E60FD27D208D9003AFA79 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E60FC27D208D9003AFA79 /* LoaderView.swift */; };
-		8F8E60FF27D5D1F3003AFA79 /* LoginView_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E60FE27D5D1F3003AFA79 /* LoginView_OLD.swift */; };
 		8F8E610127D5D492003AFA79 /* LoginContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610027D5D492003AFA79 /* LoginContentView.swift */; };
 		8F8E610427D5DE0D003AFA79 /* LoginWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610327D5DE0D003AFA79 /* LoginWelcomeView.swift */; };
 		8F8E610627D5DE72003AFA79 /* LoginHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8E610527D5DE72003AFA79 /* LoginHeaderView.swift */; };
@@ -71,7 +70,6 @@
 		8F44128D27D1BD1D009487A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F44129027D1BD1D009487A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8F8E60FC27D208D9003AFA79 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
-		8F8E60FE27D5D1F3003AFA79 /* LoginView_OLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView_OLD.swift; sourceTree = "<group>"; };
 		8F8E610027D5D492003AFA79 /* LoginContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContentView.swift; sourceTree = "<group>"; };
 		8F8E610327D5DE0D003AFA79 /* LoginWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWelcomeView.swift; sourceTree = "<group>"; };
 		8F8E610527D5DE72003AFA79 /* LoginHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHeaderView.swift; sourceTree = "<group>"; };
@@ -158,15 +156,11 @@
 				8FA8789F27E0286E008C2837 /* Fonts */,
 				8F44128927D1BD1A009487A6 /* SwiftUITrainingApp.swift */,
 				8F44128B27D1BD1A009487A6 /* ContentView.swift */,
-				8FA878EE27E043F8008C2837 /* AppEnvironment.swift */,
-				8F8E60FC27D208D9003AFA79 /* LoaderView.swift */,
-				8F8E60FE27D5D1F3003AFA79 /* LoginView_OLD.swift */,
-				8F8E610927D74307003AFA79 /* BorderView.swift */,
-				8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */,
-				8F8E610D27DAD394003AFA79 /* Biometrics.swift */,
 				8FA8789D27DF3572008C2837 /* HomeView.swift */,
-				8FA878F027E08422008C2837 /* ToastView.swift */,
 				8F8E610227D5DDFA003AFA79 /* Login */,
+				8FA878F827E32D5B008C2837 /* Models */,
+				8FA878F727E32D42008C2837 /* Helpers */,
+				8FA878F627E32D35008C2837 /* Loaders */,
 				8F44128D27D1BD1D009487A6 /* Assets.xcassets */,
 				8F44128F27D1BD1D009487A6 /* Preview Content */,
 			);
@@ -268,6 +262,33 @@
 				8FA878E127E028EC008C2837 /* FancyCutProB7-ThinItalic.otf */,
 			);
 			path = FancyCutPro;
+			sourceTree = "<group>";
+		};
+		8FA878F627E32D35008C2837 /* Loaders */ = {
+			isa = PBXGroup;
+			children = (
+				8FA878F027E08422008C2837 /* ToastView.swift */,
+				8F8E60FC27D208D9003AFA79 /* LoaderView.swift */,
+			);
+			path = Loaders;
+			sourceTree = "<group>";
+		};
+		8FA878F727E32D42008C2837 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8F8E610927D74307003AFA79 /* BorderView.swift */,
+				8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */,
+				8F8E610D27DAD394003AFA79 /* Biometrics.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8FA878F827E32D5B008C2837 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8FA878EE27E043F8008C2837 /* AppEnvironment.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,7 +408,6 @@
 				8F44128A27D1BD1A009487A6 /* SwiftUITrainingApp.swift in Sources */,
 				8FA878F327E1EC69008C2837 /* LoginAtlasView.swift in Sources */,
 				8FA878EF27E043F8008C2837 /* AppEnvironment.swift in Sources */,
-				8F8E60FF27D5D1F3003AFA79 /* LoginView_OLD.swift in Sources */,
 				8F8E610627D5DE72003AFA79 /* LoginHeaderView.swift in Sources */,
 				8F8E610127D5D492003AFA79 /* LoginContentView.swift in Sources */,
 				8F8E610827D6F195003AFA79 /* LoginAtlasInputView.swift in Sources */,

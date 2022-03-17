@@ -13,12 +13,14 @@ struct ContentView: View {
 
     var body: some View {
         ToastView(model: $appEnv.toastModel, showingToast: $appEnv.showingToast) {
-            NavigationView {
-                LoginContentView()
-            }
-            .navigationViewStyle(.stack)
-            .environmentObject(appEnv)
-            .environmentObject(uSettings)
+            LoaderView(content: { geometry in
+                NavigationView {
+                    LoginContentView()
+                }
+                .navigationViewStyle(.stack)
+                .environmentObject(appEnv)
+                .environmentObject(uSettings)
+            }, isLoading: $appEnv.isLoading)
         }
     }
 }

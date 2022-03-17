@@ -44,6 +44,10 @@ struct LoginAtlasView: View {
                 }
                 .ignoresSafeArea()
             }
+
+            NavigationLink("", isActive: $appEnv.isLoggedIn) {
+                HomeView()
+            }
         }
         .background(Color.black)
         .navigationBarBackButtonHidden(true)

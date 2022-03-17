@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginAtlasInputView: View {
 
+    @EnvironmentObject private var appEnv: AppEnv
     @EnvironmentObject private var uSettings: UserSettings
     @ObservedObject var model: LoginModel
 
@@ -17,13 +18,13 @@ struct LoginAtlasInputView: View {
             VStack(spacing: 20) {
                 ZStack(alignment: .leading) {
                     if model.username.isEmpty {
-                        Text("EMAIL", comment: "Enter your registered username here")
+                        Text(model.emailFieldTitle, comment: "Enter your registered username here")
                             .accessibility(hidden: true)
                             .foregroundColor(.white)
                     }
 
                     TextField("", text: $model.username)
-                        .accessibilityLabel("EMAIL")
+                        .accessibilityLabel(model.emailFieldTitle)
                         .frame(height: 56,
                                alignment: .leading)
                         .foregroundColor(.white)
@@ -32,24 +33,27 @@ struct LoginAtlasInputView: View {
 
                 ZStack(alignment: .leading) {
                     if model.password.isEmpty {
-                        Text("PASSWORD", comment: "Enter your registered password here")
+                        Text(model.pwdFieldTitle, comment: "Enter your registered password here")
                             .accessibility(hidden: true)
                             .foregroundColor(.white)
                     }
 
                     SecureField("", text: $model.password)
-                        .accessibilityLabel("PASSWORD")
+                        .accessibilityLabel(model.pwdFieldTitle)
                         .frame(height: 56,
                                alignment: .leading)
                         .foregroundColor(.white)
                 }
                 Spacer()
 
-                let loginString = "LOG IN"
-                Button(loginString) {
-
+                Button(model.loginBtnTitle) {
+                    appEnv.isLoading = true
+                    model.processLogin { isLoggedIn in
+                        appEnv.isLoading = false
+                        appEnv.isLoggedIn = true
+                    }
                 }
-                .accessibilityLabel(loginString)
+                .accessibilityLabel(model.loginBtnTitle)
                 .frame(width: abs(geometry.size.width - 40),
                        height: 60,
                        alignment: .center)

@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 class AppEnv: ObservableObject {
+    @Published var isLoading: Bool = false
     @Published var isLoggedIn: Bool = false
     @Published var showingToast: Bool = false
     @Published var toastModel: ToastModel = ToastModel(title: "Toast",
