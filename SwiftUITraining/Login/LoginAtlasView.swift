@@ -17,7 +17,7 @@ struct LoginAtlasView: View {
 
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var appEnv: AppEnv
-    @State private var model = LoginModel()
+    @StateObject private var model = LoginModel()
 
     var body: some View {
         ZStack(alignment: .trailing) {
@@ -39,7 +39,7 @@ struct LoginAtlasView: View {
                 VStack(alignment: .leading) {
                     LoginHeaderView(geometry: geometry)
                     LoginWelcomeView()
-                    LoginAtlasInputView(model: $model)
+                    LoginAtlasInputView(model: model)
                 }
                 .ignoresSafeArea()
             }

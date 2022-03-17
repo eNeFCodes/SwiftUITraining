@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-struct LoginModel {
+class LoginModel: ObservableObject {
     
-    var username: String = ""
-    var password: String = ""
+    @Published var username: String = ""
+    @Published var password: String = ""
 
     var canProceed: Bool {
         !username.isEmpty && !password.isEmpty
