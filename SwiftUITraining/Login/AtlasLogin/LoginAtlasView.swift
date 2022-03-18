@@ -46,7 +46,7 @@ struct LoginAtlasView: View {
             }
 
             NavigationLink("", isActive: $appEnv.isLoggedIn) {
-                HomeView()
+                FTUEContentView()
             }
         }
         .background(Color.black)

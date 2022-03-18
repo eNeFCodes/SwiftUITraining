@@ -10,6 +10,7 @@ import SwiftUI
 struct FTUEContentView: View {
 
     @EnvironmentObject private var appEnv: AppEnv
+    @Environment(\.presentationMode) private var presentationMode
 
     var body: some View {
         GeometryReader { geometry in
@@ -21,6 +22,7 @@ struct FTUEContentView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(height: 230, alignment: .top)
                 }
+
                 ScrollView(.horizontal) {
                     HStack {
                         VStack {
@@ -41,9 +43,12 @@ struct FTUEContentView: View {
                     .padding(.top, 20)
                     .padding(.bottom, 100)
                 }
+
+
                 VStack {
                     Button("X") {
-                        print("close")
+                        appEnv.isLoggedIn = false
+                        presentationMode.wrappedValue.dismiss()
                     }
                     .frame(width: 50, height: 50)
                     .foregroundColor(.white)

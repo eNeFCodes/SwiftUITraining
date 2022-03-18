@@ -41,7 +41,7 @@ struct LoginContentView: View {
                         }
                         if !model.isLoginModeAtlas {
                             NavigationLink("", isActive: $appEnv.isLoggedIn) {
-                                HomeView()
+                                FTUEContentView()
                             }
                         }
                     }

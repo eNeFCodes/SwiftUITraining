@@ -66,12 +66,3 @@ struct ToastView<Content: View>: View {
         }
     }
 }
-
-//extension VerticalAlignment {
-//    private enum MidContentAlignment: AlignmentID {
-//        static func defaultValue(in context: ViewDimensions) -> CGFloat {
-//            return 0
-//        }
-//    }
-//    static let midContentAlignment = VerticalAlignment(MidContentAlignment.self)
-//}

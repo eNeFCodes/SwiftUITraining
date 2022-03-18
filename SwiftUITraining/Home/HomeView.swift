@@ -33,9 +33,12 @@ struct HomeView: View {
     @EnvironmentObject private var appEnv: AppEnv
     @Environment(\.presentationMode) var presentationMode
 
+    @State var selectColor: Color = .red
+
     var body: some View {
         TabView {
-            Tab1(name: "Favorites")
+            Text("Favorites")
+                .redacted(reason: .placeholder)
                 .tabItem {
                     Image(systemName: "star")
                     Text("Favorites")
@@ -46,7 +49,8 @@ struct HomeView: View {
                     Image(systemName: "gear")
                     Text("Settings")
                 }
-            Tab1(name: "Profile")
+            ColorPicker("Color Profile", selection: $selectColor)
+                .padding(20)
                 .tabItem {
                     Image(systemName: "person")
                     Text("Profile")
