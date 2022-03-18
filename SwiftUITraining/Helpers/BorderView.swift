@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct BorderView: Shape {
-    var coordinates: [CGPoint]
+    let coordinates: [CGPoint]
 
     func path(in rect: CGRect) -> Path {
-        let borderPath = UIBezierPath()
+        var borderPath = Path()
         for (idx, coordinate) in coordinates.enumerated() {
             if idx > 0 {
                 borderPath.addLine(to: coordinate)
@@ -19,6 +19,6 @@ struct BorderView: Shape {
                 borderPath.move(to: coordinate)
             }
         }
-        return Path(borderPath.cgPath)
+        return borderPath
     }
 }

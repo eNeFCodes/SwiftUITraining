@@ -6,6 +6,7 @@
 	<string>Use biometrics to login</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>FancyCutProB7-Regular.otf</string>
 		<string>FancyCutCondProB7-Bold.otf</string>
 		<string>FancyCutProB7-ThinItalic.otf</string>
 	</array>

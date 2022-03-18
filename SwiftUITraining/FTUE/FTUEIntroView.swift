@@ -23,14 +23,20 @@ struct FTUEIntroView: View {
                         .frame(width: abs(squareSize), height: abs(squareSize), alignment: .center)
                         .background(Color.black)
 
+
                     let headerStr = "HELLO, \(appEnv.user.username)\nWELCOME TO\nCNT!"
                     Text(headerStr)
-                        .foregroundColor(.green)
+                        .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.bottom, 10)
+                        .font(.largeTitle)
+
+                    let font = Font.custom("FancyCutProB7-Regular", size: 30)
                     Text("This is CNT's new Retail Publishing Platform where you can find the latest news and updates around the world at CNT.")
-                        .foregroundColor(.green)
+                        .foregroundColor(.gray)
                         .multilineTextAlignment(.center)
+                        .font(font)
+                    
                     Spacer()
                     verticalDashes()
                 }

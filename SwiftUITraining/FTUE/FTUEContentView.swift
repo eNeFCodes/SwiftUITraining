@@ -57,7 +57,7 @@ struct FTUEContentView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        dotIndicator(isActive: true)
+                        activeDotIndicator()
                         dotIndicator()
                         dotIndicator()
                         Spacer()
@@ -74,10 +74,27 @@ struct FTUEContentView: View {
         .navigationBarHidden(true)
     }
 
-    private func dotIndicator(isActive: Bool = false) -> some View {
-        Circle()
-            .frame(width: 20, height: 20, alignment: .center)
-            .foregroundColor(.green)
+    private func dotIndicator() -> some View {
+        return Circle()
+            .frame(width: 15, height: 15, alignment: .center)
+            .overlay {
+                let rect = CGRect(x: 0, y: 0, width: 15, height: 15)
+                let roundPath = Path(roundedRect: rect, cornerRadius: 7.5, style: .continuous)
+                ShapeView(path: roundPath)
+                    .stroke(Color.orange, lineWidth: 2)
+            }
+    }
+
+    private func activeDotIndicator() -> some View {
+        return Circle()
+            .frame(width: 15, height: 15, alignment: .center)
+            .foregroundColor(.orange)
+            .overlay {
+                let rect = CGRect(x: 0, y: 0, width: 15, height: 15)
+                let roundPath = Path(roundedRect: rect, cornerRadius: 7.5, style: .continuous)
+                ShapeView(path: roundPath)
+                    .stroke(Color.orange, lineWidth: 2)
+            }
     }
 }
 
