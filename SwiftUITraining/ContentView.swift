@@ -16,7 +16,7 @@ struct ContentView: View {
             LoaderView(content: { geometry in
                 NavigationView {
                     //LoginContentView()
-                    FTUEIntroView()
+                    FTUEContentView()
                 }
                 .navigationViewStyle(.stack)
                 .environmentObject(appEnv)

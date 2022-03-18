@@ -15,55 +15,69 @@ struct FTUEContentView: View {
         GeometryReader { geometry in
             ZStack {
                 VStack {
-                    Color.orange
-                        .frame(width: 2, height: 80, alignment: .center)
-                        .padding(.top, 60)
                     Spacer()
+                    Image("img_bg_login")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 230, alignment: .top)
                 }
-
-                VStack {
-                    VStack {
-                        Button("X") {
-                            print("close")
+                ScrollView(.horizontal) {
+                    HStack {
+                        VStack {
+                            FTUEIntroView()
                         }
-                        .foregroundColor(.white)
-                        .frame(width: 50, height: 50)
-                    }
-                    .padding(.trailing, 20)
-                    .frame(width: abs(geometry.size.width), alignment: .trailing)
+                        .frame(width: abs(geometry.size.width), alignment: .center)
 
-                    VStack{
-                        let squareSize = geometry.size.width * 0.4
-                        Image("img_lanyards")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: abs(squareSize), height: abs(squareSize), alignment: .center)
+                        VStack {
+                            FTUEIntroView()
+                        }
+                        .frame(width: abs(geometry.size.width), alignment: .center)
+
+                        VStack {
+                            FTUEIntroView()
+                        }
+                        .frame(width: abs(geometry.size.width), alignment: .center)
                     }
                     .padding(.top, 20)
-                    Spacer()
+                    .padding(.bottom, 100)
                 }
-                .padding(.top, 80)
-
                 VStack {
-                    let headerStr = "HELLO, \(appEnv.user.username)\nWELCOME TO\nCNT!"
-                    Text(headerStr)
-                        .foregroundColor(.green)
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, 10)
-                    Text("This is CNT's new Retail Publishing Platform where you can find the latest news and updates around the world at CNT.")
-                        .foregroundColor(.green)
-                        .multilineTextAlignment(.center)
+                    Button("X") {
+                        print("close")
+                    }
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(.white)
                     Spacer()
                 }
                 .padding(20)
-                .frame(width: abs(geometry.size.width), alignment: .top)
-                .padding(.top, 330)
+                .padding(.top, 20)
+                .frame(width: abs(geometry.size.width), alignment: .trailing)
+
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        dotIndicator(isActive: true)
+                        dotIndicator()
+                        dotIndicator()
+                        Spacer()
+                    }
+                    .padding(20)
+                    .frame(width: abs(geometry.size.width))
+                    .padding(.bottom, 40)
+                }
             }
         }
         .background(Color.black)
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
+    }
+
+    private func dotIndicator(isActive: Bool = false) -> some View {
+        Circle()
+            .frame(width: 20, height: 20, alignment: .center)
+            .foregroundColor(.green)
     }
 }
 

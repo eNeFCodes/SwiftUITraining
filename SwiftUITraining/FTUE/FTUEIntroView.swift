@@ -37,8 +37,6 @@ struct FTUEIntroView: View {
                 .padding(20)
             }
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
     }
 
     private func verticalDashes() -> some View {
