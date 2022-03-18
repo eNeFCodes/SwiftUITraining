@@ -62,6 +62,9 @@
 		8FA878F327E1EC69008C2837 /* LoginAtlasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA878F227E1EC69008C2837 /* LoginAtlasView.swift */; };
 		8FA878F527E1EFF3008C2837 /* LoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA878F427E1EFF3008C2837 /* LoginButtonView.swift */; };
 		8FA878FC27E33C9E008C2837 /* LoginContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA878FB27E33C9E008C2837 /* LoginContentModel.swift */; };
+		8FA878FF27E4131F008C2837 /* FTUEContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA878FE27E4131F008C2837 /* FTUEContentView.swift */; };
+		8FA8790227E43B22008C2837 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8790127E43B22008C2837 /* User.swift */; };
+		8FA8790427E45712008C2837 /* FTUEIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8790327E45712008C2837 /* FTUEIntroView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +125,9 @@
 		8FA878F227E1EC69008C2837 /* LoginAtlasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAtlasView.swift; sourceTree = "<group>"; };
 		8FA878F427E1EFF3008C2837 /* LoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonView.swift; sourceTree = "<group>"; };
 		8FA878FB27E33C9E008C2837 /* LoginContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContentModel.swift; sourceTree = "<group>"; };
+		8FA878FE27E4131F008C2837 /* FTUEContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTUEContentView.swift; sourceTree = "<group>"; };
+		8FA8790127E43B22008C2837 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8FA8790327E45712008C2837 /* FTUEIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTUEIntroView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,11 +164,12 @@
 				8FA8789F27E0286E008C2837 /* Fonts */,
 				8F44128927D1BD1A009487A6 /* SwiftUITrainingApp.swift */,
 				8F44128B27D1BD1A009487A6 /* ContentView.swift */,
-				8FA878F927E33438008C2837 /* Home */,
-				8F8E610227D5DDFA003AFA79 /* Login */,
 				8FA878F827E32D5B008C2837 /* Models */,
 				8FA878F727E32D42008C2837 /* Helpers */,
 				8FA878F627E32D35008C2837 /* Loaders */,
+				8F8E610227D5DDFA003AFA79 /* Login */,
+				8FA8790027E41325008C2837 /* FTUE */,
+				8FA878F927E33438008C2837 /* Home */,
 				8F44128D27D1BD1D009487A6 /* Assets.xcassets */,
 				8F44128F27D1BD1D009487A6 /* Preview Content */,
 			);
@@ -287,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				8FA878EE27E043F8008C2837 /* AppEnvironment.swift */,
+				8FA8790127E43B22008C2837 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -316,6 +324,15 @@
 				8F8E610327D5DE0D003AFA79 /* LoginWelcomeView.swift */,
 			);
 			path = Reusables;
+			sourceTree = "<group>";
+		};
+		8FA8790027E41325008C2837 /* FTUE */ = {
+			isa = PBXGroup;
+			children = (
+				8FA878FE27E4131F008C2837 /* FTUEContentView.swift */,
+				8FA8790327E45712008C2837 /* FTUEIntroView.swift */,
+			);
+			path = FTUE;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,10 +454,13 @@
 				8FA878F327E1EC69008C2837 /* LoginAtlasView.swift in Sources */,
 				8FA878EF27E043F8008C2837 /* AppEnvironment.swift in Sources */,
 				8F8E610627D5DE72003AFA79 /* LoginHeaderView.swift in Sources */,
+				8FA8790427E45712008C2837 /* FTUEIntroView.swift in Sources */,
 				8F8E610127D5D492003AFA79 /* LoginContentView.swift in Sources */,
 				8F8E610827D6F195003AFA79 /* LoginAtlasInputView.swift in Sources */,
 				8F8E610A27D74307003AFA79 /* BorderView.swift in Sources */,
+				8FA878FF27E4131F008C2837 /* FTUEContentView.swift in Sources */,
 				8F8E60FD27D208D9003AFA79 /* LoaderView.swift in Sources */,
+				8FA8790227E43B22008C2837 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

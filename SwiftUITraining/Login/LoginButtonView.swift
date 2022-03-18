@@ -34,6 +34,7 @@ struct LoginButtonView: View {
                             appEnv.showingToast = false
                             appEnv.isLoading = false
                             appEnv.isLoggedIn = true
+                            appEnv.user = User(username: "")
 
                         case .failed(let error as NSError):
                             let message: String = (error.userInfo["message"] as? String) ?? error.localizedDescription

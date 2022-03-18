@@ -15,6 +15,7 @@ class AppEnv: ObservableObject {
     @Published var toastModel: ToastModel = ToastModel(title: "Toast",
                                                                message: "Message",
                                                                icon: Image(systemName: "gear"))
+    @Published var user: User = .init(username: "NO USER")
 }
 
 class UserSettings: ObservableObject {

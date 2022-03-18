@@ -15,7 +15,8 @@ struct ContentView: View {
         ToastView(model: $appEnv.toastModel, showingToast: $appEnv.showingToast) {
             LoaderView(content: { geometry in
                 NavigationView {
-                    LoginContentView()
+                    //LoginContentView()
+                    FTUEIntroView()
                 }
                 .navigationViewStyle(.stack)
                 .environmentObject(appEnv)

@@ -17,7 +17,7 @@ class Biometrics {
 
     enum LoginAuthStatus {
         case loggingIn
-        case authenticated
+        case authenticated(user: User)
         case failed(error: Error)
     }
 

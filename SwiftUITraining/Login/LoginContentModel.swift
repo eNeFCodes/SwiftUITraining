@@ -17,11 +17,17 @@ class LoginContentModel: ObservableObject {
 
     let atlasLoginTitle: LocalizedStringKey = "ATLAS LOGIN"
     let faceTouchIDTitle: LocalizedStringKey = "FACE/TOUCH ID LOGIN"
+
+    private var username: String = ""
 }
 
 extension LoginContentModel {
 
     private func networkRequest() -> AnyPublisher<Bool, Never> {
+
+        // fetch from keychain
+        username = "test_user"
+
         return URLSession.shared
             .dataTaskPublisher(for: URL(string: "https://source.unsplash.com/random")!)
             .map { data, _ in !data.isEmpty }
@@ -52,7 +58,7 @@ extension LoginContentModel {
                 completion(.loggingIn)
                 self.processLogin { status in
                     if status {
-                        completion(.authenticated)
+                        completion(.authenticated(user: User(username: self.username)))
                     } else {
                         let error = NSError(domain: "error.Biometrics.auth", code: 999, userInfo: ["message": "Authentication failed."])
                         completion(.failed(error: error))
