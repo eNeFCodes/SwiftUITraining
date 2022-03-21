@@ -58,10 +58,10 @@ struct FTUEContentView: View {
                 }
                 .coordinateSpace(name: "scroll")
                 .onPreferenceChange(ViewOffsetKey.self) { offsetX in
-                    let newIndex = Int(offsetX / UIScreen.main.bounds.width)
-                    if newIndex != currentIndex {
-                        currentIndex = newIndex
-                    }
+//                    let newIndex = Int(offsetX / UIScreen.main.bounds.width)
+//                    if newIndex != currentIndex {
+//                        currentIndex = newIndex
+//                    }
                 }
 
                 VStack {
@@ -77,29 +77,35 @@ struct FTUEContentView: View {
                 .padding(.top, 20)
                 .frame(width: abs(geometry.size.width), alignment: .trailing)
 
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        ForEach(0...3, id: \.self) { idx in
-                            if currentIndex == idx {
-                                activeDotIndicator(index: idx)
-                            } else {
-                                dotIndicator(index: idx)
-                            }
-                        }
-                        Spacer()
-                    }
-                    .padding(20)
-                    .frame(width: abs(geometry.size.width))
-                    .padding(.bottom, 40)
-                }
+                buildDotIndicator(data: 0...3)
             }
         }
         .background(Color.black)
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
+    }
+
+    private func buildDotIndicator(data: ClosedRange<Int>) -> some View {
+        GeometryReader { geometry in
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    ForEach(data, id: \.self) { idx in
+                        if currentIndex == idx {
+                            activeDotIndicator(index: idx)
+                        } else {
+                            dotIndicator(index: idx)
+                        }
+                    }
+                    Spacer()
+                }
+                .padding(20)
+                .frame(width: abs(geometry.size.width))
+                .padding(.bottom, 40)
+            }
+        }
     }
 
     private func dotIndicator(index: Int) -> some View {

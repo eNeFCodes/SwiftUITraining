@@ -66,6 +66,7 @@
 		8FA8790227E43B22008C2837 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8790127E43B22008C2837 /* User.swift */; };
 		8FA8790427E45712008C2837 /* FTUEIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8790327E45712008C2837 /* FTUEIntroView.swift */; };
 		8FA8790627E46E03008C2837 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8790527E46E03008C2837 /* ShapeView.swift */; };
+		8FA8790827E84AF5008C2837 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8790727E84AF5008C2837 /* DotView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,7 @@
 		8FA8790127E43B22008C2837 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8FA8790327E45712008C2837 /* FTUEIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTUEIntroView.swift; sourceTree = "<group>"; };
 		8FA8790527E46E03008C2837 /* ShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
+		8FA8790727E84AF5008C2837 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 				8FA8790527E46E03008C2837 /* ShapeView.swift */,
 				8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */,
 				8F8E610D27DAD394003AFA79 /* Biometrics.swift */,
+				8FA8790727E84AF5008C2837 /* DotView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				8F8E610627D5DE72003AFA79 /* LoginHeaderView.swift in Sources */,
 				8FA8790427E45712008C2837 /* FTUEIntroView.swift in Sources */,
 				8F8E610127D5D492003AFA79 /* LoginContentView.swift in Sources */,
+				8FA8790827E84AF5008C2837 /* DotView.swift in Sources */,
 				8F8E610827D6F195003AFA79 /* LoginAtlasInputView.swift in Sources */,
 				8F8E610A27D74307003AFA79 /* BorderView.swift in Sources */,
 				8FA878FF27E4131F008C2837 /* FTUEContentView.swift in Sources */,
