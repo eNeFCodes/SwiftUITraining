@@ -104,7 +104,10 @@ struct FTUEContentView: View {
                 .padding(.top, 20)
                 .frame(width: abs(geometry.size.width), alignment: .trailing)
 
-                DotView(range: 0...3, activeIndex: $currentIndex)
+                DotView(range: 0...3, action: {
+                    print("get started")
+                    currentIndex = 0
+                }, activeIndex: $currentIndex)
             }
         }
         .background(Color.black)

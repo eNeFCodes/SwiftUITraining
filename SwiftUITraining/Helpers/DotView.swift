@@ -12,6 +12,8 @@ struct DotView: View {
     var dotColor: Color = .orange
     var dotInactiveColor: Color = .clear
     var range: ClosedRange<Int>
+    var action: () -> Void
+
     @Binding var activeIndex: Int
 
     var body: some View {
@@ -20,11 +22,23 @@ struct DotView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    ForEach(range, id: \.self) { idx in
-                        if activeIndex == idx {
-                            activeDotIndicator(index: idx)
-                        } else {
-                            dotIndicator(index: idx)
+                    if activeIndex == range.last {
+                        Button(action: action, label: {
+                            let titleStr = "GET STARTED"
+                            Text(titleStr)
+                                .accessibilityLabel(titleStr)
+                                .foregroundColor(.white)
+                                .padding(20)
+                                .frame(width: abs(geometry.size.width - 40), height: 56)
+                                .background(Color.red)
+                        })
+                    } else {
+                        ForEach(range, id: \.self) { idx in
+                            if activeIndex == idx {
+                                activeDotIndicator(index: idx)
+                            } else {
+                                dotIndicator(index: idx)
+                            }
                         }
                     }
                     Spacer()
@@ -78,6 +92,8 @@ struct DotView: View {
 struct DotView_Previews: PreviewProvider {
     @State static var activeIndex: Int = 0
     static var previews: some View {
-        DotView(range: 0...3, activeIndex: $activeIndex)
+        DotView(range: 0...3, action: {
+
+        }, activeIndex: $activeIndex)
     }
 }

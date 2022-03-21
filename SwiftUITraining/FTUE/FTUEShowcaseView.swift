@@ -72,7 +72,8 @@ struct FTUEShowcaseView: View {
                         .frame(width: abs(geometry.size.width), alignment: .center)
                     }
                     .padding(20)
-                    .frame(height: 550, alignment: .center)
+                    .padding(.bottom, 30)
+                    .frame(height: 520, alignment: .center)
                 }
             }
         }
