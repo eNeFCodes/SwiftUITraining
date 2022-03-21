@@ -19,7 +19,7 @@ struct FTUEShowcaseView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            ZStack {
+            VStack {
                 VStack(spacing: 20) {
                     let font = Font.custom("FancyCutCondProB7-Bold", size: 30)
                     Text(item.title)
@@ -36,43 +36,43 @@ struct FTUEShowcaseView: View {
                         .multilineTextAlignment(.center)
 
                     Spacer()
+                }
+                .padding(20)
 
+                ZStack {
                     GeometryReader { geometry in
-                        ZStack {
-                            VStack { Spacer() }
-                            .frame(width: abs(geometry.size.width), alignment: .center)
-                            .overlay {
-                                let cornerSize: CGFloat = 15
-                                let offsetY: CGFloat = 50
-                                let p1 = CGPoint(x: cornerSize, y: offsetY)
-                                let p2 = CGPoint(x: geometry.size.width - cornerSize, y: offsetY)
-                                let p3 = CGPoint(x: geometry.size.width, y: offsetY + cornerSize)
-                                let p4 = CGPoint(x: geometry.size.width, y: geometry.size.height - cornerSize)
-                                let p5 = CGPoint(x: geometry.size.width - cornerSize, y: geometry.size.height)
-                                let p6 = CGPoint(x: cornerSize, y: geometry.size.height)
-                                let p7 = CGPoint(x: 0, y: geometry.size.height - cornerSize)
-                                let p8 = CGPoint(x: 0, y: offsetY + cornerSize)
+                        VStack { Spacer() }
+                        .frame(width: abs(geometry.size.width), alignment: .center)
+                        .overlay {
+                            let cornerSize: CGFloat = 15
+                            let offsetY: CGFloat = 50
+                            let p1 = CGPoint(x: cornerSize, y: offsetY)
+                            let p2 = CGPoint(x: geometry.size.width - cornerSize, y: offsetY)
+                            let p3 = CGPoint(x: geometry.size.width, y: offsetY + cornerSize)
+                            let p4 = CGPoint(x: geometry.size.width, y: geometry.size.height - cornerSize)
+                            let p5 = CGPoint(x: geometry.size.width - cornerSize, y: geometry.size.height)
+                            let p6 = CGPoint(x: cornerSize, y: geometry.size.height)
+                            let p7 = CGPoint(x: 0, y: geometry.size.height - cornerSize)
+                            let p8 = CGPoint(x: 0, y: offsetY + cornerSize)
 
-                                BorderView(coordinates: [p1, p2, p3, p4, p5, p6, p7, p8], shouldClosePath: true)
-                                    .stroke(Color.orange, lineWidth: 1)
-                            }
-
-                            VStack(alignment: .center) {
-                                let squareSize = geometry.size.width * 0.6
-                                item.content
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: abs(squareSize), alignment: .center)
-                                    .background(Color.clear)
-                                    .padding(.bottom, 50)
-                            }
-                            .frame(width: abs(geometry.size.width), alignment: .center)
+                            BorderView(coordinates: [p1, p2, p3, p4, p5, p6, p7, p8], shouldClosePath: true)
+                                .stroke(Color.orange, lineWidth: 1)
                         }
+
+                        HStack(alignment: .bottom) {
+                            let squareSize = geometry.size.width * 0.6
+                            item.content
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: abs(squareSize), alignment: .center)
+                                .background(Color.clear)
+                                .padding(.bottom, 50)
+                        }
+                        .frame(width: abs(geometry.size.width), alignment: .center)
                     }
                     .padding(20)
                     .frame(height: 550, alignment: .center)
                 }
-                .padding(20)
             }
         }
     }
