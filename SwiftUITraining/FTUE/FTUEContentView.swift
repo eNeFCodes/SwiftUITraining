@@ -77,72 +77,13 @@ struct FTUEContentView: View {
                 .padding(.top, 20)
                 .frame(width: abs(geometry.size.width), alignment: .trailing)
 
-                buildDotIndicator(data: 0...3)
+                DotView(range: 0...3, activeIndex: $currentIndex)
             }
         }
         .background(Color.black)
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
-    }
-
-    private func buildDotIndicator(data: ClosedRange<Int>) -> some View {
-        GeometryReader { geometry in
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    ForEach(data, id: \.self) { idx in
-                        if currentIndex == idx {
-                            activeDotIndicator(index: idx)
-                        } else {
-                            dotIndicator(index: idx)
-                        }
-                    }
-                    Spacer()
-                }
-                .padding(20)
-                .frame(width: abs(geometry.size.width))
-                .padding(.bottom, 40)
-            }
-        }
-    }
-
-    private func dotIndicator(index: Int) -> some View {
-        Button("XXX") {
-            currentIndex = index
-        }
-        .foregroundColor(.clear)
-        .frame(width: 15, height: 15, alignment: .center)
-        .overlay {
-            Circle()
-                .frame(width: 15, height: 15, alignment: .center)
-                .overlay {
-                    let rect = CGRect(x: 0, y: 0, width: 15, height: 15)
-                    let roundPath = Path(roundedRect: rect, cornerRadius: 7.5, style: .continuous)
-                    ShapeView(path: roundPath)
-                        .stroke(Color.orange, lineWidth: 2)
-                }
-        }
-    }
-
-    private func activeDotIndicator(index: Int) -> some View {
-        Button("XXX") {
-            currentIndex = index
-        }
-        .foregroundColor(.clear)
-        .frame(width: 15, height: 15, alignment: .center)
-        .overlay {
-            Circle()
-                .frame(width: 15, height: 15, alignment: .center)
-                .foregroundColor(.orange)
-                .overlay {
-                    let rect = CGRect(x: 0, y: 0, width: 15, height: 15)
-                    let roundPath = Path(roundedRect: rect, cornerRadius: 7.5, style: .continuous)
-                    ShapeView(path: roundPath)
-                        .stroke(Color.orange, lineWidth: 2)
-                }
-        }
     }
 }
 
