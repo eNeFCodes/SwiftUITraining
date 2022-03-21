@@ -9,6 +9,14 @@ import SwiftUI
 
 struct FTUEContentView: View {
 
+    private struct ViewOffsetKey: PreferenceKey {
+        typealias Value = CGFloat
+        static var defaultValue = CGFloat.zero
+        static func reduce(value: inout Value, nextValue: () -> Value) {
+            value += nextValue()
+        }
+    }
+
     @EnvironmentObject private var appEnv: AppEnv
     @Environment(\.presentationMode) private var presentationMode
     @State private var currentIndex: Int = 0
@@ -40,6 +48,19 @@ struct FTUEContentView: View {
                                 proxy.scrollTo(newValue, anchor: .center)
                             }
                         }
+                    }
+                    .background {
+                        GeometryReader { geometry in
+                            Color.clear.preference(key: ViewOffsetKey.self,
+                                                   value: abs(geometry.frame(in: .named("scroll")).origin.x))
+                        }
+                    }
+                }
+                .coordinateSpace(name: "scroll")
+                .onPreferenceChange(ViewOffsetKey.self) { offsetX in
+                    let newIndex = Int(offsetX / UIScreen.main.bounds.width)
+                    if newIndex != currentIndex {
+                        currentIndex = newIndex
                     }
                 }
 
