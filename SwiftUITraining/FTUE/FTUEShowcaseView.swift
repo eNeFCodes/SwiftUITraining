@@ -20,24 +20,25 @@ struct FTUEShowcaseView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                VStack(spacing: 20) {
-                    let font = Font.custom("FancyCutCondProB7-Bold", size: 30)
+                VStack(spacing: 10) {
+                    let titleFont = Font.custom("FancyCutCondProB7-Bold", size: 35)
                     Text(item.title)
                         .accessibilityLabel(item.title)
-                        .font(font)
+                        .font(titleFont)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.top, 50)
 
+                    let detailFont = Font.custom("FancyCutProB7-Regular", size: 25)
                     Text(item.detail)
                         .accessibilityLabel(item.detail)
-                        .font(.subheadline)
+                        .font(detailFont)
                         .foregroundColor(.gray)
                         .multilineTextAlignment(.center)
-
-                    Spacer()
                 }
                 .padding(20)
+
+                Spacer()
 
                 ZStack {
                     GeometryReader { geometry in
@@ -45,7 +46,7 @@ struct FTUEShowcaseView: View {
                         .frame(width: abs(geometry.size.width), alignment: .center)
                         .overlay {
                             let cornerSize: CGFloat = 15
-                            let offsetY: CGFloat = 50
+                            let offsetY: CGFloat = 60
                             let p1 = CGPoint(x: cornerSize, y: offsetY)
                             let p2 = CGPoint(x: geometry.size.width - cornerSize, y: offsetY)
                             let p3 = CGPoint(x: geometry.size.width, y: offsetY + cornerSize)
