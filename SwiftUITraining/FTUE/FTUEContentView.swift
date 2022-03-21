@@ -11,6 +11,7 @@ struct FTUEContentView: View {
 
     @EnvironmentObject private var appEnv: AppEnv
     @Environment(\.presentationMode) private var presentationMode
+    @State private var currentIndex: Int = 0
 
     var body: some View {
         GeometryReader { geometry in
@@ -24,26 +25,23 @@ struct FTUEContentView: View {
                 }
 
                 ScrollView(.horizontal) {
-                    HStack {
-                        VStack {
-                            FTUEIntroView()
+                    ScrollViewReader { proxy in
+                        LazyHStack {
+                            ForEach(0...3, id: \.self) { index in
+                                FTUEIntroView()
+                                    .tag(index)
+                                    .frame(width: abs(geometry.size.width), alignment: .center)
+                            }
                         }
-                        .frame(width: abs(geometry.size.width), alignment: .center)
-
-                        VStack {
-                            FTUEIntroView()
+                        .padding(.top, 20)
+                        .padding(.bottom, 100)
+                        .onChange(of: currentIndex) { newValue in
+                            withAnimation {
+                                proxy.scrollTo(newValue, anchor: .center)
+                            }
                         }
-                        .frame(width: abs(geometry.size.width), alignment: .center)
-
-                        VStack {
-                            FTUEIntroView()
-                        }
-                        .frame(width: abs(geometry.size.width), alignment: .center)
                     }
-                    .padding(.top, 20)
-                    .padding(.bottom, 100)
                 }
-
 
                 VStack {
                     Button("X") {
@@ -62,9 +60,13 @@ struct FTUEContentView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        activeDotIndicator()
-                        dotIndicator()
-                        dotIndicator()
+                        ForEach(0...3, id: \.self) { idx in
+                            if currentIndex == idx {
+                                activeDotIndicator(index: idx)
+                            } else {
+                                dotIndicator(index: idx)
+                            }
+                        }
                         Spacer()
                     }
                     .padding(20)
@@ -79,27 +81,41 @@ struct FTUEContentView: View {
         .navigationBarHidden(true)
     }
 
-    private func dotIndicator() -> some View {
-        return Circle()
-            .frame(width: 15, height: 15, alignment: .center)
-            .overlay {
-                let rect = CGRect(x: 0, y: 0, width: 15, height: 15)
-                let roundPath = Path(roundedRect: rect, cornerRadius: 7.5, style: .continuous)
-                ShapeView(path: roundPath)
-                    .stroke(Color.orange, lineWidth: 2)
-            }
+    private func dotIndicator(index: Int) -> some View {
+        Button("XXX") {
+            currentIndex = index
+        }
+        .foregroundColor(.clear)
+        .frame(width: 15, height: 15, alignment: .center)
+        .overlay {
+            Circle()
+                .frame(width: 15, height: 15, alignment: .center)
+                .overlay {
+                    let rect = CGRect(x: 0, y: 0, width: 15, height: 15)
+                    let roundPath = Path(roundedRect: rect, cornerRadius: 7.5, style: .continuous)
+                    ShapeView(path: roundPath)
+                        .stroke(Color.orange, lineWidth: 2)
+                }
+        }
     }
 
-    private func activeDotIndicator() -> some View {
-        return Circle()
-            .frame(width: 15, height: 15, alignment: .center)
-            .foregroundColor(.orange)
-            .overlay {
-                let rect = CGRect(x: 0, y: 0, width: 15, height: 15)
-                let roundPath = Path(roundedRect: rect, cornerRadius: 7.5, style: .continuous)
-                ShapeView(path: roundPath)
-                    .stroke(Color.orange, lineWidth: 2)
-            }
+    private func activeDotIndicator(index: Int) -> some View {
+        Button("XXX") {
+            currentIndex = index
+        }
+        .foregroundColor(.clear)
+        .frame(width: 15, height: 15, alignment: .center)
+        .overlay {
+            Circle()
+                .frame(width: 15, height: 15, alignment: .center)
+                .foregroundColor(.orange)
+                .overlay {
+                    let rect = CGRect(x: 0, y: 0, width: 15, height: 15)
+                    let roundPath = Path(roundedRect: rect, cornerRadius: 7.5, style: .continuous)
+                    ShapeView(path: roundPath)
+                        .stroke(Color.orange, lineWidth: 2)
+                }
+        }
     }
 }
 
