@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BorderView: Shape {
     let coordinates: [CGPoint]
+    var shouldClosePath: Bool = false
 
     func path(in rect: CGRect) -> Path {
         var borderPath = Path()
@@ -18,6 +19,10 @@ struct BorderView: Shape {
             } else {
                 borderPath.move(to: coordinate)
             }
+        }
+
+        if shouldClosePath {
+            borderPath.closeSubpath()
         }
         return borderPath
     }

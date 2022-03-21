@@ -36,9 +36,28 @@ struct FTUEContentView: View {
                     ScrollViewReader { proxy in
                         LazyHStack {
                             ForEach(0...3, id: \.self) { index in
-                                FTUEIntroView()
-                                    .tag(index)
-                                    .frame(width: abs(geometry.size.width), alignment: .center)
+                                switch index {
+                                case 1:
+                                    let item = FTUEShowcaseView.ShowcaseItem(title: "EASILY ACCESS YOUR\nDAILY BRIEFING",
+                                                                             detail: "Your Brief is curated with the things you need to know today.",
+                                                                             content: Image("img_ftue2"))
+                                    FTUEShowcaseView(item: item)
+                                        .tag(index)
+                                        .frame(width: abs(geometry.size.width), alignment: .center)
+
+                                case 2:
+                                    let item = FTUEShowcaseView.ShowcaseItem(title: "CHEAT SHEET HELPS\nWITH YOUR SALES",
+                                                                             detail: "You can find all the latest product and allocation stories.",
+                                                                             content: Image("img_ftue3"))
+                                    FTUEShowcaseView(item: item)
+                                        .tag(index)
+                                        .frame(width: abs(geometry.size.width), alignment: .center)
+
+                                default:
+                                    FTUEIntroView()
+                                        .tag(index)
+                                        .frame(width: abs(geometry.size.width), alignment: .center)
+                                }
                             }
                         }
                         .padding(.top, 20)
