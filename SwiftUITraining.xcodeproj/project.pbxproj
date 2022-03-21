@@ -68,6 +68,7 @@
 		8FA8790627E46E03008C2837 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8790527E46E03008C2837 /* ShapeView.swift */; };
 		8FA8790827E84AF5008C2837 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8790727E84AF5008C2837 /* DotView.swift */; };
 		8FA8790A27E850A2008C2837 /* FTUEShowcaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8790927E850A2008C2837 /* FTUEShowcaseView.swift */; };
+		8FA8790D27E87A6D008C2837 /* BriefingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8790C27E87A6D008C2837 /* BriefingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +135,7 @@
 		8FA8790527E46E03008C2837 /* ShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
 		8FA8790727E84AF5008C2837 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		8FA8790927E850A2008C2837 /* FTUEShowcaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTUEShowcaseView.swift; sourceTree = "<group>"; };
+		8FA8790C27E87A6D008C2837 /* BriefingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 		8F44128827D1BD1A009487A6 /* SwiftUITraining */ = {
 			isa = PBXGroup;
 			children = (
+				8FA8790B27E87A5F008C2837 /* Briefing */,
 				8FA878ED27E02A7E008C2837 /* Info.plist */,
 				8FA8789F27E0286E008C2837 /* Fonts */,
 				8F44128927D1BD1A009487A6 /* SwiftUITrainingApp.swift */,
@@ -344,6 +347,14 @@
 			path = FTUE;
 			sourceTree = "<group>";
 		};
+		8FA8790B27E87A5F008C2837 /* Briefing */ = {
+			isa = PBXGroup;
+			children = (
+				8FA8790C27E87A6D008C2837 /* BriefingView.swift */,
+			);
+			path = Briefing;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -464,6 +475,7 @@
 				8FA878F327E1EC69008C2837 /* LoginAtlasView.swift in Sources */,
 				8FA878EF27E043F8008C2837 /* AppEnvironment.swift in Sources */,
 				8F8E610627D5DE72003AFA79 /* LoginHeaderView.swift in Sources */,
+				8FA8790D27E87A6D008C2837 /* BriefingView.swift in Sources */,
 				8FA8790427E45712008C2837 /* FTUEIntroView.swift in Sources */,
 				8F8E610127D5D492003AFA79 /* LoginContentView.swift in Sources */,
 				8FA8790827E84AF5008C2837 /* DotView.swift in Sources */,

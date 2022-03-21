@@ -20,6 +20,7 @@ struct FTUEContentView: View {
     @EnvironmentObject private var appEnv: AppEnv
     @Environment(\.presentationMode) private var presentationMode
     @State private var currentIndex: Int = 0
+    @State private var getStartedActive: Bool = false
 
     var body: some View {
         GeometryReader { geometry in
@@ -105,9 +106,12 @@ struct FTUEContentView: View {
                 .frame(width: abs(geometry.size.width), alignment: .trailing)
 
                 DotView(range: 0...3, action: {
-                    print("get started")
-                    currentIndex = 0
+                    getStartedActive = true
                 }, activeIndex: $currentIndex)
+
+                NavigationLink("", isActive: $getStartedActive) {
+                    BriefingView()
+                }
             }
         }
         .background(Color.black)
