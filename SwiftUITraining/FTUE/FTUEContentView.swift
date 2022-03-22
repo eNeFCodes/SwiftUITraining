@@ -27,7 +27,7 @@ struct FTUEContentView: View {
             ZStack {
                 VStack {
                     Spacer()
-                    Image("img_bg_login")
+                    Image("img_ftue_bottom_bg")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(height: 230, alignment: .top)
