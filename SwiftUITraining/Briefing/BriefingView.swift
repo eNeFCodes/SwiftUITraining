@@ -20,7 +20,35 @@ struct BriefingView: View {
 
                 VStack {
                     Spacer()
-                    BriefingNavView()
+
+                    let btn1 = BriefingNavView.ButtonItem(id: 0,
+                                                          icon: Image("ic_star"),
+                                                          title: "A LA UNE",
+                                                          titleColor: .black,
+                                                          bgColor: .white,
+                                                          strokeColor: .black) {
+                        print("btn1")
+                    }
+                    let btn2 = BriefingNavView.ButtonItem(id: 1,
+                                                          icon: Image("ic_eye_white"),
+                                                          bgColor: .black,
+                                                          strokeColor: .white) {
+                        print("btn2")
+                    }
+                    let btn3 = BriefingNavView.ButtonItem(id: 2,
+                                                          icon: Image("ic_resource_white"),
+                                                          bgColor: .black,
+                                                          strokeColor: .white) {
+                        print("btn3")
+                    }
+                    let btn4 = BriefingNavView.ButtonItem(id: 3,
+                                                          icon: Image("ic_plus"),
+                                                          bgColor: .orange,
+                                                          strokeColor: .black) {
+                        print("btn4")
+                    }
+
+                    BriefingNavView(buttons: [btn1, btn2, btn3, btn4])
                         .padding(.bottom, 40)
                 }
             }
