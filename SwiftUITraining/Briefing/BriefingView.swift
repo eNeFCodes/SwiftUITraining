@@ -20,35 +20,35 @@ struct BriefingView: View {
 
                 VStack {
                     Spacer()
-
-                    let btn1 = BriefingNavView.ButtonItem(id: 0,
-                                                          icon: Image("ic_star"),
-                                                          title: "A LA UNE",
-                                                          titleColor: .black,
-                                                          bgColor: .white,
-                                                          strokeColor: .black) {
+                    
+                    let btn1 = NavigationButtonItem(id: 0,
+                                                    icon: Image("ic_star_white"),
+                                                    activeIcon: Image("ic_star"),
+                                                    title: "A LA UNE",
+                                                    isActive: true) {
                         print("btn1")
                     }
-                    let btn2 = BriefingNavView.ButtonItem(id: 1,
-                                                          icon: Image("ic_eye_white"),
-                                                          bgColor: .black,
-                                                          strokeColor: .white) {
+                    let btn2 = NavigationButtonItem(id: 1,
+                                                    icon: Image("ic_eye_white"),
+                                                    activeIcon: Image("ic_eye"),
+                                                    title: "LIVE") {
                         print("btn2")
                     }
-                    let btn3 = BriefingNavView.ButtonItem(id: 2,
-                                                          icon: Image("ic_resource_white"),
-                                                          bgColor: .black,
-                                                          strokeColor: .white) {
+                    let btn3 = NavigationButtonItem(id: 2,
+                                                    icon: Image("ic_resource_white"),
+                                                    activeIcon: Image("ic_resource"),
+                                                    title: "RESOURCES") {
                         print("btn3")
                     }
-                    let btn4 = BriefingNavView.ButtonItem(id: 3,
-                                                          icon: Image("ic_plus"),
-                                                          bgColor: .orange,
-                                                          strokeColor: .black) {
+                    let btn4 = NavigationButtonItem(id: 3,
+                                                    icon: Image("ic_plus"),
+                                                    activeIcon: Image("ic_plus"),
+                                                    title: "ADD",
+                                                    bgColor: .orange) {
                         print("btn4")
                     }
 
-                    BriefingNavView(buttons: [btn1, btn2, btn3, btn4])
+                    NavigationButtonView(buttons: [btn1, btn2, btn3, btn4])
                         .padding(.bottom, 40)
                 }
             }
