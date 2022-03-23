@@ -13,38 +13,36 @@ struct DotView: View {
     var dotInactiveColor: Color = .clear
     var range: ClosedRange<Int>
     var action: () -> Void
+    var geometry: GeometryProxy
 
     @Binding var activeIndex: Int
 
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                Spacer()
-                HStack(alignment: .center) {
-                    if activeIndex == range.last {
-                        Button(action: action, label: {
-                            let titleStr = "GET STARTED"
-                            let font = Font.custom("FancyCutCondProB7-Bold", size: 20)
-                            Text(titleStr)
-                                .accessibilityLabel(titleStr)
-                                .font(font)
-                                .foregroundColor(.white)
-                                .frame(height: 56, alignment: .center)
-                                .background(Color.red)
-                        })
-                    } else {
-                        ForEach(range, id: \.self) { idx in
-                            if activeIndex == idx {
-                                activeDotIndicator(index: idx)
-                            } else {
-                                dotIndicator(index: idx)
-                            }
+        VStack {
+            Spacer()
+            HStack(alignment: .center) {
+                if activeIndex == range.last {
+                    Button(action: action, label: {
+                        let titleStr = "GET STARTED"
+                        let font = Font.custom("FancyCutCondProB7-Bold", size: 20)
+                        Text(titleStr)
+                            .accessibilityLabel(titleStr)
+                            .font(font)
+                            .foregroundColor(.white)
+                            .frame(width: abs(geometry.size.width - 40), height: 56, alignment: .center)
+                            .background(Color.red)
+                    })
+                } else {
+                    ForEach(range, id: \.self) { idx in
+                        if activeIndex == idx {
+                            activeDotIndicator(index: idx)
+                        } else {
+                            dotIndicator(index: idx)
                         }
                     }
                 }
-                .padding(.bottom, 40)
             }
-            .frame(width: abs(geometry.size.width), alignment: .center)
+            .padding(.bottom, 40)
         }
     }
 
@@ -90,8 +88,10 @@ struct DotView: View {
 struct DotView_Previews: PreviewProvider {
     @State static var activeIndex: Int = 0
     static var previews: some View {
-        DotView(range: 0...3, action: {
+        GeometryReader { geometry in
+            DotView(range: 0...3, action: {
 
-        }, activeIndex: $activeIndex)
+            }, geometry: geometry, activeIndex: $activeIndex)
+        }
     }
 }

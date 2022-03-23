@@ -110,7 +110,7 @@ struct FTUEContentView: View {
 
                 DotView(range: 0...3, action: {
                     getStartedActive = true
-                }, activeIndex: $currentIndex)
+                }, geometry: geometry, activeIndex: $currentIndex)
 
                 NavigationLink("", isActive: $getStartedActive) {
                     BriefingView()
