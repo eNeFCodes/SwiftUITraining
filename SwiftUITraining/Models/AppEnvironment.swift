@@ -9,8 +9,27 @@ import Foundation
 import SwiftUI
 
 class AppEnv: ObservableObject {
-    @Published var isLoading: Bool = false
+
+    enum LoginType {
+        case `default`
+        case biometrics
+        case atlas
+    }
+
     @Published var isLoggedIn: Bool = false
+    @Published var loginMode: LoginType = .default {
+        didSet {
+            switch loginMode {
+            case .atlas:
+                isLoginModeAtlas = true
+            default:
+                isLoginModeAtlas = false
+            }
+        }
+    }
+    @Published var isLoginModeAtlas: Bool = false
+
+    @Published var isLoading: Bool = false
     @Published var showingToast: Bool = false
     @Published var toastModel: ToastModel = ToastModel(title: "Toast",
                                                                message: "Message",

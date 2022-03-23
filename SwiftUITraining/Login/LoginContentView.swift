@@ -36,10 +36,11 @@ struct LoginContentView: View {
                     LoginButtonView(model: model)
 
                     Group {
-                        NavigationLink("", isActive: $model.isLoginModeAtlas) {
+                        NavigationLink("", isActive: $appEnv.isLoginModeAtlas) {
                             LoginAtlasView()
                         }
-                        if !model.isLoginModeAtlas {
+                        
+                        if appEnv.loginMode != .atlas {
                             NavigationLink("", isActive: $appEnv.isLoggedIn) {
                                 FTUEContentView()
                             }

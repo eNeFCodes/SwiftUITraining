@@ -95,7 +95,8 @@ struct FTUEContentView: View {
                 VStack {
                     Button("X") {
                         appEnv.isLoggedIn = false
-                        presentationMode.wrappedValue.dismiss()
+                        appEnv.loginMode = .default
+//                        presentationMode.wrappedValue.dismiss()
                     }
                     .frame(width: 50, height: 50)
                     .foregroundColor(.white)

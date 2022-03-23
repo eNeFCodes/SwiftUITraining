@@ -16,7 +16,7 @@ struct LoginButtonView: View {
         GeometryReader { geometry in
             VStack(spacing: 20) {
                 Button(model.atlasLoginTitle) {
-                    model.isLoginModeAtlas = true
+                    appEnv.loginMode = .atlas
                 }
                 .accessibilityLabel(model.atlasLoginTitle)
                 .frame(width: abs(geometry.size.width),

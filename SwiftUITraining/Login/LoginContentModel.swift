@@ -13,8 +13,6 @@ class LoginContentModel: ObservableObject {
     private var subscriptions = Set<AnyCancellable>()
     private var loginPublisher = PassthroughSubject<Void, Never>()
 
-    @Published var isLoginModeAtlas: Bool = false
-
     let atlasLoginTitle: LocalizedStringKey = "ATLAS LOGIN"
     let faceTouchIDTitle: LocalizedStringKey = "FACE/TOUCH ID LOGIN"
 
