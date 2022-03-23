@@ -10,7 +10,6 @@ import SwiftUI
 struct SearchPageView: View {
 
     @EnvironmentObject private var appEnv: AppEnv
-    @State private var searchTxt: String = ""
 
     var body: some View {
         GeometryReader { geometry in
@@ -65,39 +64,32 @@ struct SearchPageView: View {
 
             VStack {
                 let config = InputFieldView.Config(id: 0,
-                                                   text: $searchTxt,
+                                                   text: "",
                                                    geometry: geometry,
                                                    showButton: true,
                                                    icon: Image("ic_search_white"),
                                                    action: triggerInputFieldAction)
 
                 let config2 = InputFieldView.Config(id: 1,
-                                                   text: $searchTxt,
-                                                   geometry: geometry,
-                                                   showButton: true,
-                                                   icon: Image("ic_search"),
-                                                   action: triggerInputFieldAction)
+                                                    text: "",
+                                                    geometry: geometry,
+                                                    showButton: true,
+                                                    icon: Image("ic_search"),
+                                                    action: triggerInputFieldAction)
 
-                ForEach([config, config2], id: \.id) { config in
+                let config3 = InputFieldView.Config(id: 3,
+                                                    text: "",
+                                                    geometry: geometry,
+                                                    showSeparator: false,
+                                                    showButton: true,
+                                                    icon: Image("ic_search_white"),
+                                                    action: triggerInputFieldAction)
+
+                ForEach([config, config2, config3], id: \.id) { config in
                     InputFieldView(config: config)
                 }
             }
             .padding(.top, 150)
-
-            /**
-             ZStack(alignment: .leading) {
-                 if model.username.isEmpty {
-                     Text(model.emailFieldTitle, comment: "Enter your registered username here")
-                         .accessibility(hidden: true)
-                         .foregroundColor(.white)
-                 }
-
-                 TextField("", text: $model.username)
-                     .accessibilityLabel(model.emailFieldTitle)
-                     .frame(height: 56, alignment: .leading)
-                     .foregroundColor(.white)
-             }
-             */
         }
         .background(Color.black)
         .ignoresSafeArea()
