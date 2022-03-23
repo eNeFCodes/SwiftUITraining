@@ -11,9 +11,9 @@ import SwiftUI
 
 struct InputFieldView: View {
 
-    struct Config: Identifiable {
+    class Config: Identifiable, ObservableObject {
         let id: Int
-        var text: Binding<String>
+        @Published var text: String
         let geometry: GeometryProxy
 
         let placeholder: String
@@ -26,7 +26,7 @@ struct InputFieldView: View {
         let action: ((_ id: Int, _ text: String) -> Void)?
 
         init(id: Int,
-             text: Binding<String>,
+             text: String = "",
              geometry: GeometryProxy,
 
              placeholder: String = "Search CNT",
@@ -53,24 +53,27 @@ struct InputFieldView: View {
         }
 
         func trigger() {
-            action?(id, text.wrappedValue)
+            action?(id, text)
         }
     }
 
-    var config: Config
+    @StateObject var config: Config
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             HStack(alignment: .center, spacing: 10) {
                 ZStack(alignment: .leading) {
-                    if config.text.wrappedValue.isEmpty {
+                    if config.text.isEmpty {
                         Text(config.placeholder)
                             .accessibilityLabel(config.placeholder)
                             .foregroundColor(config.placeholderTextColor)
                     }
-                    TextField("", text: config.text)
-                        .frame(height: 56, alignment: .leading)
+                    TextField("", text: $config.text)
+                        .frame(height: 40, alignment: .leading)
                         .foregroundColor(config.textColor)
+                        .onChange(of: config.text) { newValue in
+                            config.trigger()
+                        }
 
                 }
                 .padding(.leading, 20)
@@ -82,7 +85,7 @@ struct InputFieldView: View {
                         icon
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 56, height: 56, alignment: .center)
+                            .frame(width: 40, height: 40, alignment: .center)
                     }
                     .padding(.trailing, 20)
                 }
@@ -97,6 +100,7 @@ struct InputFieldView: View {
                     .padding(.trailing, 20)
             }
         }
+        .frame(height: 51, alignment: .center)
     }
 }
 
@@ -104,7 +108,7 @@ struct InputFieldView_Previews: PreviewProvider {
     @State static var text: String = ""
     static var previews: some View {
         GeometryReader { geometry in
-            let config = InputFieldView.Config(id: 0, text: $text, geometry: geometry)
+            let config = InputFieldView.Config(id: 0, text: text, geometry: geometry)
             InputFieldView(config: config)
         }
     }
