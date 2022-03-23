@@ -15,21 +15,23 @@ struct LoginButtonView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 20) {
-                Button(model.atlasLoginTitle) {
+                Button {
                     appEnv.loginMode = .atlas
+                } label: {
+                    Text(model.atlasLoginTitle)
+                        .accessibilityLabel(model.atlasLoginTitle)
+                        .frame(width: abs(geometry.size.width),
+                               height: 56)
                 }
-                .accessibilityLabel(model.atlasLoginTitle)
-                .frame(width: abs(geometry.size.width),
-                       height: 56)
                 .background(Color.red)
 
-                Button(model.faceTouchIDTitle) {
+                Button {
                     model.faceAndTouchIDLogin { status in
                         switch status {
                         case .loggingIn:
                             appEnv.showingToast = false
                             appEnv.isLoading = true
-                            
+
                         case .authenticated:
                             appEnv.showingToast = false
                             appEnv.isLoading = false
@@ -42,11 +44,14 @@ struct LoginButtonView: View {
                             appEnv.toastModel = .init(title: "Error", message: message, icon: .init(systemName: "gear"))
                         }
                     }
+                } label: {
+                    Text(model.faceTouchIDTitle)
+                        .accessibilityLabel(model.faceTouchIDTitle)
+                        .frame(width: abs(geometry.size.width),
+                               height: 56)
                 }
-                .accessibilityLabel(model.faceTouchIDTitle)
-                .frame(width: abs(geometry.size.width),
-                       height: 56)
                 .background(Color.red)
+                
             }
             .font(.headline)
             .foregroundColor(.white)

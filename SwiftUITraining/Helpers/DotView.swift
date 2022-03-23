@@ -43,10 +43,10 @@ struct DotView: View {
                     }
                     Spacer()
                 }
-                .padding(20)
                 .frame(width: abs(geometry.size.width))
                 .padding(.bottom, 40)
             }
+            .frame(width: abs(geometry.size.width), alignment: .center)
         }
     }
 
