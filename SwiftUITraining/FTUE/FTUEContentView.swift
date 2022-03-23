@@ -101,9 +101,10 @@ struct FTUEContentView: View {
                             appEnv.loginMode = .default
                             //presentationMode.wrappedValue.dismiss()
                         } label: {
-                            Text("X")
-                                .frame(width: 50, height: 50)
-                                .foregroundColor(.white)
+                            Image("ic_close_white")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50, height: 50, alignment: .center)
                                 .padding(20)
                         }
                     }

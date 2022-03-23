@@ -72,6 +72,7 @@
 		8FA8790F27E87D95008C2837 /* NavigationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8790E27E87D95008C2837 /* NavigationButtonView.swift */; };
 		8FA8791127E9A526008C2837 /* NavigationButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8791027E9A526008C2837 /* NavigationButtonItem.swift */; };
 		8FA8791427EAF2A6008C2837 /* SearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8791327EAF2A6008C2837 /* SearchPageView.swift */; };
+		8FA8791627EB2444008C2837 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8791527EB2443008C2837 /* InputFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +143,7 @@
 		8FA8790E27E87D95008C2837 /* NavigationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButtonView.swift; sourceTree = "<group>"; };
 		8FA8791027E9A526008C2837 /* NavigationButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButtonItem.swift; sourceTree = "<group>"; };
 		8FA8791327EAF2A6008C2837 /* SearchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView.swift; sourceTree = "<group>"; };
+		8FA8791527EB2443008C2837 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +183,7 @@
 				8F44128927D1BD1A009487A6 /* SwiftUITrainingApp.swift */,
 				8F44128B27D1BD1A009487A6 /* ContentView.swift */,
 				8FA878F827E32D5B008C2837 /* Models */,
-				8FA878F727E32D42008C2837 /* Helpers */,
+				8FA878F727E32D42008C2837 /* Reusables */,
 				8FA878F627E32D35008C2837 /* Loaders */,
 				8F8E610227D5DDFA003AFA79 /* Login */,
 				8FA8790027E41325008C2837 /* FTUE */,
@@ -296,7 +298,7 @@
 			path = Loaders;
 			sourceTree = "<group>";
 		};
-		8FA878F727E32D42008C2837 /* Helpers */ = {
+		8FA878F727E32D42008C2837 /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
 				8F8E610927D74307003AFA79 /* BorderView.swift */,
@@ -304,8 +306,9 @@
 				8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */,
 				8F8E610D27DAD394003AFA79 /* Biometrics.swift */,
 				8FA8790727E84AF5008C2837 /* DotView.swift */,
+				8FA8791527EB2443008C2837 /* InputFieldView.swift */,
 			);
-			path = Helpers;
+			path = Reusables;
 			sourceTree = "<group>";
 		};
 		8FA878F827E32D5B008C2837 /* Models */ = {
@@ -492,6 +495,7 @@
 				8FA878F327E1EC69008C2837 /* LoginAtlasView.swift in Sources */,
 				8FA878EF27E043F8008C2837 /* AppEnvironment.swift in Sources */,
 				8F8E610627D5DE72003AFA79 /* LoginHeaderView.swift in Sources */,
+				8FA8791627EB2444008C2837 /* InputFieldView.swift in Sources */,
 				8FA8790D27E87A6D008C2837 /* BriefingView.swift in Sources */,
 				8FA8790427E45712008C2837 /* FTUEIntroView.swift in Sources */,
 				8F8E610127D5D492003AFA79 /* LoginContentView.swift in Sources */,
