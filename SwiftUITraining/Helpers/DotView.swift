@@ -20,16 +20,16 @@ struct DotView: View {
         GeometryReader { geometry in
             VStack {
                 Spacer()
-                HStack {
-                    Spacer()
+                HStack(alignment: .center) {
                     if activeIndex == range.last {
                         Button(action: action, label: {
                             let titleStr = "GET STARTED"
+                            let font = Font.custom("FancyCutCondProB7-Bold", size: 20)
                             Text(titleStr)
                                 .accessibilityLabel(titleStr)
+                                .font(font)
                                 .foregroundColor(.white)
-                                .padding(20)
-                                .frame(width: abs(geometry.size.width - 40), height: 56)
+                                .frame(height: 56, alignment: .center)
                                 .background(Color.red)
                         })
                     } else {
@@ -41,9 +41,7 @@ struct DotView: View {
                             }
                         }
                     }
-                    Spacer()
                 }
-                .frame(width: abs(geometry.size.width))
                 .padding(.bottom, 40)
             }
             .frame(width: abs(geometry.size.width), alignment: .center)

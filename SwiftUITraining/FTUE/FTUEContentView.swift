@@ -84,6 +84,7 @@ struct FTUEContentView: View {
                         }
                     }
                 }
+                .frame(width: abs(geometry.size.width), alignment: .center)
                 .coordinateSpace(name: "scroll")
                 .onPreferenceChange(ViewOffsetKey.self) { offsetX in
 //                    let newIndex = Int(offsetX / UIScreen.main.bounds.width)
@@ -93,18 +94,19 @@ struct FTUEContentView: View {
                 }
 
                 VStack {
-                    Button("X") {
-                        appEnv.isLoggedIn = false
-                        appEnv.loginMode = .default
-//                        presentationMode.wrappedValue.dismiss()
+                    HStack {
+                        Spacer()
+                        Button("X") {
+                            appEnv.isLoggedIn = false
+                            appEnv.loginMode = .default
+    //                        presentationMode.wrappedValue.dismiss()
+                        }
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.white)
+                        .padding(20)
                     }
-                    .frame(width: 50, height: 50)
-                    .foregroundColor(.white)
                     Spacer()
                 }
-                .padding(20)
-                .padding(.top, 20)
-                .frame(width: abs(geometry.size.width), alignment: .trailing)
 
                 DotView(range: 0...3, action: {
                     getStartedActive = true
@@ -114,6 +116,7 @@ struct FTUEContentView: View {
                     BriefingView()
                 }
             }
+            .frame(width: abs(geometry.size.width), alignment: .center)
         }
         .background(Color.black)
         .ignoresSafeArea()
