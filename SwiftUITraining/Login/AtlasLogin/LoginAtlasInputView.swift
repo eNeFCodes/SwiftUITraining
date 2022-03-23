@@ -24,8 +24,7 @@ struct LoginAtlasInputView: View {
 
                     TextField("", text: $model.username)
                         .accessibilityLabel(model.emailFieldTitle)
-                        .frame(height: 56,
-                               alignment: .leading)
+                        .frame(height: 56, alignment: .leading)
                         .foregroundColor(.white)
                 }
                 .padding(.bottom, 20)
@@ -39,23 +38,22 @@ struct LoginAtlasInputView: View {
 
                     SecureField("", text: $model.password)
                         .accessibilityLabel(model.pwdFieldTitle)
-                        .frame(height: 56,
-                               alignment: .leading)
+                        .frame(height: 56, alignment: .leading)
                         .foregroundColor(.white)
                 }
                 Spacer()
 
-                Button(model.loginBtnTitle) {
+                Button {
                     appEnv.isLoading = true
                     model.processLogin { isLoggedIn in
                         appEnv.isLoading = false
                         appEnv.isLoggedIn = isLoggedIn
                     }
+                } label: {
+                    Text(model.loginBtnTitle)
+                        .accessibilityLabel(model.loginBtnTitle)
+                        .frame(width: abs(geometry.size.width - 40), height: 60, alignment: .center)
                 }
-                .accessibilityLabel(model.loginBtnTitle)
-                .frame(width: abs(geometry.size.width - 40),
-                       height: 60,
-                       alignment: .center)
                 .border(.gray, width: 1)
                 .foregroundColor(model.canProceed ? .white : .gray)
                 .disabled(!model.canProceed)

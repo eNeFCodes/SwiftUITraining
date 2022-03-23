@@ -96,14 +96,16 @@ struct FTUEContentView: View {
                 VStack {
                     HStack {
                         Spacer()
-                        Button("X") {
+                        Button {
                             appEnv.isLoggedIn = false
                             appEnv.loginMode = .default
-    //                        presentationMode.wrappedValue.dismiss()
+                            //presentationMode.wrappedValue.dismiss()
+                        } label: {
+                            Text("X")
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.white)
+                                .padding(20)
                         }
-                        .frame(width: 50, height: 50)
-                        .foregroundColor(.white)
-                        .padding(20)
                     }
                     Spacer()
                 }

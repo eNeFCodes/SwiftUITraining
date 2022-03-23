@@ -40,10 +40,14 @@ struct LoginContentView: View {
                             LoginAtlasView()
                         }
                         
-                        if appEnv.loginMode != .atlas {
-                            NavigationLink("", isActive: $appEnv.isLoggedIn) {
-                                FTUEContentView()
-                            }
+//                        if appEnv.loginMode != .atlas {
+//                            NavigationLink("", isActive: $appEnv.isLoggedIn) {
+//                                FTUEContentView()
+//                            }
+//                        }
+
+                        NavigationLink("", isActive: $appEnv.isLoggedIn) {
+                            FTUEContentView()
                         }
                     }
                 }

@@ -71,6 +71,7 @@
 		8FA8790D27E87A6D008C2837 /* BriefingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8790C27E87A6D008C2837 /* BriefingView.swift */; };
 		8FA8790F27E87D95008C2837 /* NavigationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8790E27E87D95008C2837 /* NavigationButtonView.swift */; };
 		8FA8791127E9A526008C2837 /* NavigationButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8791027E9A526008C2837 /* NavigationButtonItem.swift */; };
+		8FA8791427EAF2A6008C2837 /* SearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8791327EAF2A6008C2837 /* SearchPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +141,7 @@
 		8FA8790C27E87A6D008C2837 /* BriefingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefingView.swift; sourceTree = "<group>"; };
 		8FA8790E27E87D95008C2837 /* NavigationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButtonView.swift; sourceTree = "<group>"; };
 		8FA8791027E9A526008C2837 /* NavigationButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButtonItem.swift; sourceTree = "<group>"; };
+		8FA8791327EAF2A6008C2837 /* SearchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 		8F44128827D1BD1A009487A6 /* SwiftUITraining */ = {
 			isa = PBXGroup;
 			children = (
+				8FA8791227EAF29D008C2837 /* Search */,
 				8FA8790B27E87A5F008C2837 /* Briefing */,
 				8FA878ED27E02A7E008C2837 /* Info.plist */,
 				8FA8789F27E0286E008C2837 /* Fonts */,
@@ -361,6 +364,14 @@
 			path = Briefing;
 			sourceTree = "<group>";
 		};
+		8FA8791227EAF29D008C2837 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				8FA8791327EAF2A6008C2837 /* SearchPageView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -484,6 +495,7 @@
 				8FA8790D27E87A6D008C2837 /* BriefingView.swift in Sources */,
 				8FA8790427E45712008C2837 /* FTUEIntroView.swift in Sources */,
 				8F8E610127D5D492003AFA79 /* LoginContentView.swift in Sources */,
+				8FA8791427EAF2A6008C2837 /* SearchPageView.swift in Sources */,
 				8FA8790827E84AF5008C2837 /* DotView.swift in Sources */,
 				8F8E610827D6F195003AFA79 /* LoginAtlasInputView.swift in Sources */,
 				8F8E610A27D74307003AFA79 /* BorderView.swift in Sources */,

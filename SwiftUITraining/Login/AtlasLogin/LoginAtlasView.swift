@@ -45,9 +45,9 @@ struct LoginAtlasView: View {
                 .ignoresSafeArea()
             }
 
-            NavigationLink("", isActive: $appEnv.isLoggedIn) {
-                FTUEContentView()
-            }
+//            NavigationLink("", isActive: $appEnv.isLoggedIn) {
+//                FTUEContentView()
+//            }
         }
         .background(Color.black)
         .navigationBarBackButtonHidden(true)
