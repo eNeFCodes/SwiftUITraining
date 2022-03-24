@@ -15,6 +15,7 @@ struct SearchPageView: View {
     }
 
     @EnvironmentObject private var appEnv: AppEnv
+    @Environment(\.presentationMode) private var presentationMode
     @State private var popularSearches: [Searched] = [
         Searched(id: 0, text:"Just Un Clou"),
         Searched(id: 1, text:"Stockholm store renovation"),
@@ -73,6 +74,7 @@ struct SearchPageView: View {
                         Button {
                             appEnv.isLoggedIn = false
                             appEnv.loginMode = .default
+                            presentationMode.wrappedValue.dismiss()
                         } label: {
                             Image("ic_close_white")
                                 .resizable()
@@ -81,6 +83,7 @@ struct SearchPageView: View {
                                 .padding(20)
                         }
                     }
+                    .padding(.top, 20)
                     Spacer()
                 }
             }

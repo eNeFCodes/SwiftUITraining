@@ -8,6 +8,26 @@
 import SwiftUI
 
 struct BriefingView: View {
+
+    private enum NavType {
+        case star
+        case live
+        case resource
+        case add
+    }
+
+    @State private var navType: NavType = .star {
+        didSet {
+            switch navType {
+            case .add:
+                isSearchPageActive = true
+            default:
+                isSearchPageActive = false
+            }
+        }
+    }
+    @State private var isSearchPageActive: Bool = false
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -26,31 +46,35 @@ struct BriefingView: View {
                                                     activeIcon: Image("ic_star"),
                                                     title: "A LA UNE",
                                                     isActive: true) {
-                        print("btn1")
+                        navType = .star
                     }
                     let btn2 = NavigationButtonItem(id: 1,
                                                     icon: Image("ic_eye_white"),
                                                     activeIcon: Image("ic_eye"),
                                                     title: "LIVE") {
-                        print("btn2")
+                        navType = .live
                     }
                     let btn3 = NavigationButtonItem(id: 2,
                                                     icon: Image("ic_resource_white"),
                                                     activeIcon: Image("ic_resource"),
                                                     title: "RESOURCES") {
-                        print("btn3")
+                        navType = .resource
                     }
                     let btn4 = NavigationButtonItem(id: 3,
                                                     icon: Image("ic_plus"),
                                                     activeIcon: Image("ic_plus"),
                                                     title: "ADD",
                                                     bgColor: .orange) {
-                        print("btn4")
+                        navType = .add
                     }
 
                     NavigationButtonView(buttons: [btn1, btn2, btn3, btn4])
                         .padding(.bottom, 40)
                 }
+            }
+
+            NavigationLink("", isActive: $isSearchPageActive) {
+                SearchPageView()
             }
         }
         .padding(.top, 20)
