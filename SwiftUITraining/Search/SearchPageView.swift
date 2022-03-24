@@ -24,7 +24,7 @@ struct SearchPageView: View {
 
     @State private var searchResults: [Searched] = []
 
-    @State private var searchedText: String = ""
+    @State private var searchedText: String = "asdfadfaf"
     @State private var selectedItem: Searched?
 
     private var toSearchItems: [Searched] = [
@@ -100,29 +100,11 @@ struct SearchPageView: View {
                     .padding(20)
 
                 ZStack {
-                    VStack(alignment: .leading, spacing: 10) {
-                        let searchedTitleFont = Font.custom("FancyCutCondProB7-Bold", size: 20)
-                        let searchedTitle = !searchResults.isEmpty ? "SEARCHED RESULTS" : "POPULAR SEARCHES"
-                        Text(searchedTitle)
-                            .accessibilityLabel(searchedTitle)
-                            .font(searchedTitleFont)
-                            .foregroundColor(.yellow)
-                            .padding(20)
-
-                        ScrollView(.vertical) {
-                            if !searchResults.isEmpty {
-                                ForEach(searchResults) { searched in
-                                    createTappableField(for: searched, geometry: geometry)
-                                }
-                            } else {
-                                ForEach(popularSearches) { searched in
-                                    createTappableField(for: searched, geometry: geometry)
-                                }
-                            }
-                        }
-                        .foregroundColor(.white)
+                    if !searchedText.isEmpty && searchResults.isEmpty{
+                        emptyResultView(geometry: geometry)
+                    } else {
+                        resultsView(geometry: geometry)
                     }
-                    .frame(width: abs(geometry.size.width), alignment: .leading)
                 }
             }
             .padding(.top, 150)
@@ -131,6 +113,57 @@ struct SearchPageView: View {
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
+    }
+
+    private func emptyResultView(geometry: GeometryProxy) -> some View {
+        VStack(spacing: 10) {
+            Spacer()
+
+            let noResultFont = Font.custom("FancyCutCondProB7-Bold", size: 15)
+            let noResult = "NO RESULTS FOUND"
+            Text(noResult)
+                .accessibilityLabel(noResult)
+                .font(noResultFont)
+                .foregroundColor(.yellow)
+                .multilineTextAlignment(.center)
+
+            let noResultMsgFont = Font.custom("BrilliantCutProB7-Regular", size: 20)
+            let noResultMsg = "Please try searching for\nsomething else."
+            Text(noResultMsg)
+                .accessibilityLabel(noResultMsg)
+                .font(noResultMsgFont)
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+
+            Spacer()
+        }
+        .frame(width: abs(geometry.size.width), alignment: .center)
+    }
+
+    private func resultsView(geometry: GeometryProxy) -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            let searchedTitleFont = Font.custom("FancyCutCondProB7-Bold", size: 20)
+            let searchedTitle = !searchResults.isEmpty ? "SEARCHED RESULTS" : "POPULAR SEARCHES"
+            Text(searchedTitle)
+                .accessibilityLabel(searchedTitle)
+                .font(searchedTitleFont)
+                .foregroundColor(.yellow)
+                .padding(20)
+
+            ScrollView(.vertical) {
+                if !searchResults.isEmpty {
+                    ForEach(searchResults) { searched in
+                        createTappableField(for: searched, geometry: geometry)
+                    }
+                } else {
+                    ForEach(popularSearches) { searched in
+                        createTappableField(for: searched, geometry: geometry)
+                    }
+                }
+            }
+            .foregroundColor(.white)
+        }
+        .frame(width: abs(geometry.size.width), alignment: .leading)
     }
 
     private func createTappableField(for item: Searched, geometry: GeometryProxy) -> some View {
