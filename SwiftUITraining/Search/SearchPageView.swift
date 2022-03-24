@@ -9,22 +9,46 @@ import SwiftUI
 
 struct SearchPageView: View {
 
+    struct Searched: Identifiable, Hashable {
+        let id: Int
+        let text: String
+    }
+
     @EnvironmentObject private var appEnv: AppEnv
+    @State private var popularSearches: [Searched] = [
+        Searched(id: 0, text:"Just Un Clou"),
+        Searched(id: 1, text:"Stockholm store renovation"),
+        Searched(id: 2, text:"Love bracelet")
+    ]
+
+    @State private var searchResults: [Searched] = []
+
+    @State private var searchedText: String = ""
+    @State private var selectedItem: Searched?
+
+    private var toSearchItems: [Searched] = [
+        Searched(id: 0, text:"Just Un Clou"),
+        Searched(id: 1, text:"Stockholm store renovation"),
+        Searched(id: 2, text:"Love bracelet"),
+        Searched(id: 3, text:"Google"),
+        Searched(id: 4, text:"Facebook"),
+        Searched(id: 5, text:"Facebook Ads")
+    ]
 
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 VStack {
-                    let hSize = CGSize(width: geometry.size.width * 0.75, height: 100)
+                    let hSize = CGSize(width: geometry.size.width * 0.75, height: 120)
                     HStack {
-                        let font = Font.custom("FancyCutCondProB7-Bold", size: 30)
+                        let titleFont = Font.custom("FancyCutCondProB7-Bold", size: 30)
                         let titleStr = "SEARCH"
-
                         Text(titleStr)
                             .accessibilityLabel(titleStr)
-                            .font(font)
+                            .font(titleFont)
                             .foregroundColor(.black)
                             .padding(20)
+                            .padding(.top, 20)
                             .frame(width: abs(hSize.width), height: hSize.height, alignment: .leading)
                             .background(Color.white)
                             .mask {
@@ -65,28 +89,37 @@ struct SearchPageView: View {
             VStack {
                 let config = InputFieldView.Config(id: 0,
                                                    text: "",
-                                                   geometry: geometry,
                                                    showButton: true,
                                                    icon: Image("ic_search_white"),
+                                                   onChangeAction: triggerInputFieldAction,
                                                    action: triggerInputFieldAction)
+                InputFieldView(config: config)
+                    .padding(20)
 
-                let config2 = InputFieldView.Config(id: 1,
-                                                    text: "",
-                                                    geometry: geometry,
-                                                    showButton: true,
-                                                    icon: Image("ic_search"),
-                                                    action: triggerInputFieldAction)
+                ZStack {
+                    VStack(alignment: .leading, spacing: 10) {
+                        let searchedTitleFont = Font.custom("FancyCutCondProB7-Bold", size: 20)
+                        let searchedTitle = !searchResults.isEmpty ? "SEARCHED RESULTS" : "POPULAR SEARCHES"
+                        Text(searchedTitle)
+                            .accessibilityLabel(searchedTitle)
+                            .font(searchedTitleFont)
+                            .foregroundColor(.yellow)
+                            .padding(20)
 
-                let config3 = InputFieldView.Config(id: 3,
-                                                    text: "",
-                                                    geometry: geometry,
-                                                    showSeparator: false,
-                                                    showButton: true,
-                                                    icon: Image("ic_search_white"),
-                                                    action: triggerInputFieldAction)
-
-                ForEach([config, config2, config3], id: \.id) { config in
-                    InputFieldView(config: config)
+                        ScrollView(.vertical) {
+                            if !searchResults.isEmpty {
+                                ForEach(searchResults) { searched in
+                                    createTappableField(for: searched, geometry: geometry)
+                                }
+                            } else {
+                                ForEach(popularSearches) { searched in
+                                    createTappableField(for: searched, geometry: geometry)
+                                }
+                            }
+                        }
+                        .foregroundColor(.white)
+                    }
+                    .frame(width: abs(geometry.size.width), alignment: .leading)
                 }
             }
             .padding(.top, 150)
@@ -97,8 +130,34 @@ struct SearchPageView: View {
         .navigationBarHidden(true)
     }
 
+    private func createTappableField(for item: Searched, geometry: GeometryProxy) -> some View {
+        Button {
+            searchedItemTapped(item: item)
+        } label: {
+            Text(item.text)
+                .accessibilityLabel(item.text)
+                .tag(item.id)
+                .frame(width: abs(geometry.size.width), height: 40, alignment: .leading)
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
+        }
+    }
+
     private func triggerInputFieldAction(id: Int, text: String) {
         print("triggered: \(id) -- \(text)")
+        searchedText = text
+
+        if text.isEmpty {
+            searchResults = []
+        } else {
+            searchResults = toSearchItems.filter({ item in
+                item.text.lowercased().hasPrefix(text.lowercased())
+            })
+        }
+    }
+
+    private func searchedItemTapped(item: Searched) {
+        print("searchedItemTapped: \(item.id) -- \(item.text)")
     }
 }
 
