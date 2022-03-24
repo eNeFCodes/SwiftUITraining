@@ -21,8 +21,10 @@ struct InputFieldView: View {
         let textColor: Color
 
         let showSeparator: Bool
+        let separatorColor: Color
         let showButton: Bool
         let icon: Image?
+        let onChangeAction: ((_ id: Int, _ text: String) -> Void)?
         let action: ((_ id: Int, _ text: String) -> Void)?
 
         init(id: Int,
@@ -34,8 +36,10 @@ struct InputFieldView: View {
              textColor: Color = .white,
 
              showSeparator: Bool = true,
+             separatorColor: Color = .white,
              showButton: Bool = false,
              icon: Image? = nil,
+             onChangeAction: ((_ id: Int, _ text: String) -> Void)? = nil,
              action: ((_ id: Int, _ text: String) -> Void)? = nil) {
 
             self.id = id
@@ -47,13 +51,20 @@ struct InputFieldView: View {
             self.textColor = textColor
 
             self.showSeparator = showSeparator
+            self.separatorColor = separatorColor
             self.showButton = showButton
             self.icon = icon
+
+            self.onChangeAction = onChangeAction
             self.action = action
         }
 
         func trigger() {
             action?(id, text)
+        }
+
+        func onChange() {
+            onChangeAction?(id, text)
         }
     }
 
@@ -72,7 +83,7 @@ struct InputFieldView: View {
                         .frame(height: 40, alignment: .leading)
                         .foregroundColor(config.textColor)
                         .onChange(of: config.text) { newValue in
-                            config.trigger()
+                            config.onChange()
                         }
 
                 }
@@ -95,7 +106,7 @@ struct InputFieldView: View {
                 let p1 = CGPoint(x: 0, y: 0)
                 let p2 = CGPoint(x: config.geometry.size.width - 40, y: 0)
                 BorderView(coordinates: [p1, p2])
-                    .stroke(Color.white, lineWidth: 1)
+                    .stroke(config.separatorColor, lineWidth: 1)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
             }
@@ -105,11 +116,43 @@ struct InputFieldView: View {
 }
 
 struct InputFieldView_Previews: PreviewProvider {
-    @State static var text: String = ""
     static var previews: some View {
         GeometryReader { geometry in
-            let config = InputFieldView.Config(id: 0, text: text, geometry: geometry)
-            InputFieldView(config: config)
+            VStack {
+                let config = InputFieldView.Config(id: 0,
+                                                   text: "",
+                                                   geometry: geometry,
+                                                   showButton: true,
+                                                   icon: Image("ic_search_white"),
+                                                   action: triggerInputFieldAction)
+
+                let config2 = InputFieldView.Config(id: 1,
+                                                    text: "",
+                                                    geometry: geometry,
+                                                    separatorColor: .yellow,
+                                                    showButton: true,
+                                                    icon: Image("ic_search"),
+                                                    action: triggerInputFieldAction)
+
+                let config3 = InputFieldView.Config(id: 3,
+                                                    text: "",
+                                                    geometry: geometry,
+                                                    showSeparator: false,
+                                                    showButton: true,
+                                                    icon: Image("ic_eye_white"),
+                                                    action: triggerInputFieldAction)
+
+                ForEach([config, config2, config3], id: \.id) { config in
+                    InputFieldView(config: config)
+                }
+
+                Spacer()
+            }
+            .background(Color.black)
         }
+    }
+
+    private static func triggerInputFieldAction(id: Int, text: String) {
+        print("triggered: \(id) -- \(text)")
     }
 }
