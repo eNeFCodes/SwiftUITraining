@@ -11,10 +11,10 @@ import SwiftUI
 
 struct InputFieldView: View {
 
-    class Config: Identifiable, ObservableObject {
+    class Config: Identifiable {
         let id: Int
-        @Published var text: String
-
+        let title: String
+        let titleColor: Color
         let placeholder: String
         let placeholderTextColor: Color
         let textColor: Color
@@ -23,12 +23,13 @@ struct InputFieldView: View {
         let separatorColor: Color
         let showButton: Bool
         let icon: Image?
+        var activeIcon: Image?
         let onChangeAction: ((_ id: Int, _ text: String) -> Void)?
         let action: ((_ id: Int, _ text: String) -> Void)?
 
         init(id: Int,
-             text: String = "",
-
+             title: String = "Search CNT",
+             titleColor: Color = .white,
              placeholder: String = "Search CNT",
              placeholderTextColor: Color = .gray,
              textColor: Color = .white,
@@ -37,12 +38,13 @@ struct InputFieldView: View {
              separatorColor: Color = .white,
              showButton: Bool = false,
              icon: Image? = nil,
+             activeIcon: Image? = nil,
              onChangeAction: ((_ id: Int, _ text: String) -> Void)? = nil,
              action: ((_ id: Int, _ text: String) -> Void)? = nil) {
 
             self.id = id
-            self.text = text
-
+            self.title = title
+            self.titleColor = titleColor
             self.placeholder = placeholder
             self.placeholderTextColor = placeholderTextColor
             self.textColor = textColor
@@ -51,49 +53,67 @@ struct InputFieldView: View {
             self.separatorColor = separatorColor
             self.showButton = showButton
             self.icon = icon
+            self.activeIcon = activeIcon
 
             self.onChangeAction = onChangeAction
             self.action = action
         }
 
-        func trigger() {
+        func trigger(text: String) {
             action?(id, text)
         }
 
-        func onChange() {
+        func onChange(text: String) {
             onChangeAction?(id, text)
         }
     }
 
-    @StateObject var config: Config
+    @Binding var text: String
+    var config: Config
     
     var body: some View {
+        let maxFieldHeight: CGFloat = text.isEmpty ? 49 : 77
         GeometryReader { geometry in
-            VStack(spacing: 10) {
+            VStack(spacing: 8) {
+                if !text.isEmpty {
+                    let titleFont = Font.custom("BrilliantCutProB7-Regular", size: 15)
+                    Text(config.title)
+                        .accessibilityLabel(config.title)
+                        .foregroundColor(config.titleColor)
+                        .font(titleFont)
+                        .frame(width: geometry.size.width, height: 20, alignment: .leading)
+                }
+
                 HStack(alignment: .center, spacing: 10) {
                     ZStack(alignment: .leading) {
-                        if config.text.isEmpty {
+                        if text.isEmpty {
                             Text(config.placeholder)
                                 .accessibilityLabel(config.placeholder)
                                 .foregroundColor(config.placeholderTextColor)
                         }
-                        TextField("", text: $config.text)
+                        TextField("", text: $text)
                             .frame(height: 40, alignment: .leading)
                             .foregroundColor(config.textColor)
-                            .onChange(of: config.text) { newValue in
-                                config.onChange()
+                            .onChange(of: text) { newValue in
+                                config.onChange(text: newValue)
                             }
-
                     }
 
-                    if config.showButton, let icon = config.icon {
+                    if config.showButton, let icon = config.icon, let activeIcon = config.activeIcon {
                         Button {
-                            config.trigger()
+                            config.trigger(text: text)
                         } label: {
-                            icon
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 40, height: 40, alignment: .center)
+                            if !text.isEmpty {
+                                activeIcon
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 40, height: 40, alignment: .center)
+                            } else {
+                                icon
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 40, height: 40, alignment: .center)
+                            }
                         }
                     }
                 }
@@ -105,37 +125,35 @@ struct InputFieldView: View {
                         .stroke(config.separatorColor, lineWidth: 1)
                 }
             }
-            .frame(width: geometry.size.width, height: 51, alignment: .center)
+            .frame(width: geometry.size.width, height: maxFieldHeight, alignment: .center)
         }
-        .frame(height: 51, alignment: .center)
+        .frame(height: maxFieldHeight, alignment: .center)
     }
 }
 
 struct InputFieldView_Previews: PreviewProvider {
+    @State static var text: String = ""
     static var previews: some View {
         VStack {
             let config = InputFieldView.Config(id: 0,
-                                               text: "",
                                                showButton: true,
                                                icon: Image("ic_search_white"),
                                                action: triggerInputFieldAction)
 
             let config2 = InputFieldView.Config(id: 1,
-                                                text: "",
                                                 separatorColor: .yellow,
                                                 showButton: true,
                                                 icon: Image("ic_search"),
                                                 action: triggerInputFieldAction)
 
             let config3 = InputFieldView.Config(id: 3,
-                                                text: "",
                                                 showSeparator: false,
                                                 showButton: true,
                                                 icon: Image("ic_eye_white"),
                                                 action: triggerInputFieldAction)
 
             ForEach([config, config2, config3], id: \.id) { config in
-                InputFieldView(config: config)
+                InputFieldView(text: $text, config: config)
             }
 
             Spacer()

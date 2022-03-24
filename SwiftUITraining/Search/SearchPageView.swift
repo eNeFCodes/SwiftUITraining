@@ -37,6 +37,8 @@ struct SearchPageView: View {
     ]
 
     var body: some View {
+        let shouldSwitchColor = !searchedText.isEmpty && !searchResults.isEmpty
+        let bgColorAll: Color = shouldSwitchColor ? .white : .black
         GeometryReader { geometry in
             ZStack {
                 VStack {
@@ -44,14 +46,17 @@ struct SearchPageView: View {
                     HStack {
                         let titleFont = Font.custom("FancyCutCondProB7-Bold", size: 30)
                         let titleStr = "SEARCH"
+                        let fgColor: Color = shouldSwitchColor ? .white : .black
+                        let bgColor: Color = shouldSwitchColor ? .black : .white
+
                         Text(titleStr)
                             .accessibilityLabel(titleStr)
                             .font(titleFont)
-                            .foregroundColor(.black)
+                            .foregroundColor(fgColor)
                             .padding(20)
                             .padding(.top, 20)
                             .frame(width: abs(hSize.width), height: hSize.height, alignment: .leading)
-                            .background(Color.white)
+                            .background(bgColor)
                             .mask {
                                 let curve: CGFloat = 20
                                 let p1 = CGPoint(x: 0, y: 0)
@@ -76,7 +81,8 @@ struct SearchPageView: View {
                             appEnv.loginMode = .default
                             presentationMode.wrappedValue.dismiss()
                         } label: {
-                            Image("ic_close_white")
+                            let closeIcon = shouldSwitchColor ? Image("ic_close") : Image("ic_close_white")
+                            closeIcon
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 50, height: 50, alignment: .center)
@@ -90,17 +96,11 @@ struct SearchPageView: View {
             .frame(width: abs(geometry.size.width), alignment: .center)
 
             VStack {
-                let config = InputFieldView.Config(id: 0,
-                                                   text: "",
-                                                   showButton: true,
-                                                   icon: Image("ic_search_white"),
-                                                   onChangeAction: triggerInputFieldAction,
-                                                   action: triggerInputFieldAction)
-                InputFieldView(config: config)
+                InputFieldView(text: $searchedText, config: makeSearchFieldConfig())
                     .padding(20)
 
                 ZStack {
-                    if !searchedText.isEmpty && searchResults.isEmpty{
+                    if !searchedText.isEmpty && searchResults.isEmpty {
                         emptyResultView(geometry: geometry)
                     } else {
                         resultsView(geometry: geometry)
@@ -109,10 +109,34 @@ struct SearchPageView: View {
             }
             .padding(.top, 150)
         }
-        .background(Color.black)
+        .background(bgColorAll)
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
+    }
+
+    private func makeSearchFieldConfig() -> InputFieldView.Config {
+        if !searchResults.isEmpty {
+            return InputFieldView.Config(id: 0,
+                                         titleColor: .black,
+                                         textColor: .black,
+                                         separatorColor: .black,
+                                         showButton: true,
+                                         icon: Image("ic_search_white"),
+                                         activeIcon: Image("ic_close"),
+                                         onChangeAction: triggerInputFieldOnChangeAction,
+                                         action: triggerInputFieldAction)
+        } else {
+            return InputFieldView.Config(id: 0,
+                                         titleColor: .white,
+                                         textColor: .white,
+                                         separatorColor: .white,
+                                         showButton: true,
+                                         icon: Image("ic_search_white"),
+                                         activeIcon: Image("ic_close_white"),
+                                         onChangeAction: triggerInputFieldOnChangeAction,
+                                         action: triggerInputFieldAction)
+        }
     }
 
     private func emptyResultView(geometry: GeometryProxy) -> some View {
@@ -155,13 +179,14 @@ struct SearchPageView: View {
                     ForEach(searchResults) { searched in
                         createTappableField(for: searched, geometry: geometry)
                     }
+                    .foregroundColor(.black)
                 } else {
                     ForEach(popularSearches) { searched in
                         createTappableField(for: searched, geometry: geometry)
                     }
+                    .foregroundColor(.white)
                 }
             }
-            .foregroundColor(.white)
         }
         .frame(width: abs(geometry.size.width), alignment: .leading)
     }
@@ -179,10 +204,8 @@ struct SearchPageView: View {
         }
     }
 
-    private func triggerInputFieldAction(id: Int, text: String) {
+    private func triggerInputFieldOnChangeAction(id: Int, text: String) {
         print("triggered: \(id) -- \(text)")
-        searchedText = text
-
         if text.isEmpty {
             searchResults = []
         } else {
@@ -190,6 +213,11 @@ struct SearchPageView: View {
                 item.text.lowercased().hasPrefix(text.lowercased())
             })
         }
+    }
+
+    private func triggerInputFieldAction(id: Int, text: String) {
+        searchedText = ""
+        searchResults = []
     }
 
     private func searchedItemTapped(item: Searched) {
