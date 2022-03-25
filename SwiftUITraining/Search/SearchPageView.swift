@@ -167,7 +167,7 @@ struct SearchPageView: View {
     private func resultsView(geometry: GeometryProxy) -> some View {
         VStack(alignment: .leading, spacing: 10) {
             let searchedTitleFont = Font.custom("FancyCutCondProB7-Bold", size: 20)
-            let searchedTitle = !searchResults.isEmpty ? "SEARCHED RESULTS" : "POPULAR SEARCHES"
+            let searchedTitle = !searchResults.isEmpty ? "\(searchResults.count) RESULTS" : "POPULAR SEARCHES"
             Text(searchedTitle)
                 .accessibilityLabel(searchedTitle)
                 .font(searchedTitleFont)

@@ -73,6 +73,8 @@
 		8FA8791127E9A526008C2837 /* NavigationButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8791027E9A526008C2837 /* NavigationButtonItem.swift */; };
 		8FA8791427EAF2A6008C2837 /* SearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8791327EAF2A6008C2837 /* SearchPageView.swift */; };
 		8FA8791627EB2444008C2837 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8791527EB2443008C2837 /* InputFieldView.swift */; };
+		8FAE848727ED4F7600872BE9 /* SearchResultItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848627ED4F7600872BE9 /* SearchResultItemView.swift */; };
+		8FAE848927ED6A3300872BE9 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848827ED6A3300872BE9 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +146,8 @@
 		8FA8791027E9A526008C2837 /* NavigationButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButtonItem.swift; sourceTree = "<group>"; };
 		8FA8791327EAF2A6008C2837 /* SearchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView.swift; sourceTree = "<group>"; };
 		8FA8791527EB2443008C2837 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
+		8FAE848627ED4F7600872BE9 /* SearchResultItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultItemView.swift; sourceTree = "<group>"; };
+		8FAE848827ED6A3300872BE9 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +320,7 @@
 			children = (
 				8FA878EE27E043F8008C2837 /* AppEnvironment.swift */,
 				8FA8790127E43B22008C2837 /* User.swift */,
+				8FAE848827ED6A3300872BE9 /* Helpers.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				8FA8791327EAF2A6008C2837 /* SearchPageView.swift */,
+				8FAE848627ED4F7600872BE9 /* SearchResultItemView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -494,6 +500,7 @@
 				8F44128A27D1BD1A009487A6 /* SwiftUITrainingApp.swift in Sources */,
 				8FA878F327E1EC69008C2837 /* LoginAtlasView.swift in Sources */,
 				8FA878EF27E043F8008C2837 /* AppEnvironment.swift in Sources */,
+				8FAE848927ED6A3300872BE9 /* Helpers.swift in Sources */,
 				8F8E610627D5DE72003AFA79 /* LoginHeaderView.swift in Sources */,
 				8FA8791627EB2444008C2837 /* InputFieldView.swift in Sources */,
 				8FA8790D27E87A6D008C2837 /* BriefingView.swift in Sources */,
@@ -504,6 +511,7 @@
 				8F8E610827D6F195003AFA79 /* LoginAtlasInputView.swift in Sources */,
 				8F8E610A27D74307003AFA79 /* BorderView.swift in Sources */,
 				8FA878FF27E4131F008C2837 /* FTUEContentView.swift in Sources */,
+				8FAE848727ED4F7600872BE9 /* SearchResultItemView.swift in Sources */,
 				8FA8790A27E850A2008C2837 /* FTUEShowcaseView.swift in Sources */,
 				8FA8790F27E87D95008C2837 /* NavigationButtonView.swift in Sources */,
 				8F8E60FD27D208D9003AFA79 /* LoaderView.swift in Sources */,
