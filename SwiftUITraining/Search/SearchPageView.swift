@@ -182,9 +182,8 @@ struct SearchPageView: View {
             ScrollView(.vertical) {
                 if !searchResults.isEmpty {
                     ForEach(searchResults) { searched in
-                        createTappableField(for: searched, geometry: geometry)
+                        createResultItemView(for: searched, geometry: geometry)
                     }
-                    .foregroundColor(.black)
                 } else {
                     ForEach(popularSearches) { searched in
                         createTappableField(for: searched, geometry: geometry)
@@ -194,6 +193,15 @@ struct SearchPageView: View {
             }
         }
         .frame(width: abs(geometry.size.width), alignment: .leading)
+    }
+
+    private func createResultItemView(for item: Searched, geometry: GeometryProxy) -> some View {
+        SearchResultItemView(item: item, action: resultActionHandler)
+            .frame(width: geometry.size.width, height: SearchResultItemView.calculatedHeight(geometry: geometry))
+    }
+
+    private func resultActionHandler(item: Searched) {
+        print("resultActionHandler: ", item)
     }
 
     private func createTappableField(for item: Searched, geometry: GeometryProxy) -> some View {
