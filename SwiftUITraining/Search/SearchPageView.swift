@@ -11,30 +11,35 @@ struct SearchPageView: View {
 
     struct Searched: Identifiable, Hashable {
         let id: Int
-        let text: String
+        let title: String
+        let subTitle: String
+        let imageName: String
+        let date: String
+
+        init(id: Int,
+             title: String,
+             subTitle: String = "",
+             imageName: String = "",
+             date: String = "") {
+
+            self.id = id
+            self.title = title
+            self.subTitle = subTitle
+            self.imageName = imageName
+            self.date = date
+        }
     }
 
     @EnvironmentObject private var appEnv: AppEnv
     @Environment(\.presentationMode) private var presentationMode
-    @State private var popularSearches: [Searched] = [
-        Searched(id: 0, text:"Just Un Clou"),
-        Searched(id: 1, text:"Stockholm store renovation"),
-        Searched(id: 2, text:"Love bracelet")
-    ]
+    @State private var popularSearches: [Searched] = SearchMockData.popularSearches
 
     @State private var searchResults: [Searched] = []
 
     @State private var searchedText: String = "asdfadfaf"
     @State private var selectedItem: Searched?
 
-    private var toSearchItems: [Searched] = [
-        Searched(id: 0, text:"Just Un Clou"),
-        Searched(id: 1, text:"Stockholm store renovation"),
-        Searched(id: 2, text:"Love bracelet"),
-        Searched(id: 3, text:"Google"),
-        Searched(id: 4, text:"Facebook"),
-        Searched(id: 5, text:"Facebook Ads")
-    ]
+    private var toSearchItems: [Searched] = SearchMockData.toSearchItems
 
     var body: some View {
         let shouldSwitchColor = !searchedText.isEmpty && !searchResults.isEmpty
@@ -195,8 +200,8 @@ struct SearchPageView: View {
         Button {
             searchedItemTapped(item: item)
         } label: {
-            Text(item.text)
-                .accessibilityLabel(item.text)
+            Text(item.title)
+                .accessibilityLabel(item.title)
                 .tag(item.id)
                 .frame(width: abs(geometry.size.width), height: 40, alignment: .leading)
                 .padding(.leading, 20)
@@ -210,7 +215,7 @@ struct SearchPageView: View {
             searchResults = []
         } else {
             searchResults = toSearchItems.filter({ item in
-                item.text.lowercased().hasPrefix(text.lowercased())
+                item.title.lowercased().hasPrefix(text.lowercased())
             })
         }
     }
@@ -221,7 +226,7 @@ struct SearchPageView: View {
     }
 
     private func searchedItemTapped(item: Searched) {
-        print("searchedItemTapped: \(item.id) -- \(item.text)")
+        print("searchedItemTapped: \(item.id) -- \(item.title)")
     }
 }
 

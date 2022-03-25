@@ -75,6 +75,7 @@
 		8FA8791627EB2444008C2837 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8791527EB2443008C2837 /* InputFieldView.swift */; };
 		8FAE848727ED4F7600872BE9 /* SearchResultItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848627ED4F7600872BE9 /* SearchResultItemView.swift */; };
 		8FAE848927ED6A3300872BE9 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848827ED6A3300872BE9 /* Helpers.swift */; };
+		8FAE848B27ED6E3000872BE9 /* SearchMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848A27ED6E3000872BE9 /* SearchMockData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +149,7 @@
 		8FA8791527EB2443008C2837 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		8FAE848627ED4F7600872BE9 /* SearchResultItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultItemView.swift; sourceTree = "<group>"; };
 		8FAE848827ED6A3300872BE9 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		8FAE848A27ED6E3000872BE9 /* SearchMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +377,7 @@
 		8FA8791227EAF29D008C2837 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				8FAE848A27ED6E3000872BE9 /* SearchMockData.swift */,
 				8FA8791327EAF2A6008C2837 /* SearchPageView.swift */,
 				8FAE848627ED4F7600872BE9 /* SearchResultItemView.swift */,
 			);
@@ -490,6 +493,7 @@
 				8F44128C27D1BD1A009487A6 /* ContentView.swift in Sources */,
 				8FA878FC27E33C9E008C2837 /* LoginContentModel.swift in Sources */,
 				8F8E611027DAD68D003AFA79 /* LoginAtlasModel.swift in Sources */,
+				8FAE848B27ED6E3000872BE9 /* SearchMockData.swift in Sources */,
 				8FA8789E27DF3572008C2837 /* HomeView.swift in Sources */,
 				8F8E610C27D8A8B9003AFA79 /* ScrubWrapper.swift in Sources */,
 				8FA878F127E08422008C2837 /* ToastView.swift in Sources */,
