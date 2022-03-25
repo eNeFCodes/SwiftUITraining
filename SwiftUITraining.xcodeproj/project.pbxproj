@@ -76,6 +76,7 @@
 		8FAE848727ED4F7600872BE9 /* SearchResultItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848627ED4F7600872BE9 /* SearchResultItemView.swift */; };
 		8FAE848927ED6A3300872BE9 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848827ED6A3300872BE9 /* Helpers.swift */; };
 		8FAE848B27ED6E3000872BE9 /* SearchMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848A27ED6E3000872BE9 /* SearchMockData.swift */; };
+		8FAE848E27EDA84200872BE9 /* ArticlePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848D27EDA84200872BE9 /* ArticlePageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +151,7 @@
 		8FAE848627ED4F7600872BE9 /* SearchResultItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultItemView.swift; sourceTree = "<group>"; };
 		8FAE848827ED6A3300872BE9 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8FAE848A27ED6E3000872BE9 /* SearchMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMockData.swift; sourceTree = "<group>"; };
+		8FAE848D27EDA84200872BE9 /* ArticlePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 		8F44128827D1BD1A009487A6 /* SwiftUITraining */ = {
 			isa = PBXGroup;
 			children = (
+				8FAE848C27EDA80D00872BE9 /* Article */,
 				8FA8791227EAF29D008C2837 /* Search */,
 				8FA8790B27E87A5F008C2837 /* Briefing */,
 				8FA878ED27E02A7E008C2837 /* Info.plist */,
@@ -384,6 +387,14 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		8FAE848C27EDA80D00872BE9 /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				8FAE848D27EDA84200872BE9 /* ArticlePageView.swift */,
+			);
+			path = Article;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -502,6 +513,7 @@
 				8F8E610E27DAD394003AFA79 /* Biometrics.swift in Sources */,
 				8FA878F527E1EFF3008C2837 /* LoginButtonView.swift in Sources */,
 				8F44128A27D1BD1A009487A6 /* SwiftUITrainingApp.swift in Sources */,
+				8FAE848E27EDA84200872BE9 /* ArticlePageView.swift in Sources */,
 				8FA878F327E1EC69008C2837 /* LoginAtlasView.swift in Sources */,
 				8FA878EF27E043F8008C2837 /* AppEnvironment.swift in Sources */,
 				8FAE848927ED6A3300872BE9 /* Helpers.swift in Sources */,
