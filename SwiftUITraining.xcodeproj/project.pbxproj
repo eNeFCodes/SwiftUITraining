@@ -77,6 +77,8 @@
 		8FAE848927ED6A3300872BE9 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848827ED6A3300872BE9 /* Helpers.swift */; };
 		8FAE848B27ED6E3000872BE9 /* SearchMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848A27ED6E3000872BE9 /* SearchMockData.swift */; };
 		8FAE848E27EDA84200872BE9 /* ArticlePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848D27EDA84200872BE9 /* ArticlePageView.swift */; };
+		8FAE849027F133C100872BE9 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848F27F133C100872BE9 /* String+Ext.swift */; };
+		8FAE849227F1386600872BE9 /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE849127F1386600872BE9 /* Font+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +154,8 @@
 		8FAE848827ED6A3300872BE9 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8FAE848A27ED6E3000872BE9 /* SearchMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMockData.swift; sourceTree = "<group>"; };
 		8FAE848D27EDA84200872BE9 /* ArticlePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePageView.swift; sourceTree = "<group>"; };
+		8FAE848F27F133C100872BE9 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		8FAE849127F1386600872BE9 /* Font+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +330,8 @@
 				8FA878EE27E043F8008C2837 /* AppEnvironment.swift */,
 				8FA8790127E43B22008C2837 /* User.swift */,
 				8FAE848827ED6A3300872BE9 /* Helpers.swift */,
+				8FAE848F27F133C100872BE9 /* String+Ext.swift */,
+				8FAE849127F1386600872BE9 /* Font+Ext.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -517,11 +523,13 @@
 				8FA878F327E1EC69008C2837 /* LoginAtlasView.swift in Sources */,
 				8FA878EF27E043F8008C2837 /* AppEnvironment.swift in Sources */,
 				8FAE848927ED6A3300872BE9 /* Helpers.swift in Sources */,
+				8FAE849227F1386600872BE9 /* Font+Ext.swift in Sources */,
 				8F8E610627D5DE72003AFA79 /* LoginHeaderView.swift in Sources */,
 				8FA8791627EB2444008C2837 /* InputFieldView.swift in Sources */,
 				8FA8790D27E87A6D008C2837 /* BriefingView.swift in Sources */,
 				8FA8790427E45712008C2837 /* FTUEIntroView.swift in Sources */,
 				8F8E610127D5D492003AFA79 /* LoginContentView.swift in Sources */,
+				8FAE849027F133C100872BE9 /* String+Ext.swift in Sources */,
 				8FA8791427EAF2A6008C2837 /* SearchPageView.swift in Sources */,
 				8FA8790827E84AF5008C2837 /* DotView.swift in Sources */,
 				8F8E610827D6F195003AFA79 /* LoginAtlasInputView.swift in Sources */,
