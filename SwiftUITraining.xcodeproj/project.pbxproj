@@ -76,9 +76,10 @@
 		8FAE848727ED4F7600872BE9 /* SearchResultItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848627ED4F7600872BE9 /* SearchResultItemView.swift */; };
 		8FAE848927ED6A3300872BE9 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848827ED6A3300872BE9 /* Helpers.swift */; };
 		8FAE848B27ED6E3000872BE9 /* SearchMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848A27ED6E3000872BE9 /* SearchMockData.swift */; };
-		8FAE848E27EDA84200872BE9 /* ArticlePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848D27EDA84200872BE9 /* ArticlePageView.swift */; };
+		8FAE848E27EDA84200872BE9 /* ArticlePageTakeAwayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848D27EDA84200872BE9 /* ArticlePageTakeAwayView.swift */; };
 		8FAE849027F133C100872BE9 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848F27F133C100872BE9 /* String+Ext.swift */; };
 		8FAE849227F1386600872BE9 /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE849127F1386600872BE9 /* Font+Ext.swift */; };
+		8FAE849427F13ED200872BE9 /* ArticlePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE849327F13ED200872BE9 /* ArticlePageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,9 +154,10 @@
 		8FAE848627ED4F7600872BE9 /* SearchResultItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultItemView.swift; sourceTree = "<group>"; };
 		8FAE848827ED6A3300872BE9 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8FAE848A27ED6E3000872BE9 /* SearchMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMockData.swift; sourceTree = "<group>"; };
-		8FAE848D27EDA84200872BE9 /* ArticlePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePageView.swift; sourceTree = "<group>"; };
+		8FAE848D27EDA84200872BE9 /* ArticlePageTakeAwayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePageTakeAwayView.swift; sourceTree = "<group>"; };
 		8FAE848F27F133C100872BE9 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		8FAE849127F1386600872BE9 /* Font+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
+		8FAE849327F13ED200872BE9 /* ArticlePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,7 +398,8 @@
 		8FAE848C27EDA80D00872BE9 /* Article */ = {
 			isa = PBXGroup;
 			children = (
-				8FAE848D27EDA84200872BE9 /* ArticlePageView.swift */,
+				8FAE849327F13ED200872BE9 /* ArticlePageView.swift */,
+				8FAE848D27EDA84200872BE9 /* ArticlePageTakeAwayView.swift */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -519,12 +522,13 @@
 				8F8E610E27DAD394003AFA79 /* Biometrics.swift in Sources */,
 				8FA878F527E1EFF3008C2837 /* LoginButtonView.swift in Sources */,
 				8F44128A27D1BD1A009487A6 /* SwiftUITrainingApp.swift in Sources */,
-				8FAE848E27EDA84200872BE9 /* ArticlePageView.swift in Sources */,
+				8FAE848E27EDA84200872BE9 /* ArticlePageTakeAwayView.swift in Sources */,
 				8FA878F327E1EC69008C2837 /* LoginAtlasView.swift in Sources */,
 				8FA878EF27E043F8008C2837 /* AppEnvironment.swift in Sources */,
 				8FAE848927ED6A3300872BE9 /* Helpers.swift in Sources */,
 				8FAE849227F1386600872BE9 /* Font+Ext.swift in Sources */,
 				8F8E610627D5DE72003AFA79 /* LoginHeaderView.swift in Sources */,
+				8FAE849427F13ED200872BE9 /* ArticlePageView.swift in Sources */,
 				8FA8791627EB2444008C2837 /* InputFieldView.swift in Sources */,
 				8FA8790D27E87A6D008C2837 /* BriefingView.swift in Sources */,
 				8FA8790427E45712008C2837 /* FTUEIntroView.swift in Sources */,

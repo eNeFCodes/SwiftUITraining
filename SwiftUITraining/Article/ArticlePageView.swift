@@ -2,81 +2,17 @@
 //  ArticlePageView.swift
 //  SwiftUITraining
 //
-//  Created by Neil Francis Hipona on 3/25/22.
+//  Created by Neil Francis Hipona on 3/28/22.
 //
 
 import SwiftUI
 
 struct ArticlePageView: View {
-
     @Environment(\.presentationMode) private var presentationMode
 
     var body: some View {
-        GeometryReader { geometry in
-            VStack(alignment: .leading, spacing: 18) {
-                // title stack
-                VStack(alignment: .leading, spacing: 8) {
-                    let miniTitleFont = Font.custom("BrilliantCutProB7-Bold", size: 11)
-                    let miniTitleString = "HISTORY"
-                    Text(miniTitleString)
-                        .accessibilityLabel(miniTitleString)
-                        .font(miniTitleFont)
-                        .foregroundColor(.black)
-
-                    let titleFont = Font.custom("BrilliantCutProB7-Bold", size: 28)
-                    let titleString = "Trinity, a Mainson emblem and jewelery icon".uppercased()
-                    Text(titleString)
-                        .accessibilityLabel(titleString)
-                        .font(titleFont)
-                        .foregroundColor(.black)
-                }
-
-                // detail stack
-                let estimatedWidth = geometry.size.width - 65
-
-                let miniTitleFont = UIFont(name: "FancyCutProB7-Bold", size: 11)
-                let miniTitleString = "HISTORY"
-                let miniTitleHeight = miniTitleString.constrainedSize(with: .init(width: estimatedWidth, height: .infinity),
-                                                                     minHeight: 15,
-                                                                     attributes: [.font: miniTitleFont])
-
-                let titleFont = UIFont(name: "FancyCutProB7-Bold", size: 29)
-                let titleString = "Trinity, a Mainson emblem and jewelery icon".uppercased()
-                let titleHeight = titleString.constrainedSize(with: .init(width: estimatedWidth, height: .infinity),
-                                                              minHeight: 30,
-                                                              attributes: [.font: titleFont])
-                let canvasHeight = miniTitleHeight + 8 + titleHeight
-
-                HStack(alignment: .top, spacing: 24) {
-                    VStack {
-                        GeometryReader { geometry in
-                            let p1 = CGPoint(x: 0, y: 0)
-                            let p2 = CGPoint(x: 0, y: geometry.size.height)
-                            BorderView(coordinates: [p1, p2])
-                                .stroke(style: StrokeStyle(lineWidth: 1, dash: [2]))
-                                .foregroundColor(Color.init(hex: "AC9852"))
-                                .frame(width: 1, height: geometry.size.height, alignment: .leading)
-                        }
-                    }
-                    .frame(width: 1, alignment: .leading)
-
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(miniTitleString)
-                            .accessibilityLabel(miniTitleString)
-                            .font(miniTitleFont?.toFont())
-                            .foregroundColor(.black)
-
-                        Text(titleString)
-                            .accessibilityLabel(titleString)
-                            .font(titleFont?.toFont())
-                            .foregroundColor(.black)
-                    }
-                }
-                .frame(height: canvasHeight, alignment: .center)
-            }
-            .padding(20)
-            .frame(width: abs(geometry.size.width))
-            .background(Color.init(hex: "DCD7CA"))
+        VStack {
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         }
         .background(Color.black)
         .navigationBarBackButtonHidden(true)
@@ -101,5 +37,27 @@ struct ArticlePageView: View {
 struct ArticlePageView_Previews: PreviewProvider {
     static var previews: some View {
         ArticlePageView()
+    }
+}
+
+extension ArticlePageView {
+
+    static func mockTakeAwayData() -> ArticlePageTakeAwayView.Model {
+        let model: ArticlePageTakeAwayView.Model = .init(miniTitle: "HISTORY",
+                                                         title: "Trinity, a Mainson emblem and jewelery icon".uppercased(),
+                                                         infoDate: "APR 02, 2020",
+                                                         infoAuthor: "Jane Doe, Lorem Ispum Role",
+                                                         infoLocation: "5th Avenue Mansion",
+                                                         infoDetail: "Created in 1924 by Louis Cartier, the Trinity ring soon became one of the emblems of the Maison and a jewelery icon.",
+                                                         takeAways: [
+                                                            .init(id: 1,
+                                                                  detail: "First ring made of three interlaced individual bands. Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
+                                                            .init(id: 2,
+                                                                  detail: "The harmonious interplay between the bands create an expression of attachment. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex."),
+                                                            .init(id: 3,
+                                                                  detail: "Relaunched by Cartier in 1981. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+                                                         ])
+
+        return model
     }
 }

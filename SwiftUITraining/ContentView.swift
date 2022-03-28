@@ -19,7 +19,7 @@ struct ContentView: View {
                     //BriefingView()
                     //FTUEContentView()
                     //SearchPageView()
-                    ArticlePageView()
+                    ArticlePageTakeAwayView()
                 }
                 .navigationViewStyle(.stack)
                 .environmentObject(appEnv)

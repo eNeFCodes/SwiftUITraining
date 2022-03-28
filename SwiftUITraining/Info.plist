@@ -7,6 +7,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>FancyCutProB7-Bold.otf</string>
+		<string>FancyCutProB7-Light.otf</string>
 		<string>BrilliantCutProB7-Bold.otf</string>
 		<string>BrilliantCutProB7-Regular.otf</string>
 		<string>FancyCutProB7-Regular.otf</string>
