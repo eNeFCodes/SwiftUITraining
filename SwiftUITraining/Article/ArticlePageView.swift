@@ -11,11 +11,14 @@ struct ArticlePageView: View {
     @Environment(\.presentationMode) private var presentationMode
 
     var body: some View {
-        VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView(.vertical) {
+            ArticlePageTakeAwayView()
+                .padding(.top, 91)
         }
-        .background(Color.black)
+        .ignoresSafeArea()
+        .background(Color.white)
         .navigationBarBackButtonHidden(true)
+        .navigationViewStyle(.stack)
         .navigationBarItems(leading: Button(action: {
             presentationMode.wrappedValue.dismiss()
         }, label: {

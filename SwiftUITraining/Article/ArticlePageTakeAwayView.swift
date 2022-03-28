@@ -68,17 +68,24 @@ struct ArticlePageTakeAwayView: View {
                 VStack(alignment: .leading, spacing: 18) {
                     // title stack
                     VStack(alignment: .leading, spacing: 8) {
+                        let estimatedWidth = geometry.size.width - 40
+
                         let miniTitleFont = Font.custom("BrilliantCutProB7-Bold", size: 11)
                         Text(model.miniTitle)
                             .accessibilityLabel(model.miniTitle)
                             .font(miniTitleFont)
                             .foregroundColor(.black)
 
-                        let titleFont = Font.custom("BrilliantCutProB7-Bold", size: 28)
+
+                        let titleFont = UIFont(name: "BrilliantCutProB7-Bold", size: 28)!
+                        let titleHeight = model.title.constrainedSize(with: .init(width: estimatedWidth, height: .infinity),
+                                                                            minHeight: 28,
+                                                                            attributes: [.font: titleFont])
                         Text(model.title)
                             .accessibilityLabel(model.title)
-                            .font(titleFont)
+                            .font(titleFont.toFont())
                             .foregroundColor(.black)
+                            .frame(width: abs(estimatedWidth), height: titleHeight, alignment: .leading)
                     }
 
                     // detail stack
@@ -102,8 +109,8 @@ struct ArticlePageTakeAwayView: View {
 
                         let infoDetailFont = UIFont(name: "FancyCutProB7-Light", size: 29)!
                         let infoDetailHeight = model.infoDetail.constrainedSize(with: .init(width: estimatedWidth, height: .infinity),
-                                                                      minHeight: 30,
-                                                                      attributes: [.font: infoDetailFont])
+                                                                                minHeight: 30,
+                                                                                attributes: [.font: infoDetailFont])
                         // 8 * 3 + 24
                         let canvasHeight = infoDateHeight + infoAuthorHeight + infoLocationHeight + 48 + infoDetailHeight
 
@@ -174,7 +181,7 @@ struct ArticlePageTakeAwayView: View {
                                         .accessibilityLabel(takeAway.detail)
                                         .foregroundColor(.black)
                                         .font(takeAwayDFont.toFont())
-                                        .frame(width: estimatedWidth, height: abs(takeAwayDetailHeight), alignment: .leading)
+                                        .frame(width: abs(estimatedWidth), height: abs(takeAwayDetailHeight), alignment: .leading)
                                 }
                             }
                         }
@@ -183,6 +190,7 @@ struct ArticlePageTakeAwayView: View {
                 .padding(20)
                 .frame(width: abs(geometry.size.width))
             }
+            .frame(width: abs(geometry.size.width), alignment: .top)
             .background(Color.init(hex: "DCD7CA"))
         }
     }
