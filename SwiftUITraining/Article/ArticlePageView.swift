@@ -32,6 +32,21 @@ struct ArticlePageView: View {
                 }
 
                 // detail stack
+                let estimatedWidth = geometry.size.width - 65
+
+                let miniTitleFont = UIFont(name: "FancyCutProB7-Bold", size: 11)
+                let miniTitleString = "HISTORY"
+                let miniTitleHeight = miniTitleString.constrainedSize(with: .init(width: estimatedWidth, height: .infinity),
+                                                                     minHeight: 15,
+                                                                     attributes: [.font: miniTitleFont])
+
+                let titleFont = UIFont(name: "FancyCutProB7-Bold", size: 29)
+                let titleString = "Trinity, a Mainson emblem and jewelery icon".uppercased()
+                let titleHeight = titleString.constrainedSize(with: .init(width: estimatedWidth, height: .infinity),
+                                                              minHeight: 30,
+                                                              attributes: [.font: titleFont])
+                let canvasHeight = miniTitleHeight + 8 + titleHeight
+
                 HStack(alignment: .top, spacing: 24) {
                     VStack {
                         GeometryReader { geometry in
@@ -46,22 +61,18 @@ struct ArticlePageView: View {
                     .frame(width: 1, alignment: .leading)
 
                     VStack(alignment: .leading, spacing: 8) {
-                        let miniTitleFont = Font.custom("FancyCutProB7-Bold", size: 11)
-                        let miniTitleString = "HISTORY"
                         Text(miniTitleString)
                             .accessibilityLabel(miniTitleString)
-                            .font(miniTitleFont)
+                            .font(miniTitleFont?.toFont())
                             .foregroundColor(.black)
 
-                        let titleFont = Font.custom("FancyCutProB7-Bold", size: 29)
-                        let titleString = "Trinity, a Mainson emblem and jewelery icon".uppercased()
                         Text(titleString)
                             .accessibilityLabel(titleString)
-                            .font(titleFont)
+                            .font(titleFont?.toFont())
                             .foregroundColor(.black)
                     }
                 }
-                .frame(minHeight: 20, alignment: .center)
+                .frame(height: canvasHeight, alignment: .center)
             }
             .padding(20)
             .frame(width: abs(geometry.size.width))
