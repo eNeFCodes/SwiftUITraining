@@ -82,8 +82,6 @@ struct SearchPageView: View {
                     HStack {
                         Spacer()
                         Button {
-                            appEnv.isLoggedIn = false
-                            appEnv.loginMode = .default
                             presentationMode.wrappedValue.dismiss()
                         } label: {
                             let closeIcon = shouldSwitchColor ? Image("ic_close") : Image("ic_close_white")

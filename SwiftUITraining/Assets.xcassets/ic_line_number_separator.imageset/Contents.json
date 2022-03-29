@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_line_number_separator.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
