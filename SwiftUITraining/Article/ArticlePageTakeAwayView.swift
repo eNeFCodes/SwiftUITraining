@@ -53,6 +53,61 @@ extension ArticlePageTakeAwayView {
             self.takeAwayTitle = takeAwayTitle
             self.takeAways = takeAways
         }
+
+        func estimatedHeight(geometry: GeometryProxy) -> CGFloat {
+            var frameHeight: CGFloat = 40
+
+            // title stack
+            let titleFont = UIFont(name: "BrilliantCutProB7-Bold", size: 28)!
+            let estimatedWidth = geometry.size.width - 40
+            let headerTopPadding: CGFloat = hasImage ? 265 : 91
+            let headerBotPadding: CGFloat = hasImage ? 40 : 0
+            let titleHeight = title.constrainedSize(with: .init(width: estimatedWidth, height: .infinity),
+                                                    minHeight: 28,
+                                                    attributes: [.font: titleFont])
+            frameHeight += (headerTopPadding + 23 + titleHeight + headerBotPadding)
+
+
+            // detail stack
+            let infoEstimatedWidth = geometry.size.width - 65
+            let infoDateFont = UIFont(name: "FancyCutProB7-Bold", size: 14)!
+            let infoDateHeight = infoDate.constrainedSize(with: .init(width: infoEstimatedWidth, height: .infinity),
+                                                          minHeight: 15,
+                                                          attributes: [.font: infoDateFont])
+
+            let infoAuthorFont = UIFont(name: "FancyCutProB7-Regular", size: 14)!
+            let infoAuthorHeight = infoAuthor.constrainedSize(with: .init(width: infoEstimatedWidth, height: .infinity),
+                                                              minHeight: 15,
+                                                              attributes: [.font: infoAuthorFont])
+
+            let infoLocationFont = UIFont(name: "FancyCutProB7-Bold", size: 14)!
+            let infoLocationHeight = infoLocation.constrainedSize(with: .init(width: infoEstimatedWidth, height: .infinity),
+                                                                  minHeight: 15,
+                                                                  attributes: [.font: infoLocationFont])
+
+            let infoDetailFont = UIFont(name: "FancyCutProB7-Light", size: 29)!
+            let infoDetailHeight = infoDetail.constrainedSize(with: .init(width: infoEstimatedWidth, height: .infinity),
+                                                              minHeight: 30,
+                                                              attributes: [.font: infoDetailFont])
+            // 8 * 3 + 24
+            let canvasHeight = infoDateHeight + infoAuthorHeight + infoLocationHeight + 48 + infoDetailHeight
+            frameHeight += canvasHeight
+
+            // takeaway
+            frameHeight += 30 + 15
+
+            let takeAwayEstimatedWidth = geometry.size.width - 98
+            let takeAwayDFont = UIFont(name: "FancyCutProB7-Regular", size: 18)!
+
+            takeAways.forEach { takeAway in
+                let takeAwayDetailHeight = takeAway.detail.constrainedSize(with: .init(width: takeAwayEstimatedWidth, height: .infinity),
+                                                                           minHeight: 50,
+                                                                           attributes: [.font: takeAwayDFont])
+                frameHeight += (24 + takeAwayDetailHeight)
+            }
+
+            return frameHeight + 36
+        }
     }
 }
 
@@ -62,67 +117,65 @@ struct ArticlePageTakeAwayView: View {
     let model: Model = ArticlePageView.mockTakeAwayImageData()
 
     var body: some View {
-        VStack {
-            GeometryReader { geometry in
-                ZStack {
-                    // title stack
-                    let titleFont = UIFont(name: "BrilliantCutProB7-Bold", size: 28)!
-                    let estimatedWidth = geometry.size.width - 40
-                    let headerTopPadding: CGFloat = model.hasImage ? 265 : 91
-                    let headerBotPadding: CGFloat = model.hasImage ? 40 : 0
-                    let titleHeight = model.title.constrainedSize(with: .init(width: estimatedWidth, height: .infinity),
-                                                                  minHeight: 28,
-                                                                  attributes: [.font: titleFont])
-
-                    VStack {
-                        if let image = model.image {
-                            let bgImageFrameHeight = 20 + headerTopPadding + 15 + 8 + titleHeight + headerBotPadding
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: geometry.size.width, height: bgImageFrameHeight, alignment: .bottom)
-                                .clipped()
-                        } else {
-                            let bgImageFrameHeight = headerTopPadding + 15 + 8 + titleHeight - 20
-                            Image("img_bg_article")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: geometry.size.width, height: bgImageFrameHeight, alignment: .bottom)
-                                .clipped()
-                        }
-                        Spacer()
+        GeometryReader { geometry in
+            ZStack {
+                // title stack
+                let titleFont = UIFont(name: "BrilliantCutProB7-Bold", size: 28)!
+                let estimatedWidth = geometry.size.width - 40
+                let headerTopPadding: CGFloat = model.hasImage ? 265 : 91
+                let headerBotPadding: CGFloat = model.hasImage ? 40 : 0
+                let titleHeight = model.title.constrainedSize(with: .init(width: estimatedWidth, height: .infinity),
+                                                              minHeight: 28,
+                                                              attributes: [.font: titleFont])
+                
+                VStack {
+                    if let image = model.image {
+                        let bgImageFrameHeight = 20 + headerTopPadding + 15 + 8 + titleHeight + headerBotPadding
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: geometry.size.width, height: bgImageFrameHeight, alignment: .bottom)
+                            .clipped()
+                    } else {
+                        let bgImageFrameHeight = headerTopPadding + 15 + 8 + titleHeight - 20
+                        Image("img_bg_article")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: geometry.size.width, height: bgImageFrameHeight, alignment: .bottom)
+                            .clipped()
                     }
-
-                    VStack(alignment: .leading, spacing: 18) {
-                        // title stack
-                        VStack(alignment: .leading, spacing: 8) {
-                            let miniTitleFont = Font.custom("BrilliantCutProB7-Bold", size: 11)
-                            Text(model.miniTitle)
-                                .accessibilityLabel(model.miniTitle)
-                                .font(miniTitleFont)
-                                .frame(width: abs(estimatedWidth), height: 15, alignment: .leading)
-
-                            Text(model.title)
-                                .accessibilityLabel(model.title)
-                                .font(titleFont.toFont())
-                                .frame(width: abs(estimatedWidth), height: titleHeight, alignment: .leading)
-                        }
-                        .foregroundColor(model.hasImage ? .white : .black)
-                        .padding(.top, headerTopPadding)
-                        .padding(.bottom, headerBotPadding)
-
-                        // detail stack
-                        detailStack(geometry: geometry)
-
-                        // takeaways
-                        takeAwayStack(geometry: geometry)
-                    }
-                    .padding(20)
-                    .frame(width: abs(geometry.size.width))
+                    Spacer()
                 }
-                .frame(width: abs(geometry.size.width), alignment: .top)
-                .background(Color.init(hex: "DCD7CA"))
+                
+                VStack(alignment: .leading, spacing: 18) {
+                    // title stack
+                    VStack(alignment: .leading, spacing: 8) {
+                        let miniTitleFont = Font.custom("BrilliantCutProB7-Bold", size: 11)
+                        Text(model.miniTitle)
+                            .accessibilityLabel(model.miniTitle)
+                            .font(miniTitleFont)
+                            .frame(width: abs(estimatedWidth), height: 15, alignment: .leading)
+                        
+                        Text(model.title)
+                            .accessibilityLabel(model.title)
+                            .font(titleFont.toFont())
+                            .frame(width: abs(estimatedWidth), height: titleHeight, alignment: .leading)
+                    }
+                    .foregroundColor(model.hasImage ? .white : .black)
+                    .padding(.top, headerTopPadding)
+                    .padding(.bottom, headerBotPadding)
+                    
+                    // detail stack
+                    detailStack(geometry: geometry)
+                    
+                    // takeaways
+                    takeAwayStack(geometry: geometry)
+                }
+                .padding(20)
+                .frame(width: abs(geometry.size.width))
             }
+            .frame(width: abs(geometry.size.width), height: model.estimatedHeight(geometry: geometry), alignment: .top)
+            .background(Color.init(hex: "DCD7CA"))
         }
     }
 
