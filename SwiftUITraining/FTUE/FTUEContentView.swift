@@ -121,7 +121,7 @@ struct FTUEContentView: View {
             }
             .frame(width: abs(geometry.size.width), alignment: .center)
         }
-        .background(Color.black)
+        .background(ColorCollection.black)
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)

@@ -21,7 +21,7 @@ struct FTUEIntroView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: abs(squareSize), height: abs(squareSize), alignment: .center)
-                        .background(Color.black)
+                        .background(ColorCollection.black)
 
 
                     let headerStr = "HELLO, \(appEnv.user.username)\nWELCOME TO\nCNT!"

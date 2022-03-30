@@ -158,7 +158,7 @@ struct InputFieldView_Previews: PreviewProvider {
 
             Spacer()
         }
-        .background(Color.black)
+        .background(ColorCollection.black)
     }
 
     private static func triggerInputFieldAction(id: Int, text: String) {

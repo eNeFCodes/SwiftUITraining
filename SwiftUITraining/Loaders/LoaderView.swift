@@ -29,7 +29,7 @@ struct LoaderView<Content: View>: View {
                 .frame(width: geometry.size.width / 2,
                        height: 150,
                        alignment: .center)
-                .background(Color.black.opacity(0.75))
+                .background(ColorCollection.black.opacity(0.75))
                 .cornerRadius(20)
                 .opacity(isLoading ? 1 : 0)
             }

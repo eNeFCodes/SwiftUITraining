@@ -54,7 +54,7 @@ struct LoginContentView: View {
                 .ignoresSafeArea()
             }
         }
-        .background(Color.black)
+        .background(ColorCollection.black)
     }
 }
 
