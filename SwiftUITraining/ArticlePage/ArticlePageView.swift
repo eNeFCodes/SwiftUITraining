@@ -11,8 +11,10 @@ struct ArticlePageView: View {
     @Environment(\.presentationMode) private var presentationMode
 
     var body: some View {
-        ScrollView(.vertical) {
-            ArticlePageTakeAwayView()
+        GeometryReader { geometry in
+            ScrollView(.vertical) {
+                ArticlePageTakeAwayView(geometry: geometry)
+            }
         }
         .ignoresSafeArea()
         .background(ColorCollection.white)
