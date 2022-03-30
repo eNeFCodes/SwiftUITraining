@@ -158,22 +158,33 @@ struct ProductPageCollectionView: View {
 
     private func headerTitle(geometry: GeometryProxy) -> some View {
         VStack(spacing: 8) {
+            let estimatedWidth = geometry.size.width - 64
+            let miniTitleFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.bold(size: 11))
             Text(model.miniTitle)
                 .accessibilityLabel(model.miniTitle)
                 .foregroundColor(ColorCollection.black)
-                .frame(width: geometry.size.width - 64, alignment: .leading)
+                .font(miniTitleFont)
+                .frame(width: geometry.size.width - 64, height: 15, alignment: .leading)
 
+            let titleFont = FontCollection.uiFont(for: FontCollection.BrilliantCutProB7.medium(size: 28))!
+            let titleHeight = model.title.constrainedSize(with: .init(width: estimatedWidth, height: .infinity), minHeight: 28, font: titleFont)
             Text(model.title)
                 .accessibilityLabel(model.title)
                 .foregroundColor(ColorCollection.black)
-                .frame(width: geometry.size.width - 64, alignment: .leading)
+                .font(titleFont.toFont())
+                .frame(width: geometry.size.width - 64, height: titleHeight, alignment: .leading)
 
-            Text(model.edition)
-                .accessibilityLabel(model.edition)
-                .foregroundColor(ColorCollection.white)
-                .frame(alignment: .leading)
-                .padding(8)
-                .background(ColorCollection.red)
+            VStack {
+                let editionFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.bold(size: 10))
+                Text(model.edition)
+                    .accessibilityLabel(model.edition)
+                    .foregroundColor(ColorCollection.white)
+                    .font(editionFont)
+                    .frame(alignment: .leading)
+                    .padding(8)
+                    .background(ColorCollection.red)
+            }
+            .frame(width: geometry.size.width - 64, height: 28, alignment: .leading)
         }
         .padding(.top, 295)
         .padding(.leading, 32)
