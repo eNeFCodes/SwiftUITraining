@@ -152,7 +152,7 @@ struct ProductPageCollectionView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             ScrollViewReader { proxy in
                 LazyHStack {
-                    ForEach(0..<model.images.count) { i in
+                    ForEach(0..<model.images.count, id: \.self) { i in
                         let media = model.images[i]
                         Image(media.image)
                             .resizable()
@@ -161,22 +161,29 @@ struct ProductPageCollectionView: View {
                             .clipped()
                             .tag(i)
                     }
-                    .onChange(of: currentIndex) { newValue in
-                        withAnimation {
-                            proxy.scrollTo(newValue, anchor: .center)
-                        }
-                    }
                 }
                 .frame(height: 200, alignment: .center)
+                .onChange(of: currentIndex) { newValue in
+                    withAnimation {
+                        proxy.scrollTo(newValue, anchor: .center)
+                    }
+                }
             }
-//            .background {
-//                GeometryReader { geometry in
-//                    Color.clear.preference(key: ViewOffsetKey.self,
-//                                           value: abs(geometry.frame(in: .named("scroll")).origin.x))
-//                }
-//            }
+            .background {
+                GeometryReader { geometry in
+                    Color.clear.preference(key: ScrollViewOffsetKey.self,
+                                           value: abs(geometry.frame(in: .named("scroll")).origin.x))
+                }
+            }
         }
         .frame(width: geometry.size.width, height: 235, alignment: .center)
+        .coordinateSpace(name: "scroll")
+        .onPreferenceChange(ScrollViewOffsetKey.self) { offsetX in
+//            let newIndex = Int(offsetX / UIScreen.main.bounds.width)
+//            if newIndex != currentIndex {
+//                currentIndex = newIndex
+//            }
+        }
     }
 
     private func headerTitle(geometry: GeometryProxy) -> some View {
@@ -231,8 +238,8 @@ extension ProductPageCollectionView {
               edition: "LIMITED EDITION",
               images: [
                 .init(id: 0, image: "img_carousel_item1"),
-                .init(id: 1, image: "img_carousel_item1"),
-                .init(id: 2, image: "img_carousel_item1")
+                .init(id: 1, image: "img_carousel_item2"),
+                .init(id: 2, image: "img_carousel_item3")
               ])
     }
 }
