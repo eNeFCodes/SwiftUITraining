@@ -29,6 +29,7 @@ extension ProductPageCollectionView {
 struct ProductPageCollectionView: View {
 
     let model: Model = ProductPageCollectionView.mockData()
+    @State private var currentIndex: Int = 0
 
     var body: some View {
         VStack {
@@ -44,6 +45,7 @@ struct ProductPageCollectionView: View {
 
     private func headerCarousel(geometry: GeometryProxy) -> some View { // 295pt
         Group { // Header
+            let carouselFrameHeight: CGFloat = 235
             ZStack { // Carousel
                 Group {
                     VStack { // Backdrop
@@ -52,27 +54,11 @@ struct ProductPageCollectionView: View {
                         .background(ColorCollection.red)
                         Spacer()
                     }
-                    .frame(width: geometry.size.width, height: 235, alignment: .trailing)
+                    .frame(width: geometry.size.width, height: carouselFrameHeight, alignment: .trailing)
 
                     VStack {
                         let borderFrameSize = CGSize(width: 288, height: 174)
-                        HStack(spacing: 12) {
-                            let arrowBotPadding: CGFloat = 18
-
-                            Spacer()
-                            VStack {
-                                Button {
-                                    print("ADD ACTION HERE")
-                                } label: {
-                                    Image("ic_arrow_left")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 24, height: 24, alignment: .center)
-                                        .clipped()
-                                }
-                            }
-                            .frame(height: borderFrameSize.height, alignment: .bottom)
-                            .padding(.bottom, arrowBotPadding)
+                        HStack(spacing: 4) {
                             Spacer()
                             Group {
                                 let curve: CGFloat = 10
@@ -89,52 +75,58 @@ struct ProductPageCollectionView: View {
                                     .frame(width: borderFrameSize.width, height: borderFrameSize.height, alignment: .center)
                             }
                             Spacer()
-                            VStack {
-                                Button {
-                                    print("ADD ACTION HERE")
-                                } label: {
-                                    Image("ic_arrow_right")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 24, height: 24, alignment: .center)
-                                        .clipped()
-                                }
-                            }
-                            .frame(height: borderFrameSize.height, alignment: .bottom)
-                            .padding(.bottom, arrowBotPadding)
-                            Spacer()
                         }
                         .frame(width: geometry.size.width, height: borderFrameSize.height, alignment: .bottom)
                     }
-                    .frame(width: geometry.size.width, height: 235, alignment: .bottom)
+                    .frame(width: geometry.size.width, height: carouselFrameHeight, alignment: .bottom)
                 }
-                .frame(width: geometry.size.width, height: 235, alignment: .center)
+                .frame(width: geometry.size.width, height: carouselFrameHeight, alignment: .center)
+
+                buildCarouselScrollView(geometry: geometry)
 
                 Group {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(0..<model.images.count) { i in
-                                let media = model.images[i]
-                                Image(media.image)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: geometry.size.width, height: 200, alignment: .center)
-                                    .clipped()
-                            }
+                    HStack {
+                        Button {
+                            print("Fire")
+                            currentIndex = currentIndex > 0 ? currentIndex - 1 : 0
+                        } label: {
+                            Image("ic_arrow_left")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 24, height: 24, alignment: .center)
+                                .clipped()
                         }
-                        .frame(height: 200, alignment: .center)
+                        .padding(10)
+
+                        Spacer()
+
+                        Button {
+                            print("Fire")
+                            let maxIdxCount = model.images.count - 1
+                            currentIndex = currentIndex < maxIdxCount ? currentIndex + 1 : maxIdxCount
+                        } label: {
+                            Image("ic_arrow_right")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 24, height: 24, alignment: .center)
+                                .clipped()
+                        }
+                        .padding(10)
                     }
-                    .frame(width: geometry.size.width, height: 235, alignment: .center)
+                    .padding(8)
+                    .frame(height: carouselFrameHeight, alignment: .bottom)
                 }
-                .frame(width: geometry.size.width, height: 235, alignment: .center)
+                .frame(width: geometry.size.width, height: carouselFrameHeight, alignment: .center)
             }
-            .frame(width: geometry.size.width, height: 235, alignment: .top)
+            .frame(width: geometry.size.width, height: carouselFrameHeight, alignment: .top)
 
             VStack { // Pagination
                 HStack(spacing: 4) {
                     let numberFont = Font.custom("FancyCutProB7-Bold", size: 24)
+                    let numberIdx = currentIndex + 1
+                    let numberIdxFormat = numberIdx > 9 ? "\(numberIdx)" : "0\(numberIdx)"
 
-                    Text("01")
+                    Text(numberIdxFormat)
                         .font(numberFont)
                         .foregroundColor(ColorCollection.black)
 
@@ -156,15 +148,46 @@ struct ProductPageCollectionView: View {
         }
     }
 
+    private func buildCarouselScrollView(geometry: GeometryProxy) -> some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            ScrollViewReader { proxy in
+                LazyHStack {
+                    ForEach(0..<model.images.count) { i in
+                        let media = model.images[i]
+                        Image(media.image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: geometry.size.width, height: 200, alignment: .center)
+                            .clipped()
+                            .tag(i)
+                    }
+                    .onChange(of: currentIndex) { newValue in
+                        withAnimation {
+                            proxy.scrollTo(newValue, anchor: .center)
+                        }
+                    }
+                }
+                .frame(height: 200, alignment: .center)
+            }
+//            .background {
+//                GeometryReader { geometry in
+//                    Color.clear.preference(key: ViewOffsetKey.self,
+//                                           value: abs(geometry.frame(in: .named("scroll")).origin.x))
+//                }
+//            }
+        }
+        .frame(width: geometry.size.width, height: 235, alignment: .center)
+    }
+
     private func headerTitle(geometry: GeometryProxy) -> some View {
         VStack(spacing: 8) {
-            let estimatedWidth = geometry.size.width - 64
+            let estimatedWidth = abs(geometry.size.width - 64)
             let miniTitleFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.bold(size: 11))
             Text(model.miniTitle)
                 .accessibilityLabel(model.miniTitle)
                 .foregroundColor(ColorCollection.black)
                 .font(miniTitleFont)
-                .frame(width: geometry.size.width - 64, height: 15, alignment: .leading)
+                .frame(width: estimatedWidth, height: 15, alignment: .leading)
 
             let titleFont = FontCollection.uiFont(for: FontCollection.BrilliantCutProB7.medium(size: 28))!
             let titleHeight = model.title.constrainedSize(with: .init(width: estimatedWidth, height: .infinity), minHeight: 28, font: titleFont)
@@ -172,7 +195,7 @@ struct ProductPageCollectionView: View {
                 .accessibilityLabel(model.title)
                 .foregroundColor(ColorCollection.black)
                 .font(titleFont.toFont())
-                .frame(width: geometry.size.width - 64, height: titleHeight, alignment: .leading)
+                .frame(width: estimatedWidth, height: titleHeight, alignment: .leading)
 
             VStack {
                 let editionFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.bold(size: 10))
@@ -184,7 +207,7 @@ struct ProductPageCollectionView: View {
                     .padding(8)
                     .background(ColorCollection.red)
             }
-            .frame(width: geometry.size.width - 64, height: 28, alignment: .leading)
+            .frame(width: estimatedWidth, height: 28, alignment: .leading)
         }
         .padding(.top, 295)
         .padding(.leading, 32)
