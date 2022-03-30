@@ -242,12 +242,12 @@
 				8FA878D827E028E0008C2837 /* FancyCutPro */,
 				8FA878C327E028C6008C2837 /* FancyCutExt */,
 				8FA878C127E028A7008C2837 /* FancyCutCond */,
-				8FA878AC27E02891008C2837 /* BriilliantCutPro */,
+				8FA878AC27E02891008C2837 /* BrilliantCutPro */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		8FA878AC27E02891008C2837 /* BriilliantCutPro */ = {
+		8FA878AC27E02891008C2837 /* BrilliantCutPro */ = {
 			isa = PBXGroup;
 			children = (
 				8FA878A427E02884008C2837 /* BrilliantCutProB7-Black.otf */,
@@ -257,7 +257,7 @@
 				8FA878A527E02884008C2837 /* BrilliantCutProB7-Regular.otf */,
 				8FA878A327E02884008C2837 /* BrilliantCutProB7-Thin.otf */,
 			);
-			path = BriilliantCutPro;
+			path = BrilliantCutPro;
 			sourceTree = "<group>";
 		};
 		8FA878C127E028A7008C2837 /* FancyCutCond */ = {

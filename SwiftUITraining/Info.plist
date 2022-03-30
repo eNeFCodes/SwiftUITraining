@@ -6,12 +6,44 @@
 	<string>Use biometrics to login</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>FancyCutProB7-Bold.otf</string>
-		<string>FancyCutProB7-Light.otf</string>
+		<string>BrilliantCutProB7-Black.otf</string>
 		<string>BrilliantCutProB7-Bold.otf</string>
+		<string>BrilliantCutProB7-Light.otf</string>
+		<string>BrilliantCutProB7-Medium.otf</string>
 		<string>BrilliantCutProB7-Regular.otf</string>
-		<string>FancyCutProB7-Regular.otf</string>
+		<string>BrilliantCutProB7-Thin.otf</string>
+
 		<string>FancyCutCondProB7-Bold.otf</string>
+		<string>FancyCutCondProB7-BoldItalic.otf</string>
+		<string>FancyCutCondProB7-Light.otf</string>
+		<string>FancyCutCondProB7-LightItalic.otf</string>
+		<string>FancyCutCondProB7-Medium.otf</string>
+		<string>FancyCutCondProB7-MediumItalic.otf</string>
+		<string>FancyCutCondProB7-Regular.otf</string>
+		<string>FancyCutCondProB7-RegularItalic.otf</string>
+		<string>FancyCutCondProB7-Thin.otf</string>
+		<string>FancyCutCondProB7-ThinItalic.otf</string>
+
+		<string>FancyCutExtProB7-Bold.otf</string>
+		<string>FancyCutExtProB7-BoldItalic.otf</string>
+		<string>FancyCutExtProB7-Light.otf</string>
+		<string>FancyCutExtProB7-LightItalic.otf</string>
+		<string>FancyCutExtProB7-Medium.otf</string>
+		<string>FancyCutExtProB7-MediumItalic.otf</string>
+		<string>FancyCutExtProB7-Regular.otf</string>
+		<string>FancyCutExtProB7-RegularItalic.otf</string>
+		<string>FancyCutExtProB7-Thin.otf</string>
+		<string>FancyCutExtProB7-ThinItalic.otf</string>
+
+		<string>FancyCutProB7-Bold.otf</string>
+		<string>FancyCutProB7-BoldItalic.otf</string>
+		<string>FancyCutProB7-Light.otf</string>
+		<string>FancyCutProB7-LightItalic.otf</string>
+		<string>FancyCutProB7-Medium.otf</string>
+		<string>FancyCutProB7-MediumItalic.otf</string>
+		<string>FancyCutProB7-Regular.otf</string>
+		<string>FancyCutProB7-RegularItalic.otf</string>
+		<string>FancyCutProB7-Thin.otf</string>
 		<string>FancyCutProB7-ThinItalic.otf</string>
 	</array>
 </dict>
