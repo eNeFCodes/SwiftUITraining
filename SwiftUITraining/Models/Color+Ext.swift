@@ -13,4 +13,5 @@ struct ColorCollection {
     static var black: Color = .init(hex: "0D0D0D")
     static var red: Color = .init(hex: "C10016")
     static var gold: Color = .init(hex: "AC9852")
+    static var lightBeige: Color = .init(hex: "F6F5EF")
 }

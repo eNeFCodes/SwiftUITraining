@@ -15,6 +15,15 @@ extension ProductPageCollectionView {
             let image: String
         }
 
+        struct SellingPoint: Identifiable {
+            let id: Int
+            let detail: String
+
+            var number: String {
+                id > 9 ? "\(id)" : "0\(id)"
+            }
+        }
+
         let miniTitle: String
         let title: String
         let edition: String
@@ -25,9 +34,38 @@ extension ProductPageCollectionView {
         let globalPrice: String
         let reference: String
         let launchDate: String
+        let sellingPointTitle: String
+        let sellingPoints: [SellingPoint]
 
         var mediaCount: String {
             return images.count > 9 ? "\(images.count)" : "0\(images.count)"
+        }
+
+        init(miniTitle: String,
+             title: String,
+             edition: String,
+             images: [Media],
+             detail: String,
+
+             materials: String,
+             globalPrice: String,
+             reference: String,
+             launchDate: String,
+             sellingPointTitle: String = "KEY SELLING POINTS",
+             sellingPoints: [SellingPoint]) {
+
+            self.miniTitle = miniTitle
+            self.title = title
+            self.edition = edition
+            self.images = images
+            self.detail = detail
+
+            self.materials = materials
+            self.globalPrice = globalPrice
+            self.reference = reference
+            self.launchDate = launchDate
+            self.sellingPointTitle = sellingPointTitle
+            self.sellingPoints = sellingPoints
         }
     }
 }
@@ -40,13 +78,13 @@ struct ProductPageCollectionView: View {
 
     var body: some View {
         VStack {
-            buildHeaderCarousel(geometry: geometry)
+            buildHeaderCarouselStack(geometry: geometry)
 
             VStack {
-                buildHeaderTitle(geometry: geometry)
+                buildHeaderTitleStack(geometry: geometry)
                     .padding(.top, 16)
 
-                buildInfoDetails(geometry: geometry)
+                buildInfoDetailsStack(geometry: geometry)
                     .padding(.top, 40)
             }
 
@@ -83,12 +121,28 @@ struct ProductPageCollectionView: View {
                 }
             }
             .padding(.top, 32)
+
+            Group {
+                let estimatedWidth = abs(geometry.size.width - 64)
+                Image("ic_divider_red")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: estimatedWidth, height: 5, alignment: .center)
+                    .clipped()
+            }
+            .padding(.top, 40)
+
+            Group {
+                buildSellingPointStack(geometry: geometry)
+            }
+            .padding(.top, 40)
+            .padding(.bottom, 48)
         }
-        .background(Color.gray.opacity(0.4))
+        .background(ColorCollection.lightBeige)
         .padding(.top, 91)
     }
 
-    private func buildHeaderCarousel(geometry: GeometryProxy) -> some View { // 295pt
+    private func buildHeaderCarouselStack(geometry: GeometryProxy) -> some View { // 295pt
         VStack(spacing: 20) { // Header
             let carouselFrameHeight: CGFloat = 235
             ZStack { // Carousel
@@ -127,7 +181,7 @@ struct ProductPageCollectionView: View {
                 }
                 .frame(width: geometry.size.width, height: carouselFrameHeight, alignment: .center)
 
-                buildCarouselScrollView(geometry: geometry)
+                buildCarouselScrollViewStack(geometry: geometry)
 
                 Group {
                     HStack {
@@ -193,7 +247,7 @@ struct ProductPageCollectionView: View {
         .frame(width: geometry.size.width, height: 295, alignment: .center)
     }
 
-    private func buildCarouselScrollView(geometry: GeometryProxy) -> some View {
+    private func buildCarouselScrollViewStack(geometry: GeometryProxy) -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             ScrollViewReader { proxy in
                 LazyHStack {
@@ -231,7 +285,7 @@ struct ProductPageCollectionView: View {
         }
     }
 
-    private func buildHeaderTitle(geometry: GeometryProxy) -> some View {
+    private func buildHeaderTitleStack(geometry: GeometryProxy) -> some View {
         VStack(spacing: 8) {
             let estimatedWidth = abs(geometry.size.width - 64)
             let miniTitleFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.bold(size: 11))
@@ -266,7 +320,7 @@ struct ProductPageCollectionView: View {
         .frame(width: geometry.size.width, alignment: .leading)
     }
 
-    private func buildInfoDetails(geometry: GeometryProxy) -> some View {
+    private func buildInfoDetailsStack(geometry: GeometryProxy) -> some View {
         VStack {
             let estimatedWidth = abs(geometry.size.width - 64)
             let detailFont = FontCollection.uiFont(for: FontCollection.FancyCutProB7.light(size: 29))!
@@ -363,6 +417,49 @@ struct ProductPageCollectionView: View {
         .padding(.trailing, 32)
         .frame(width: geometry.size.width, alignment: .leading)
     }
+
+    private func buildSellingPointStack(geometry: GeometryProxy) -> some View {
+        VStack {
+            let titleFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.bold(size: 11))
+            let estimatedWidth = abs(geometry.size.width - 64)
+
+            Text(model.sellingPointTitle)
+                .accessibilityLabel(model.sellingPointTitle)
+                .font(titleFont)
+                .foregroundColor(ColorCollection.black)
+                .frame(width: estimatedWidth, alignment: .leading)
+
+            VStack(spacing: 24) {
+                let numberFont = FontCollection.font(for: FontCollection.FancyCutCondProB7.bold(size: 44))
+                let detailFont = FontCollection.uiFont(for: FontCollection.FancyCutProB7.medium(size: 18))!
+
+                ForEach(model.sellingPoints, id: \.id) { sellingPoint in
+                    HStack(spacing: 8) {
+                        Text(sellingPoint.number)
+                            .accessibilityLabel(sellingPoint.number)
+                            .foregroundColor(ColorCollection.red)
+                            .font(numberFont)
+                            .frame(width: 50, alignment: .leading)
+
+                        let estimatedWidth = estimatedWidth - 58
+                        let detailHeight = sellingPoint.detail.constrainedSize(with: .init(width: estimatedWidth, height: .infinity),
+                                                                               minHeight: 50,
+                                                                               attributes: [.font: detailFont])
+                        Text(sellingPoint.detail)
+                            .accessibilityLabel(sellingPoint.detail)
+                            .foregroundColor(.black)
+                            .font(detailFont.toFont())
+                            .frame(width: estimatedWidth, height: detailHeight, alignment: .leading)
+                    }
+                }
+            }
+            .padding(.top, 16)
+            .frame(width: estimatedWidth, alignment: .leading)
+        }
+        .padding(.leading, 32)
+        .padding(.trailing, 32)
+        .frame(width: geometry.size.width, alignment: .leading)
+    }
 }
 
 struct ProductPageCollectionView_Previews: PreviewProvider {
@@ -389,6 +486,14 @@ extension ProductPageCollectionView {
               materials: "White gold, emeralds, onyx, diamonds",
               globalPrice: "£86,500",
               reference: "N6034302",
-              launchDate: "September 2015")
+              launchDate: "September 2015",
+              sellingPoints: [
+                .init(id: 1,
+                      detail: "First ring made of three interlaced individual bands. Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
+                .init(id: 2,
+                      detail: "The harmonious interplay between the bands create an expression of attachment. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex."),
+                .init(id: 3,
+                      detail: "Relaunched by Cartier in 1981. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+             ])
     }
 }
