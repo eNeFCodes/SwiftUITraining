@@ -79,7 +79,7 @@ struct BriefingView: View {
         }
         .padding(.top, 20)
         .ignoresSafeArea()
-        .background(Color.white)
+        .background(ColorCollection.white)
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
     }

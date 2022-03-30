@@ -9,8 +9,26 @@ import Foundation
 import SwiftUI
 import UIKit
 
-extension UIFont {
+struct FontCollection {
 
+    struct FancyCutPro {
+
+    }
+
+    struct FancyCutExt {
+
+    }
+
+    struct FancyCutCond {
+
+    }
+
+    struct BriilliantCutPro {
+
+    }
+}
+
+extension UIFont {
     func toFont() -> Font {
         let castedFont = Font(self as CTFont)
         return castedFont

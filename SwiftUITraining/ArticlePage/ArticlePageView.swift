@@ -15,7 +15,7 @@ struct ArticlePageView: View {
             ArticlePageTakeAwayView()
         }
         .ignoresSafeArea()
-        .background(Color.white)
+        .background(ColorCollection.white)
         .navigationBarBackButtonHidden(true)
         .navigationViewStyle(.stack)
         .navigationBarItems(leading: Button(action: {

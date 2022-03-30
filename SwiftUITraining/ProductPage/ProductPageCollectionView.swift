@@ -34,6 +34,8 @@ struct ProductPageCollectionView: View {
         VStack {
             GeometryReader { geometry in
                 headerCarousel(geometry: geometry)
+                headerTitle(geometry: geometry)
+                    .padding(.top, 16)
             }
             .frame(height: 295, alignment: .center)
         }
@@ -159,19 +161,24 @@ struct ProductPageCollectionView: View {
             Text(model.miniTitle)
                 .accessibilityLabel(model.miniTitle)
                 .foregroundColor(ColorCollection.black)
+                .frame(width: geometry.size.width - 64, alignment: .leading)
 
             Text(model.title)
                 .accessibilityLabel(model.title)
                 .foregroundColor(ColorCollection.black)
+                .frame(width: geometry.size.width - 64, alignment: .leading)
 
-            Text(model.miniTitle)
-                .accessibilityLabel(model.miniTitle)
-                .foregroundColor(ColorCollection.black)
+            Text(model.edition)
+                .accessibilityLabel(model.edition)
+                .foregroundColor(ColorCollection.white)
+                .frame(alignment: .leading)
+                .padding(8)
+                .background(ColorCollection.red)
         }
-        .frame(width: geometry.size.width, alignment: .leading)
-        .padding(.top, 16)
+        .padding(.top, 295)
         .padding(.leading, 32)
         .padding(.trailing, 32)
+        .frame(width: geometry.size.width, alignment: .leading)
     }
 }
 
@@ -186,7 +193,7 @@ extension ProductPageCollectionView {
 
     static func mockData() -> Model {
         .init(miniTitle: "Panthere Collection".uppercased(),
-              title: "JUSTE UN CLOU bracelet gold".uppercased(),
+              title: "JUSTE UN CLOU\nbracelet\ngold".uppercased(),
               edition: "LIMITED EDITION",
               images: [
                 .init(id: 0, image: "img_carousel_item1"),

@@ -15,7 +15,7 @@ struct ProductPageView: View {
             ProductPageCollectionView()
         }
         .ignoresSafeArea()
-        .background(Color.white)
+        .background(ColorCollection.white)
         .navigationBarBackButtonHidden(true)
         .navigationViewStyle(.stack)
         .navigationBarItems(leading: Button(action: {
