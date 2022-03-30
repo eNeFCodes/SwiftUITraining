@@ -83,6 +83,7 @@
 		8FAE849727F2B56F00872BE9 /* ProductPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE849627F2B56E00872BE9 /* ProductPageView.swift */; };
 		8FAE849927F2B7A400872BE9 /* ProductPageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE849827F2B7A400872BE9 /* ProductPageCollectionView.swift */; };
 		8FAE849B27F3F1A400872BE9 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE849A27F3F1A400872BE9 /* Color+Ext.swift */; };
+		8FAE849D27F4080B00872BE9 /* ScrollView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE849C27F4080B00872BE9 /* ScrollView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +165,7 @@
 		8FAE849627F2B56E00872BE9 /* ProductPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPageView.swift; sourceTree = "<group>"; };
 		8FAE849827F2B7A400872BE9 /* ProductPageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPageCollectionView.swift; sourceTree = "<group>"; };
 		8FAE849A27F3F1A400872BE9 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		8FAE849C27F4080B00872BE9 /* ScrollView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +344,7 @@
 				8FAE848F27F133C100872BE9 /* String+Ext.swift */,
 				8FAE849127F1386600872BE9 /* Font+Ext.swift */,
 				8FAE849A27F3F1A400872BE9 /* Color+Ext.swift */,
+				8FAE849C27F4080B00872BE9 /* ScrollView+Ext.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				8FA8790627E46E03008C2837 /* ShapeView.swift in Sources */,
 				8F8E610427D5DE0D003AFA79 /* LoginWelcomeView.swift in Sources */,
 				8F8E610E27DAD394003AFA79 /* Biometrics.swift in Sources */,
+				8FAE849D27F4080B00872BE9 /* ScrollView+Ext.swift in Sources */,
 				8FA878F527E1EFF3008C2837 /* LoginButtonView.swift in Sources */,
 				8F44128A27D1BD1A009487A6 /* SwiftUITrainingApp.swift in Sources */,
 				8FAE848E27EDA84200872BE9 /* ArticlePageTakeAwayView.swift in Sources */,
