@@ -21,6 +21,11 @@ extension ProductPageCollectionView {
         let images: [Media]
         let detail: String
 
+        let materials: String
+        let globalPrice: String
+        let reference: String
+        let launchDate: String
+
         var mediaCount: String {
             return images.count > 9 ? "\(images.count)" : "0\(images.count)"
         }
@@ -29,30 +34,62 @@ extension ProductPageCollectionView {
 
 struct ProductPageCollectionView: View {
 
+    let geometry: GeometryProxy
     let model: Model = ProductPageCollectionView.mockData()
     @State private var currentIndex: Int = 0
 
     var body: some View {
-        GeometryReader { geometry in
+        VStack {
+            buildHeaderCarousel(geometry: geometry)
+
             VStack {
-                buildHeaderCarousel(geometry: geometry)
+                buildHeaderTitle(geometry: geometry)
+                    .padding(.top, 16)
 
-                VStack {
-                    buildHeaderTitle(geometry: geometry)
-                        .padding(.top, 16)
-
-                    buildInfoDetails(geometry: geometry)
-                        .padding(.top, 40)
-                }
-                .background(Color.green.opacity(0.4))
+                buildInfoDetails(geometry: geometry)
+                    .padding(.top, 40)
             }
-            .background(Color.gray.opacity(0.4))
+
+            Group {
+                let estimatedWidth = abs(geometry.size.width - 64)
+                let btnHeight: CGFloat = 54
+                Button {
+
+                } label: {
+                    HStack(spacing: 8) {
+                        let label = "VIEW IN PRODUCT CATALOG"
+                        let labelFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.bold(size: 12))
+
+                        Text(label)
+                            .accessibilityLabel(label)
+                            .foregroundColor(ColorCollection.black)
+                            .font(labelFont)
+
+                        Image("ic_product_catalog")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 14, height: 14, alignment: .center)
+                    }
+                    .frame(width: estimatedWidth, height: btnHeight, alignment: .center)
+                }
+                .frame(width: estimatedWidth, height: btnHeight, alignment: .center)
+                .overlay {
+                    let p1 = CGPoint(x: 0, y: 0)
+                    let p2 = CGPoint(x: estimatedWidth, y: 0)
+                    let p3 = CGPoint(x: estimatedWidth, y: btnHeight)
+                    let p4 = CGPoint(x: 0, y: btnHeight)
+                    BorderView(coordinates: [p1, p2, p3, p4], shouldClosePath: true)
+                        .stroke(ColorCollection.black)
+                }
+            }
+            .padding(.top, 32)
         }
+        .background(Color.gray.opacity(0.4))
         .padding(.top, 91)
     }
 
     private func buildHeaderCarousel(geometry: GeometryProxy) -> some View { // 295pt
-        VStack { // Header
+        VStack(spacing: 20) { // Header
             let carouselFrameHeight: CGFloat = 235
             ZStack { // Carousel
                 Group {
@@ -240,6 +277,87 @@ struct ProductPageCollectionView: View {
                 .foregroundColor(ColorCollection.black)
                 .font(detailFont.toFont())
                 .frame(width: estimatedWidth, height: detailHeight, alignment: .leading)
+
+            HStack(spacing: 24) {
+                VStack {
+                    GeometryReader { geometry in
+                        let p1 = CGPoint(x: 0, y: 0)
+                        let p2 = CGPoint(x: 0, y: geometry.size.height)
+                        BorderView(coordinates: [p1, p2])
+                            .stroke(style: StrokeStyle(lineWidth: 1, dash: [2]))
+                            .foregroundColor(ColorCollection.black)
+                            .frame(width: 1, height: geometry.size.height, alignment: .leading)
+                    }
+                }
+                .frame(width: 1, alignment: .leading)
+
+                let estimatedWidth = estimatedWidth - 25
+
+                VStack(spacing: 24) {
+                    let titleFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.bold(size: 11))
+                    let detailFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.medium(size: 14))
+
+                    VStack(spacing: 8) {
+                        Text("MATERIALS")
+                            .accessibilityLabel("MATERIALS")
+                            .foregroundColor(ColorCollection.red)
+                            .font(titleFont)
+                            .frame(width: estimatedWidth, alignment: .leading)
+
+                        Text(model.materials)
+                            .accessibilityLabel(model.materials)
+                            .foregroundColor(ColorCollection.black)
+                            .font(detailFont)
+                            .frame(width: estimatedWidth, alignment: .leading)
+                    }
+
+                    VStack(spacing: 8) {
+                        Text("WORLDWIDE PRICE")
+                            .accessibilityLabel("WORLDWIDE PRICE")
+                            .foregroundColor(ColorCollection.red)
+                            .font(titleFont)
+                            .frame(width: estimatedWidth, alignment: .leading)
+
+                        Text(model.globalPrice)
+                            .accessibilityLabel(model.globalPrice)
+                            .foregroundColor(ColorCollection.black)
+                            .font(detailFont)
+                            .frame(width: estimatedWidth, alignment: .leading)
+                    }
+                    .frame(width: estimatedWidth, alignment: .leading)
+
+                    VStack(spacing: 8) {
+                        Text("REFERENCE")
+                            .accessibilityLabel("REFERENCE")
+                            .foregroundColor(ColorCollection.red)
+                            .font(titleFont)
+                            .frame(width: estimatedWidth, alignment: .leading)
+
+                        Text(model.reference)
+                            .accessibilityLabel(model.reference)
+                            .foregroundColor(ColorCollection.black)
+                            .font(detailFont)
+                            .frame(width: estimatedWidth, alignment: .leading)
+                    }
+                    .frame(width: estimatedWidth, alignment: .leading)
+
+                    VStack(spacing: 8) {
+                        Text("LAUNCH DATE")
+                            .accessibilityLabel("LAUNCH DATE")
+                            .foregroundColor(ColorCollection.red)
+                            .font(titleFont)
+                            .frame(width: estimatedWidth, alignment: .leading)
+
+                        Text(model.launchDate)
+                            .accessibilityLabel(model.launchDate)
+                            .foregroundColor(ColorCollection.black)
+                            .font(detailFont)
+                            .frame(width: estimatedWidth, alignment: .leading)
+                    }
+                    .frame(width: estimatedWidth, alignment: .leading)
+                }
+            }
+            .padding(.top, 32)
         }
         .padding(.leading, 32)
         .padding(.trailing, 32)
@@ -249,7 +367,9 @@ struct ProductPageCollectionView: View {
 
 struct ProductPageCollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductPageCollectionView()
+        GeometryReader { geometry in
+            ProductPageCollectionView(geometry: geometry)
+        }
     }
 }
 
@@ -265,6 +385,10 @@ extension ProductPageCollectionView {
                 .init(id: 1, image: "img_carousel_item2"),
                 .init(id: 2, image: "img_carousel_item3")
               ],
-              detail: "This is an optional description to describe the bracelet  of the Juste un Clou collection created by Cartier trace the outlines of a style that is both modern and daring.")
+              detail: "This is an optional description to describe the bracelet  of the Juste un Clou collection created by Cartier trace the outlines of a style that is both modern and daring.",
+              materials: "White gold, emeralds, onyx, diamonds",
+              globalPrice: "£86,500",
+              reference: "N6034302",
+              launchDate: "September 2015")
     }
 }

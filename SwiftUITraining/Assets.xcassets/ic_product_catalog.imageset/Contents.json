@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_product_catalog.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

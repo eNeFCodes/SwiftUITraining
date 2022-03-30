@@ -11,8 +11,10 @@ struct ProductPageView: View {
     @Environment(\.presentationMode) private var presentationMode
 
     var body: some View {
-        ScrollView(.vertical) {
-            ProductPageCollectionView()
+        GeometryReader { geometry in
+            ScrollView(.vertical) {
+                ProductPageCollectionView(geometry: geometry)
+            }
         }
         .ignoresSafeArea()
         .background(ColorCollection.white)
