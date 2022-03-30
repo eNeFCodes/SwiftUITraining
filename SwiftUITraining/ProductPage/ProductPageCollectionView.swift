@@ -19,6 +19,7 @@ extension ProductPageCollectionView {
         let title: String
         let edition: String
         let images: [Media]
+        let detail: String
 
         var mediaCount: String {
             return images.count > 9 ? "\(images.count)" : "0\(images.count)"
@@ -32,19 +33,26 @@ struct ProductPageCollectionView: View {
     @State private var currentIndex: Int = 0
 
     var body: some View {
-        VStack {
-            GeometryReader { geometry in
-                headerCarousel(geometry: geometry)
-                headerTitle(geometry: geometry)
-                    .padding(.top, 16)
+        GeometryReader { geometry in
+            VStack {
+                buildHeaderCarousel(geometry: geometry)
+
+                VStack {
+                    buildHeaderTitle(geometry: geometry)
+                        .padding(.top, 16)
+
+                    buildInfoDetails(geometry: geometry)
+                        .padding(.top, 40)
+                }
+                .background(Color.green.opacity(0.4))
             }
-            .frame(height: 295, alignment: .center)
+            .background(Color.gray.opacity(0.4))
         }
         .padding(.top, 91)
     }
 
-    private func headerCarousel(geometry: GeometryProxy) -> some View { // 295pt
-        Group { // Header
+    private func buildHeaderCarousel(geometry: GeometryProxy) -> some View { // 295pt
+        VStack { // Header
             let carouselFrameHeight: CGFloat = 235
             ZStack { // Carousel
                 Group {
@@ -122,7 +130,7 @@ struct ProductPageCollectionView: View {
 
             VStack { // Pagination
                 HStack(spacing: 4) {
-                    let numberFont = Font.custom("FancyCutProB7-Bold", size: 24)
+                    let numberFont = FontCollection.font(for: FontCollection.FancyCutProB7.bold(size: 24))
                     let numberIdx = currentIndex + 1
                     let numberIdxFormat = numberIdx > 9 ? "\(numberIdx)" : "0\(numberIdx)"
 
@@ -144,8 +152,8 @@ struct ProductPageCollectionView: View {
                 .padding(.trailing, 40)
             }
             .frame(width: geometry.size.width, height: 40, alignment: .trailing)
-            .padding(.top, 255)
         }
+        .frame(width: geometry.size.width, height: 295, alignment: .center)
     }
 
     private func buildCarouselScrollView(geometry: GeometryProxy) -> some View {
@@ -186,7 +194,7 @@ struct ProductPageCollectionView: View {
         }
     }
 
-    private func headerTitle(geometry: GeometryProxy) -> some View {
+    private func buildHeaderTitle(geometry: GeometryProxy) -> some View {
         VStack(spacing: 8) {
             let estimatedWidth = abs(geometry.size.width - 64)
             let miniTitleFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.bold(size: 11))
@@ -197,7 +205,7 @@ struct ProductPageCollectionView: View {
                 .frame(width: estimatedWidth, height: 15, alignment: .leading)
 
             let titleFont = FontCollection.uiFont(for: FontCollection.BrilliantCutProB7.medium(size: 28))!
-            let titleHeight = model.title.constrainedSize(with: .init(width: estimatedWidth, height: .infinity), minHeight: 28, font: titleFont)
+            let titleHeight = model.title.constrainedSize(with: .init(width: estimatedWidth, height: .infinity), minHeight: 32, font: titleFont)
             Text(model.title)
                 .accessibilityLabel(model.title)
                 .foregroundColor(ColorCollection.black)
@@ -216,7 +224,23 @@ struct ProductPageCollectionView: View {
             }
             .frame(width: estimatedWidth, height: 28, alignment: .leading)
         }
-        .padding(.top, 295)
+        .padding(.leading, 32)
+        .padding(.trailing, 32)
+        .frame(width: geometry.size.width, alignment: .leading)
+    }
+
+    private func buildInfoDetails(geometry: GeometryProxy) -> some View {
+        VStack {
+            let estimatedWidth = abs(geometry.size.width - 64)
+            let detailFont = FontCollection.uiFont(for: FontCollection.FancyCutProB7.light(size: 29))!
+            let detailHeight = model.detail.constrainedSize(with: .init(width: estimatedWidth, height: .infinity), minHeight: 32, font: detailFont)
+
+            Text(model.detail)
+                .accessibilityLabel(model.detail)
+                .foregroundColor(ColorCollection.black)
+                .font(detailFont.toFont())
+                .frame(width: estimatedWidth, height: detailHeight, alignment: .leading)
+        }
         .padding(.leading, 32)
         .padding(.trailing, 32)
         .frame(width: geometry.size.width, alignment: .leading)
@@ -240,6 +264,7 @@ extension ProductPageCollectionView {
                 .init(id: 0, image: "img_carousel_item1"),
                 .init(id: 1, image: "img_carousel_item2"),
                 .init(id: 2, image: "img_carousel_item3")
-              ])
+              ],
+              detail: "This is an optional description to describe the bracelet  of the Juste un Clou collection created by Cartier trace the outlines of a style that is both modern and daring.")
     }
 }
