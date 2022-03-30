@@ -82,6 +82,7 @@
 		8FAE849427F13ED200872BE9 /* ArticlePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE849327F13ED200872BE9 /* ArticlePageView.swift */; };
 		8FAE849727F2B56F00872BE9 /* ProductPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE849627F2B56E00872BE9 /* ProductPageView.swift */; };
 		8FAE849927F2B7A400872BE9 /* ProductPageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE849827F2B7A400872BE9 /* ProductPageCollectionView.swift */; };
+		8FAE849B27F3F1A400872BE9 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE849A27F3F1A400872BE9 /* Color+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,6 +163,7 @@
 		8FAE849327F13ED200872BE9 /* ArticlePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePageView.swift; sourceTree = "<group>"; };
 		8FAE849627F2B56E00872BE9 /* ProductPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPageView.swift; sourceTree = "<group>"; };
 		8FAE849827F2B7A400872BE9 /* ProductPageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPageCollectionView.swift; sourceTree = "<group>"; };
+		8FAE849A27F3F1A400872BE9 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +341,7 @@
 				8FAE848827ED6A3300872BE9 /* Helpers.swift */,
 				8FAE848F27F133C100872BE9 /* String+Ext.swift */,
 				8FAE849127F1386600872BE9 /* Font+Ext.swift */,
+				8FAE849A27F3F1A400872BE9 /* Color+Ext.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				8FA878F327E1EC69008C2837 /* LoginAtlasView.swift in Sources */,
 				8FA878EF27E043F8008C2837 /* AppEnvironment.swift in Sources */,
 				8FAE848927ED6A3300872BE9 /* Helpers.swift in Sources */,
+				8FAE849B27F3F1A400872BE9 /* Color+Ext.swift in Sources */,
 				8FAE849227F1386600872BE9 /* Font+Ext.swift in Sources */,
 				8F8E610627D5DE72003AFA79 /* LoginHeaderView.swift in Sources */,
 				8FAE849427F13ED200872BE9 /* ArticlePageView.swift in Sources */,

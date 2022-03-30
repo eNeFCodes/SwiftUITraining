@@ -153,6 +153,26 @@ struct ProductPageCollectionView: View {
             .padding(.top, 255)
         }
     }
+
+    private func headerTitle(geometry: GeometryProxy) -> some View {
+        VStack(spacing: 8) {
+            Text(model.miniTitle)
+                .accessibilityLabel(model.miniTitle)
+                .foregroundColor(Color.init(hex: "0D0D0D"))
+
+            Text(model.title)
+                .accessibilityLabel(model.title)
+                .foregroundColor(Color.init(hex: "0D0D0D"))
+
+            Text(model.miniTitle)
+                .accessibilityLabel(model.miniTitle)
+                .foregroundColor(Color.init(hex: "0D0D0D"))
+        }
+        .frame(width: geometry.size.width, alignment: .leading)
+        .padding(.top, 16)
+        .padding(.leading, 32)
+        .padding(.trailing, 32)
+    }
 }
 
 struct ProductPageCollectionView_Previews: PreviewProvider {
