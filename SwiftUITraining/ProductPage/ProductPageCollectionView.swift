@@ -47,7 +47,7 @@ struct ProductPageCollectionView: View {
                     VStack { // Backdrop
                         VStack {}
                         .frame(width: 299, height: 181, alignment: .top)
-                        .background(Color.init(hex: "C10016"))
+                        .background(ColorCollection.red)
                         Spacer()
                     }
                     .frame(width: geometry.size.width, height: 235, alignment: .trailing)
@@ -83,7 +83,7 @@ struct ProductPageCollectionView: View {
                                 let p7 = CGPoint(x: 0, y: borderFrameSize.height - curve)
                                 let p8 = CGPoint(x: 0, y: curve)
                                 BorderView(coordinates: [p1, p2, p3, p4, p5, p6, p7, p8], shouldClosePath: true)
-                                    .stroke(Color.init(hex: "AC9852"))
+                                    .stroke(ColorCollection.gold)
                                     .frame(width: borderFrameSize.width, height: borderFrameSize.height, alignment: .center)
                             }
                             Spacer()
@@ -134,7 +134,7 @@ struct ProductPageCollectionView: View {
 
                     Text("01")
                         .font(numberFont)
-                        .foregroundColor(Color.init(hex: "0D0D0D"))
+                        .foregroundColor(ColorCollection.black)
 
                     Image("ic_line_number_separator")
                         .resizable()
@@ -145,7 +145,7 @@ struct ProductPageCollectionView: View {
                     Text(model.mediaCount)
                         .accessibilityLabel(model.mediaCount)
                         .font(numberFont)
-                        .foregroundColor(Color.init(hex: "AC9852"))
+                        .foregroundColor(ColorCollection.gold)
                 }
                 .padding(.trailing, 40)
             }
@@ -158,15 +158,15 @@ struct ProductPageCollectionView: View {
         VStack(spacing: 8) {
             Text(model.miniTitle)
                 .accessibilityLabel(model.miniTitle)
-                .foregroundColor(Color.init(hex: "0D0D0D"))
+                .foregroundColor(ColorCollection.black)
 
             Text(model.title)
                 .accessibilityLabel(model.title)
-                .foregroundColor(Color.init(hex: "0D0D0D"))
+                .foregroundColor(ColorCollection.black)
 
             Text(model.miniTitle)
                 .accessibilityLabel(model.miniTitle)
-                .foregroundColor(Color.init(hex: "0D0D0D"))
+                .foregroundColor(ColorCollection.black)
         }
         .frame(width: geometry.size.width, alignment: .leading)
         .padding(.top, 16)

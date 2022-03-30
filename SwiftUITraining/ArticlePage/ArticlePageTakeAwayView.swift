@@ -212,7 +212,7 @@ struct ArticlePageTakeAwayView: View {
                         let p2 = CGPoint(x: 0, y: geometry.size.height)
                         BorderView(coordinates: [p1, p2])
                             .stroke(style: StrokeStyle(lineWidth: 1, dash: [2]))
-                            .foregroundColor(Color.init(hex: "AC9852"))
+                            .foregroundColor(ColorCollection.gold)
                             .frame(width: 1, height: geometry.size.height, alignment: .leading)
                     }
                 }
@@ -265,7 +265,7 @@ struct ArticlePageTakeAwayView: View {
                     HStack(spacing: 8) {
                         Text(takeAway.number)
                             .accessibilityLabel(takeAway.number)
-                            .foregroundColor(Color.init(hex: "C10016"))
+                            .foregroundColor(ColorCollection.red)
                             .font(numberFont)
                             .frame(width: 50, alignment: .center)
 
