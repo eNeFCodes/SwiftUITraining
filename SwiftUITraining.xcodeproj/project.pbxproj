@@ -84,6 +84,8 @@
 		8FAE849927F2B7A400872BE9 /* ProductPageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE849827F2B7A400872BE9 /* ProductPageCollectionView.swift */; };
 		8FAE849B27F3F1A400872BE9 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE849A27F3F1A400872BE9 /* Color+Ext.swift */; };
 		8FAE849D27F4080B00872BE9 /* ScrollView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE849C27F4080B00872BE9 /* ScrollView+Ext.swift */; };
+		8FFA4A9727F54ED1001E4128 /* ProductPageDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA4A9627F54ED1001E4128 /* ProductPageDetailsView.swift */; };
+		8FFA4A9927F5690E001E4128 /* DotOnlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA4A9827F5690E001E4128 /* DotOnlyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +168,8 @@
 		8FAE849827F2B7A400872BE9 /* ProductPageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPageCollectionView.swift; sourceTree = "<group>"; };
 		8FAE849A27F3F1A400872BE9 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		8FAE849C27F4080B00872BE9 /* ScrollView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+Ext.swift"; sourceTree = "<group>"; };
+		8FFA4A9627F54ED1001E4128 /* ProductPageDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPageDetailsView.swift; sourceTree = "<group>"; };
+		8FFA4A9827F5690E001E4128 /* DotOnlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotOnlyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +334,7 @@
 				8F8E610B27D8A8B9003AFA79 /* ScrubWrapper.swift */,
 				8F8E610D27DAD394003AFA79 /* Biometrics.swift */,
 				8FA8790727E84AF5008C2837 /* DotView.swift */,
+				8FFA4A9827F5690E001E4128 /* DotOnlyView.swift */,
 				8FA8791527EB2443008C2837 /* InputFieldView.swift */,
 			);
 			path = Reusables;
@@ -420,6 +425,7 @@
 			children = (
 				8FAE849627F2B56E00872BE9 /* ProductPageView.swift */,
 				8FAE849827F2B7A400872BE9 /* ProductPageCollectionView.swift */,
+				8FFA4A9627F54ED1001E4128 /* ProductPageDetailsView.swift */,
 			);
 			path = ProductPage;
 			sourceTree = "<group>";
@@ -544,6 +550,7 @@
 				8FAE849D27F4080B00872BE9 /* ScrollView+Ext.swift in Sources */,
 				8FA878F527E1EFF3008C2837 /* LoginButtonView.swift in Sources */,
 				8F44128A27D1BD1A009487A6 /* SwiftUITrainingApp.swift in Sources */,
+				8FFA4A9727F54ED1001E4128 /* ProductPageDetailsView.swift in Sources */,
 				8FAE848E27EDA84200872BE9 /* ArticlePageTakeAwayView.swift in Sources */,
 				8FA878F327E1EC69008C2837 /* LoginAtlasView.swift in Sources */,
 				8FA878EF27E043F8008C2837 /* AppEnvironment.swift in Sources */,
@@ -556,6 +563,7 @@
 				8FA8790D27E87A6D008C2837 /* BriefingView.swift in Sources */,
 				8FA8790427E45712008C2837 /* FTUEIntroView.swift in Sources */,
 				8F8E610127D5D492003AFA79 /* LoginContentView.swift in Sources */,
+				8FFA4A9927F5690E001E4128 /* DotOnlyView.swift in Sources */,
 				8FAE849027F133C100872BE9 /* String+Ext.swift in Sources */,
 				8FA8791427EAF2A6008C2837 /* SearchPageView.swift in Sources */,
 				8FA8790827E84AF5008C2837 /* DotView.swift in Sources */,

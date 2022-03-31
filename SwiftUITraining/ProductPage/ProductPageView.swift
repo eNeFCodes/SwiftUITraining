@@ -14,6 +14,8 @@ struct ProductPageView: View {
         GeometryReader { geometry in
             ScrollView(.vertical) {
                 ProductPageCollectionView(geometry: geometry)
+                ProductPageDetailsView(geometry: geometry)
+                    .padding(.top, 48)
             }
         }
         .ignoresSafeArea()

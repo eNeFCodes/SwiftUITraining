@@ -88,39 +88,8 @@ struct ProductPageCollectionView: View {
                     .padding(.top, 40)
             }
 
-            Group {
-                let estimatedWidth = abs(geometry.size.width - 64)
-                let btnHeight: CGFloat = 54
-                Button {
-
-                } label: {
-                    HStack(spacing: 8) {
-                        let label = "VIEW IN PRODUCT CATALOG"
-                        let labelFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.bold(size: 12))
-
-                        Text(label)
-                            .accessibilityLabel(label)
-                            .foregroundColor(ColorCollection.black)
-                            .font(labelFont)
-
-                        Image("ic_product_catalog")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 14, height: 14, alignment: .center)
-                    }
-                    .frame(width: estimatedWidth, height: btnHeight, alignment: .center)
-                }
-                .frame(width: estimatedWidth, height: btnHeight, alignment: .center)
-                .overlay {
-                    let p1 = CGPoint(x: 0, y: 0)
-                    let p2 = CGPoint(x: estimatedWidth, y: 0)
-                    let p3 = CGPoint(x: estimatedWidth, y: btnHeight)
-                    let p4 = CGPoint(x: 0, y: btnHeight)
-                    BorderView(coordinates: [p1, p2, p3, p4], shouldClosePath: true)
-                        .stroke(ColorCollection.black)
-                }
-            }
-            .padding(.top, 32)
+            buildProductCatalogStack(geometry: geometry)
+                .padding(.top, 32)
 
             Group {
                 let estimatedWidth = abs(geometry.size.width - 64)
@@ -416,6 +385,41 @@ struct ProductPageCollectionView: View {
         .padding(.leading, 32)
         .padding(.trailing, 32)
         .frame(width: geometry.size.width, alignment: .leading)
+    }
+
+    private func buildProductCatalogStack(geometry: GeometryProxy) -> some View {
+        Group {
+            let estimatedWidth = abs(geometry.size.width - 64)
+            let btnHeight: CGFloat = 54
+            Button {
+
+            } label: {
+                HStack(spacing: 8) {
+                    let label = "VIEW IN PRODUCT CATALOG"
+                    let labelFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.bold(size: 12))
+
+                    Text(label)
+                        .accessibilityLabel(label)
+                        .foregroundColor(ColorCollection.black)
+                        .font(labelFont)
+
+                    Image("ic_product_catalog")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 14, height: 14, alignment: .center)
+                }
+                .frame(width: estimatedWidth, height: btnHeight, alignment: .center)
+            }
+            .frame(width: estimatedWidth, height: btnHeight, alignment: .center)
+            .overlay {
+                let p1 = CGPoint(x: 0, y: 0)
+                let p2 = CGPoint(x: estimatedWidth, y: 0)
+                let p3 = CGPoint(x: estimatedWidth, y: btnHeight)
+                let p4 = CGPoint(x: 0, y: btnHeight)
+                BorderView(coordinates: [p1, p2, p3, p4], shouldClosePath: true)
+                    .stroke(ColorCollection.black)
+            }
+        }
     }
 
     private func buildSellingPointStack(geometry: GeometryProxy) -> some View {

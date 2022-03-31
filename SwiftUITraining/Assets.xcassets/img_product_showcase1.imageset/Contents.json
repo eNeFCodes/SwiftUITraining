@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "img_product_showcase1.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

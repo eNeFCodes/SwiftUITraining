@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct ColorCollection {
-    static var white: Color = .white
+    static var white: Color = .init(hex: "FFFFFF")
     static var black: Color = .init(hex: "0D0D0D")
     static var red: Color = .init(hex: "C10016")
     static var gold: Color = .init(hex: "AC9852")
