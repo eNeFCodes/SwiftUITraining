@@ -195,6 +195,7 @@ struct ProductPageCollectionView: View {
                     let numberIdxFormat = numberIdx > 9 ? "\(numberIdx)" : "0\(numberIdx)"
 
                     Text(numberIdxFormat)
+                        .accessibilityLabel(numberIdxFormat)
                         .font(numberFont)
                         .foregroundColor(ColorCollection.black)
 

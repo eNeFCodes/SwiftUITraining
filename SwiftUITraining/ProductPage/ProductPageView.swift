@@ -16,6 +16,7 @@ struct ProductPageView: View {
                 ProductPageCollectionView(geometry: geometry)
                 ProductPageDetailsView(geometry: geometry)
                     .padding(.top, 48)
+                    .background(Color.green.opacity(0.3))
             }
         }
         .ignoresSafeArea()

@@ -78,9 +78,10 @@ struct ProductPageDetailsView: View {
                     Spacer()
                 }
 
-                VStack {
+                VStack(alignment: .trailing) {
                     Spacer()
                     let productDetailsViewWidth = abs(geometry.size.width - 44)
+                    let sidePadding: CGFloat = 26
                     VStack {
                         ZStack {
                             VStack {
@@ -90,6 +91,7 @@ struct ProductPageDetailsView: View {
                                     let numberIdxFormat = numberIdx > 9 ? "\(numberIdx)" : "0\(numberIdx)"
 
                                     Text(numberIdxFormat)
+                                        .accessibilityLabel(numberIdxFormat)
                                         .font(numberFont)
                                         .foregroundColor(ColorCollection.white)
 
@@ -104,8 +106,7 @@ struct ProductPageDetailsView: View {
                                         .font(numberFont)
                                         .foregroundColor(ColorCollection.gold)
                                 }
-                                .padding(16)
-                                .padding(.leading, 15)
+                                .padding(.leading, sidePadding)
                                 .frame(width: productDetailsViewWidth, height: 67, alignment: .leading)
                                 Spacer()
                             }
@@ -120,8 +121,8 @@ struct ProductPageDetailsView: View {
 
                                         let maxIndex = model.aboutDetails.count - 1
                                         DotOnlyView(range: 0...maxIndex, activeIndex: $aboutDetailsCurrentIndex)
-                                            .padding(.leading, 26)
-                                            .padding(.trailing, 26)
+                                            .padding(.leading, sidePadding)
+                                            .padding(.trailing, sidePadding)
                                             .frame(width: productDetailsMaskedViewWidth, alignment: .leading)
                                     }
                                     .padding(.top, 24)
@@ -145,7 +146,7 @@ struct ProductPageDetailsView: View {
                     .frame(width: productDetailsViewWidth, height: 233, alignment: .leading)
                     .background(ColorCollection.black)
                 }
-                .frame(width: geometry.size.width, height: 233, alignment: .trailing)
+                .frame(width: geometry.size.width, alignment: .trailing)
             }
         }
         .frame(width: geometry.size.width, height: 647, alignment: .trailing)
@@ -157,30 +158,9 @@ struct ProductPageDetailsView: View {
                 LazyHStack {
                     ForEach(0..<model.aboutDetails.count, id: \.self) { i in
                         let item = model.aboutDetails[i]
-                        let itemWidth = abs(maxWidth - 52)
-
-                        VStack(spacing: 12) {
-                            let detailFont = FontCollection.font(for: FontCollection.FancyCutProB7.regular(size: 16))
-                            Text(item.detail)
-                                .accessibilityLabel(item.detail)
-                                .frame(width: itemWidth, height: 66, alignment: .topLeading)
-                                .foregroundColor(ColorCollection.white)
-                                .font(detailFont)
-
-                            let copyrightFont = FontCollection.font(for: FontCollection.FancyCutProB7.light(size: 12))
-                            Text(item.copyright)
-                                .accessibilityLabel(item.copyright)
-                                .frame(width: itemWidth, height: 14, alignment: .topLeading)
-                                .foregroundColor(ColorCollection.white)
-                                .font(copyrightFont)
-                        }
-                        .padding(.leading, 26)
-                        .padding(.trailing, 26)
-                        .frame(width: maxWidth, height: definedHeight, alignment: .center)
-                        .tag(i)
+                        drawAboutProductDetailStack(maxWidth: maxWidth, definedHeight: definedHeight, item: item, tag: i)
                     }
                 }
-                .frame(width: maxWidth, height: definedHeight, alignment: .center)
                 .onChange(of: aboutDetailsCurrentIndex) { newValue in
                     withAnimation {
                         proxy.scrollTo(newValue, anchor: .center)
@@ -196,6 +176,31 @@ struct ProductPageDetailsView: View {
         }
         .coordinateSpace(name: "scroll")
         .frame(width: maxWidth, height: definedHeight, alignment: .center)
+    }
+
+    private func drawAboutProductDetailStack(maxWidth: CGFloat, definedHeight: CGFloat, item: Model.AboutDetail, tag i: Int) -> some View {
+        VStack(spacing: 12) {
+            let sidePadding: CGFloat = 26
+            let detailFont = FontCollection.font(for: FontCollection.FancyCutProB7.regular(size: 16))
+            Text(item.detail)
+                .accessibilityLabel(item.detail)
+                .padding(.leading, sidePadding)
+                .padding(.trailing, sidePadding)
+                .frame(width: maxWidth, height: 66, alignment: .topLeading)
+                .foregroundColor(ColorCollection.white)
+                .font(detailFont)
+
+            let copyrightFont = FontCollection.font(for: FontCollection.FancyCutProB7.light(size: 12))
+            Text(item.copyright)
+                .accessibilityLabel(item.copyright)
+                .padding(.leading, sidePadding)
+                .padding(.trailing, sidePadding)
+                .frame(width: maxWidth, height: 14, alignment: .topLeading)
+                .foregroundColor(ColorCollection.white)
+                .font(copyrightFont)
+        }
+        .frame(width: maxWidth, height: definedHeight, alignment: .center)
+        .tag(i)
     }
 }
 
