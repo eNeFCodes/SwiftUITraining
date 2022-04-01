@@ -58,6 +58,7 @@ struct ProductPageQuotedView: View {
                 }
                 .frame(width: abs(geometry.size.width), alignment: .leading)
             }
+            .padding(.top, 30)
         }
     }
 
