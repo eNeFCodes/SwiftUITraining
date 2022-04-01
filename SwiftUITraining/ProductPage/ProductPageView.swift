@@ -13,9 +13,13 @@ struct ProductPageView: View {
     var body: some View {
         GeometryReader { geometry in
             ScrollView(.vertical) {
-                ProductPageCollectionView(geometry: geometry)
-                ProductPageDetailsView(geometry: geometry)
-                    .padding(.top, 48)
+                LazyVStack {
+                    ProductPageCollectionView(geometry: geometry)
+                    ProductPageDetailsView(geometry: geometry)
+                        .padding(.top, 48)
+                    ProductPageQuotedView(geometry: geometry)
+                        .padding(.top, 48)
+                }
             }
         }
         .ignoresSafeArea()
