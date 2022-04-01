@@ -120,10 +120,15 @@ struct ProductPageDetailsView: View {
                                         buildAboutProductScrollViewStack(maxWidth: productDetailsMaskedViewWidth)
 
                                         let maxIndex = model.aboutDetails.count - 1
-                                        DotOnlyView(range: 0...maxIndex, activeIndex: $aboutDetailsCurrentIndex)
+                                        DotOnlyView(dotColor: ColorCollection.white,
+                                                    dotStrokeColor: ColorCollection.white,
+                                                    dotInactiveStrokeColor: ColorCollection.whiteInactiveDotColor,
+                                                    range: 0...maxIndex,
+                                                    activeIndex: $aboutDetailsCurrentIndex)
                                             .padding(.leading, sidePadding)
                                             .padding(.trailing, sidePadding)
                                             .frame(width: productDetailsMaskedViewWidth, alignment: .leading)
+                                            .padding(.bottom, 40)
                                     }
                                     .padding(.top, 24)
                                     .frame(width: productDetailsMaskedViewWidth, height: detailsStackViewHeight, alignment: .leading)
