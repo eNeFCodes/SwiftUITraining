@@ -19,6 +19,16 @@ struct ProductPageView: View {
                         .padding(.top, 48)
                     ProductPageQuotedView(geometry: geometry)
                         .padding(.top, 48)
+
+                    let item = SearchPageView.Searched(id: 0,
+                                                       title: "panthere".uppercased(),
+                                                       subTitle: "The History of the Cartier Panthère Bracelet".uppercased(),
+                                                       imageName: "img_result4",
+                                                       date: "MAR. 1, 2020")
+                    SearchResultItemView(geometry: geometry, item: item, sidePadding: 32) { item in
+                        print("tapped: ", item)
+                    }
+                    .padding(.top, 48)
                 }
             }
         }
