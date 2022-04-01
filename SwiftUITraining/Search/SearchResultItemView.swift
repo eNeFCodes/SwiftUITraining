@@ -21,6 +21,7 @@ struct SearchResultItemView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: paddedWidth, height: paddedWidth, alignment: .center)
+                .clipped()
 
             let titleFont = FontCollection.uiFont(for: FontCollection.BrilliantCutProB7.bold(size: 11))!
             let titleHeight = item.title.constrainedSize(with: .init(width: paddedWidth, height: .infinity),

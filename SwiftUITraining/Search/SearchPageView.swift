@@ -178,15 +178,17 @@ struct SearchPageView: View {
                 .padding(20)
 
             ScrollView(.vertical) {
-                if !searchResults.isEmpty {
-                    ForEach(searchResults) { searched in
-                        createResultItemView(for: searched, geometry: geometry)
+                LazyVStack {
+                    if !searchResults.isEmpty {
+                        ForEach(searchResults) { searched in
+                            createResultItemView(for: searched, geometry: geometry)
+                        }
+                    } else {
+                        ForEach(popularSearches) { searched in
+                            createTappableField(for: searched, geometry: geometry)
+                        }
+                        .foregroundColor(.white)
                     }
-                } else {
-                    ForEach(popularSearches) { searched in
-                        createTappableField(for: searched, geometry: geometry)
-                    }
-                    .foregroundColor(.white)
                 }
             }
         }
@@ -211,9 +213,10 @@ struct SearchPageView: View {
                 .accessibilityLabel(item.title)
                 .tag(item.id)
                 .frame(width: abs(geometry.size.width), height: 40, alignment: .leading)
-                .padding(.leading, 20)
-                .padding(.trailing, 20)
         }
+        .padding(.leading, 20)
+        .padding(.trailing, 20)
+        .frame(width: abs(geometry.size.width), height: 40, alignment: .leading)
     }
 
     private func triggerInputFieldOnChangeAction(id: Int, text: String) {
