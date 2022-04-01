@@ -14,4 +14,7 @@ struct ColorCollection {
     static var red: Color = .init(hex: "C10016")
     static var gold: Color = .init(hex: "AC9852")
     static var lightBeige: Color = .init(hex: "F6F5EF")
+
+    static var goldInactiveDotColor: Color = .init(hex: "726847")
+    static var whiteInactiveDotColor: Color = .init(hex: "FFFFFF").opacity(0.54)
 }
