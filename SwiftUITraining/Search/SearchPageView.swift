@@ -194,8 +194,9 @@ struct SearchPageView: View {
     }
 
     private func createResultItemView(for item: Searched, geometry: GeometryProxy) -> some View {
-        SearchResultItemView(item: item, action: resultActionHandler)
-            .frame(width: geometry.size.width, height: SearchResultItemView.calculatedHeight(geometry: geometry))
+        SearchResultItemView(geometry: geometry, item: item, action: resultActionHandler)
+            .padding(.top, 20)
+            .padding(.bottom, 20)
     }
 
     private func resultActionHandler(item: Searched) {
