@@ -10,7 +10,9 @@ import SwiftUI
 struct DotView: View {
 
     var dotColor: Color = .orange
+    var dotStrokeColor: Color = .orange
     var dotInactiveColor: Color = .clear
+    var dotInactiveStrokeColor: Color = .orange
     var range: ClosedRange<Int>
     var action: () -> Void
     var geometry: GeometryProxy
@@ -60,7 +62,7 @@ struct DotView: View {
                     let rect = CGRect(x: 0, y: 0, width: 15, height: 15)
                     let roundPath = Path(roundedRect: rect, cornerRadius: 7.5, style: .continuous)
                     ShapeView(path: roundPath)
-                        .stroke(dotColor, lineWidth: 2)
+                        .stroke(dotInactiveStrokeColor, lineWidth: 2)
                 }
         }
     }
@@ -79,7 +81,7 @@ struct DotView: View {
                     let rect = CGRect(x: 0, y: 0, width: 15, height: 15)
                     let roundPath = Path(roundedRect: rect, cornerRadius: 7.5, style: .continuous)
                     ShapeView(path: roundPath)
-                        .stroke(dotColor, lineWidth: 2)
+                        .stroke(dotStrokeColor, lineWidth: 2)
                 }
         }
     }

@@ -10,24 +10,22 @@ import SwiftUI
 struct DotOnlyView: View {
 
     var dotColor: Color = .orange
+    var dotStrokeColor: Color = .orange
     var dotInactiveColor: Color = .clear
+    var dotInactiveStrokeColor: Color = .orange
     var range: ClosedRange<Int>
 
     @Binding var activeIndex: Int
 
     var body: some View {
-        VStack {
-            Spacer()
-            HStack(alignment: .center) {
-                ForEach(range, id: \.self) { idx in
-                    if activeIndex == idx {
-                        activeDotIndicator(index: idx)
-                    } else {
-                        dotIndicator(index: idx)
-                    }
+        HStack(alignment: .center) {
+            ForEach(range, id: \.self) { idx in
+                if activeIndex == idx {
+                    activeDotIndicator(index: idx)
+                } else {
+                    dotIndicator(index: idx)
                 }
             }
-            .padding(.bottom, 40)
         }
     }
 
@@ -45,7 +43,7 @@ struct DotOnlyView: View {
                     let rect = CGRect(x: 0, y: 0, width: 15, height: 15)
                     let roundPath = Path(roundedRect: rect, cornerRadius: 7.5, style: .continuous)
                     ShapeView(path: roundPath)
-                        .stroke(dotColor, lineWidth: 2)
+                        .stroke(dotInactiveStrokeColor, lineWidth: 2)
                 }
         }
     }
@@ -64,7 +62,7 @@ struct DotOnlyView: View {
                     let rect = CGRect(x: 0, y: 0, width: 15, height: 15)
                     let roundPath = Path(roundedRect: rect, cornerRadius: 7.5, style: .continuous)
                     ShapeView(path: roundPath)
-                        .stroke(dotColor, lineWidth: 2)
+                        .stroke(dotStrokeColor, lineWidth: 2)
                 }
         }
     }
