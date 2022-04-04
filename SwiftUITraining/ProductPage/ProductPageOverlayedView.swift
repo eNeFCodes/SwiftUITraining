@@ -42,7 +42,7 @@ struct ProductPageOverlayedView: View {
 
                 VStack {
                     VStack {
-                        SearchResultItemView(geometry: geometry, item: model.product, sidePadding: sidePadding) { item in
+                        SearchResultItemView(geometry: geometry, item: model.product, sidePadding: sidePadding, showSeparator: false) { item in
                             print("tapped: ", item)
                         }
                     }

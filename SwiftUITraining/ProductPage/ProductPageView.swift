@@ -25,10 +25,15 @@ struct ProductPageView: View {
                                                        subTitle: "The History of the Cartier Panthère Bracelet".uppercased(),
                                                        imageName: "img_result4",
                                                        date: "MAR. 1, 2020")
-                    SearchResultItemView(geometry: geometry, item: item, sidePadding: 32) { item in
+                    SearchResultItemView(geometry: geometry, item: item, sidePadding: 32, showSeparator: false) { item in
                         print("tapped: ", item)
                     }
                     .padding(.top, 48)
+
+                    ProductPageOverlayedView(geometry: geometry,
+                                             model: ProductPageOverlayedView.mockData())
+                        .padding(.top, 48)
+                        .padding(.bottom, 88)
                 }
             }
         }
