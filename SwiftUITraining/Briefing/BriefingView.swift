@@ -47,6 +47,8 @@ struct BriefingView: View {
 
                     buildBonjurViewStack(geometry: geometry)
                         .padding(.top, 26)
+
+                    
                 }
 
                 VStack {
