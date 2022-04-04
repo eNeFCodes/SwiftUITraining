@@ -12,6 +12,7 @@ struct SearchResultItemView: View {
     let geometry: GeometryProxy
     let item: SearchPageView.Searched
     var sidePadding: CGFloat = 20
+    var showSeparator: Bool = true
     let action: (_ item: SearchPageView.Searched) -> Void
 
     var body: some View {
@@ -63,15 +64,17 @@ struct SearchResultItemView: View {
                 .font(dateFont)
                 .frame(width: paddedWidth, height: 15, alignment: .leading)
 
-            VStack {
-                let p1 = CGPoint(x: 0, y: 0)
-                let p2 = CGPoint(x: paddedWidth, y: 0)
-                BorderView(coordinates: [p1, p2])
-                    .stroke(style: StrokeStyle(lineWidth: 1, lineCap: .round, dash: [2]))
-                    .foregroundColor(Color.init(hex: "DCD7CA"))
+            if showSeparator {
+                VStack {
+                    let p1 = CGPoint(x: 0, y: 0)
+                    let p2 = CGPoint(x: paddedWidth, y: 0)
+                    BorderView(coordinates: [p1, p2])
+                        .stroke(style: StrokeStyle(lineWidth: 1, lineCap: .round, dash: [2]))
+                        .foregroundColor(Color.init(hex: "DCD7CA"))
+                }
+                .frame(width: paddedWidth, height: 1, alignment: .center)
+                .padding(.top, 16)
             }
-            .frame(width: paddedWidth, height: 1, alignment: .center)
-            .padding(.top, 16)
         }
         .multilineTextAlignment(.leading)
         .padding(.leading, sidePadding)
