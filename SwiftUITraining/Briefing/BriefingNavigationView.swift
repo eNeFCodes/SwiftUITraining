@@ -19,7 +19,7 @@ struct BriefingNavigationView: View {
 
     var body: some View {
         ZStack {
-            let estimatedWidth = geometry.size.width - (sidePadding * 2)
+            let estimatedWidth = abs(geometry.size.width - (sidePadding * 2))
             buildTitleStack(estimatedWidth: estimatedWidth)
             buildButtonStack(estimatedWidth: estimatedWidth)
 
@@ -29,7 +29,7 @@ struct BriefingNavigationView: View {
                 let p2 = CGPoint(x: estimatedWidth, y: 0)
                 BorderView(coordinates: [p1, p2])
                     .stroke(style: StrokeStyle(lineWidth: 1, dash: [2]))
-                    .foregroundColor(ColorCollection.gold)
+                    .foregroundColor(ColorCollection.black)
                     .frame(width: estimatedWidth, height: 1)
             }
             .frame(width: estimatedWidth, height: maxNavHeight, alignment: .bottom)
@@ -41,7 +41,7 @@ struct BriefingNavigationView: View {
 
     private func buildTitleStack(estimatedWidth: CGFloat) -> some View {
         HStack {
-            let textContentWidth = estimatedWidth - 148
+            let textContentWidth = abs(estimatedWidth - 148)
             VStack(spacing: 0) {
                 let titleFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.bold(size: 28))
                 Text(title)
