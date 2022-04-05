@@ -50,6 +50,9 @@ struct BriefingView: View {
 
                     BriefingNeedToKnowView(geometry: geometry)
                         .padding(.top, 24)
+
+                    BriefingWeeklyUpdateView(geometry: geometry)
+                        .padding(.top, 44)
                 }
 
                 VStack {
