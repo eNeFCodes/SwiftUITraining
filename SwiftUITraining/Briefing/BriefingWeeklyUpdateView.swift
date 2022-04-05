@@ -7,10 +7,35 @@
 
 import SwiftUI
 
+extension BriefingWeeklyUpdateView {
+    struct Model {
+        let title: String
+        let product: SearchPageView.Searched
+    }
+}
+
 struct BriefingWeeklyUpdateView: View {
     let geometry: GeometryProxy
+    let model: Model = BriefingWeeklyUpdateView.mockData()
 
     var body: some View {
+        ZStack {
+            VStack {
+                buildBackDropTitleViewStack(geometry: geometry)
+                Spacer()
+            }
+
+            VStack {
+                SearchResultItemView(geometry: geometry, item: model.product, sidePadding: 32) { item in
+                    print("item: ", item)
+                }
+                .padding(.top, 130)
+                Spacer()
+            }
+        }
+    }
+
+    private func buildBackDropTitleViewStack(geometry: GeometryProxy) -> some View {
         Group {
             let frameWidth = abs(geometry.size.width)
             let frameHeight: CGFloat = 236
@@ -67,5 +92,16 @@ struct BriefingWeeklyUpdateView_Previews: PreviewProvider {
         GeometryReader { geometry in
             BriefingWeeklyUpdateView(geometry: geometry)
         }
+    }
+}
+
+extension BriefingWeeklyUpdateView {
+    static func mockData() -> BriefingWeeklyUpdateView.Model {
+        .init(title: "THIS WEEK\nAROUND CNT",
+              product: .init(id: 0,
+                             title: "panthere".uppercased(),
+                             subTitle: "The History of the Cartier Panthère Bracelet".uppercased(),
+                             imageName: "img_result4",
+                             date: "MAR. 1, 2020"))
     }
 }
