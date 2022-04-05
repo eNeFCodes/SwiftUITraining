@@ -25,6 +25,7 @@ struct BriefingNeedToKnowView: View {
 
     let geometry: GeometryProxy
     let model: Model = BriefingNeedToKnowView.mockData()
+    @State private var currentIndex: Int = 0
 
     var body: some View {
         ZStack {
@@ -72,29 +73,45 @@ struct BriefingNeedToKnowView: View {
         .frame(width: geometry.size.width, alignment: .leading)
     }
 
-    private func buildKnowInfoViewStack(geometry: GeometryProxy) -> some View {
+    private func buildKnowInfoViewStack(geometry: GeometryProxy, maxHeight: CGFloat = 399) -> some View {
         VStack {
             Spacer()
             let sidePadding: CGFloat = 32
-            let itemWidth = geometry.size.width - (sidePadding * 2)
-            ScrollView {
+            let itemWidth = abs(geometry.size.width - (sidePadding * 2))
+            ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { proxy in
                     LazyHStack(spacing: 12) {
-                        ForEach(0..<model.knowTos.count, id: \.self) { i in
+                        let maxKnowTosIndexCount = model.knowTos.count - 1
+                        ForEach(0...maxKnowTosIndexCount, id: \.self) { i in
                             let item = model.knowTos[i]
-                            builKnowInfoItemViewStack(itemWidth: itemWidth, item: item, tag: i)
+                            let leftPadding = i == 0 ? sidePadding : 0
+                            let rightPadding = i == maxKnowTosIndexCount ? sidePadding : 0
+                            builKnowInfoItemViewStack(itemWidth: itemWidth, maxHeight: maxHeight, item: item, tag: i)
+                                .padding(.leading, leftPadding)
+                                .padding(.trailing, rightPadding)
+                        }
+                    }
+                    .frame(height: maxHeight, alignment: .center)
+                    .onChange(of: currentIndex) { newValue in
+                        withAnimation {
+                            proxy.scrollTo(newValue, anchor: .center)
                         }
                     }
                 }
+                .background {
+                    GeometryReader { geometry in
+                        Color.clear.preference(key: ScrollViewOffsetKey.self,
+                                               value: abs(geometry.frame(in: .named("scroll")).origin.x))
+                    }
+                }
             }
-            .padding(.leading, sidePadding)
-            .padding(.trailing, sidePadding)
-            .frame(width: geometry.size.width, height: 399, alignment: .center)
+            .frame(width: geometry.size.width, height: maxHeight, alignment: .center)
+            .coordinateSpace(name: "scroll")
         }
-        .frame(width: geometry.size.width, height: 399, alignment: .center)
+        .frame(width: geometry.size.width, height: maxHeight, alignment: .center)
     }
 
-    private func builKnowInfoItemViewStack(itemWidth: CGFloat, item: BriefingNeedToKnowView.Model.KnowInfo, tag i: Int) -> some View {
+    private func builKnowInfoItemViewStack(itemWidth: CGFloat, maxHeight: CGFloat, item: BriefingNeedToKnowView.Model.KnowInfo, tag i: Int) -> some View {
         ZStack {
             let sidePadding: CGFloat = 30
             VStack {
@@ -112,7 +129,7 @@ struct BriefingNeedToKnowView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 74, height: 74, alignment: .center)
                     .clipped()
-                    .padding(.top, 44)
+                    .padding(.top, 20)
 
                 let titleFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.medium(size: 22))
                 Text(item.title)
@@ -122,18 +139,33 @@ struct BriefingNeedToKnowView: View {
                     .padding(.top, 20)
                     .multilineTextAlignment(.center)
 
+                let p1 = CGPoint(x: 0, y: 0)
+                let p2 = CGPoint(x: 0, y: 60)
+                BorderView(coordinates: [p1, p2])
+                    .stroke(style: StrokeStyle(lineWidth: 1, dash: [2]))
+                    .frame(width: 1, height: 60, alignment: .center)
+                    .foregroundColor(ColorCollection.gold)
+                    .padding(.top, sidePadding)
+                    .padding(.bottom, sidePadding)
+
                 let messageFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.bold(size: 11))
                 Text(item.message)
                     .accessibilityLabel(item.message)
                     .foregroundColor(ColorCollection.white)
                     .font(messageFont)
                     .multilineTextAlignment(.center)
+
+                Image("ic_3arrow_red")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 43, height: 12, alignment: .center)
+                    .padding(.top, 10)
             }
             .padding(.leading, sidePadding)
             .padding(.trailing, sidePadding)
-            .frame(width: itemWidth, height: 399, alignment: .center)
+            .frame(width: itemWidth, height: maxHeight, alignment: .center)
         }
-        .frame(width: itemWidth, height: 399, alignment: .center)
+        .frame(width: itemWidth, height: maxHeight, alignment: .center)
         .background(ColorCollection.black)
         .tag(i)
     }
@@ -152,15 +184,23 @@ extension BriefingNeedToKnowView {
         .init(title: "YOUR BOUTIQUE",
               knowTos: [
                 .init(id: 0,
-                      title: "here are the key things you need to know today!".uppercased(),
+                      title: "1 here are the key things you need to know today!".uppercased(),
                       message: "Swipe left to get started".uppercased(),
                       icon: "ic_knowTo1"),
                 .init(id: 1,
-                      title: "here are the key things you need to know today!".uppercased(),
+                      title: "2 here are the key things you need to know today!".uppercased(),
                       message: "Swipe left to get started".uppercased(),
                       icon: "ic_knowTo1"),
                 .init(id: 3,
-                      title: "here are the key things you need to know today!".uppercased(),
+                      title: "3 here are the key things you need to know today!".uppercased(),
+                      message: "Swipe left to get started".uppercased(),
+                      icon: "ic_knowTo1"),
+                .init(id: 4,
+                      title: "4 here are the key things you need to know today!".uppercased(),
+                      message: "Swipe left to get started".uppercased(),
+                      icon: "ic_knowTo1"),
+                .init(id: 5,
+                      title: "5 here are the key things you need to know today!".uppercased(),
                       message: "Swipe left to get started".uppercased(),
                       icon: "ic_knowTo1")
               ])
