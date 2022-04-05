@@ -17,7 +17,7 @@ struct SearchResultItemView: View {
 
     var body: some View {
         VStack(spacing: 8) {
-            let paddedWidth = geometry.size.width - (sidePadding * 2)
+            let paddedWidth = abs(geometry.size.width - (sidePadding * 2))
             Image(item.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
