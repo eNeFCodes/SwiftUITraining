@@ -41,7 +41,7 @@ struct BriefingView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                ScrollView {
+                ScrollView(.vertical, showsIndicators: false) {
                     buildTopNavigationViewStack(geometry: geometry)
                         .padding(.top, 25)
 

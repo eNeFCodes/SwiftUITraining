@@ -51,7 +51,7 @@ struct BriefingWeeklyUpdateView: View {
                 .frame(width: frameWidth, height: frameHeight, alignment: .center)
 
                 VStack {
-                    let redBGViewWidth = frameWidth - 85
+                    let redBGViewWidth = abs(frameWidth - 85)
                     let sidePadding: CGFloat = 32
                     VStack {
                         let titleFont = FontCollection.font(for: FontCollection.FancyCutCondProB7.bold(size: 30))
