@@ -25,7 +25,7 @@ struct BriefingWeeklyUpdateView: View {
                 Spacer()
             }
 
-            VStack {
+            VStack(spacing: 32) {
                 SearchResultItemView(geometry: geometry, item: model.product, sidePadding: 32) { item in
                     print("item: ", item)
                 }
@@ -33,11 +33,16 @@ struct BriefingWeeklyUpdateView: View {
                 SearchResultItemView(geometry: geometry, item: model.product, sidePadding: 32) { item in
                     print("item: ", item)
                 }
-                .padding(.top, 32)
 
                 BriefingStandardProductView(geometry: geometry,
                                             model: BriefingStandardProductView.mockData())
-                    .padding(.top, 32)
+
+                SearchResultItemView(geometry: geometry, item: model.product, sidePadding: 32) { item in
+                    print("item: ", item)
+                }
+
+                BriefingStandardProductDetailsOnlyView(geometry: geometry,
+                                                       model: BriefingStandardProductDetailsOnlyView.mockData())
 
                 Spacer()
             }
