@@ -29,9 +29,19 @@ struct BriefingWeeklyUpdateView: View {
                 SearchResultItemView(geometry: geometry, item: model.product, sidePadding: 32) { item in
                     print("item: ", item)
                 }
-                .padding(.top, 130)
+
+                SearchResultItemView(geometry: geometry, item: model.product, sidePadding: 32) { item in
+                    print("item: ", item)
+                }
+                .padding(.top, 32)
+
+                BriefingStandardProductView(geometry: geometry,
+                                            model: BriefingStandardProductView.mockData())
+                    .padding(.top, 32)
+
                 Spacer()
             }
+            .padding(.top, 130)
         }
     }
 

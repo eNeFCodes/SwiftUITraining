@@ -9,6 +9,7 @@ import SwiftUI
 
 extension BriefingStandardProductView {
     struct Model {
+        let imageName: String
         let title: String
         let sutTitle: String
         let details: String
@@ -69,7 +70,7 @@ struct BriefingStandardProductView: View {
                 .frame(width: containerBGFrameWidth, height: 173, alignment: .center)
                 .background(ColorCollection.black)
 
-                Image("img_ring")
+                Image(model.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: containerSqHeight, height: containerSqHeight, alignment: .center)
@@ -99,7 +100,7 @@ struct BriefingStandardProductView: View {
                 .frame(width: contentWidth, alignment: .leading)
 
             HStack(spacing: 4) {
-                let subTitleFieldWidth = contentWidth - 28
+                let subTitleFieldWidth = abs(contentWidth - 28)
                 let subTitleFont = FontCollection.uiFont(for: FontCollection.BrilliantCutProB7.medium(size: 22))!
                 let subTitleHeight = model.sutTitle.constrainedSize(with: .init(width: subTitleFieldWidth, height: .infinity),
                                                                     minHeight: 24,
@@ -183,7 +184,8 @@ struct BriefingStandardProductView_Previews: PreviewProvider {
 
 extension BriefingStandardProductView {
     static func mockData() -> BriefingStandardProductView.Model {
-        .init(title: "TAKEAWAY",
+        .init(imageName: "img_ring",
+              title: "TAKEAWAY",
               sutTitle: "Congratulate\nMaria".uppercased(),
               details: "Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before. Its five-year mission: to explore strange new worlds again.",
               time: "5 mins ago".uppercased(),
