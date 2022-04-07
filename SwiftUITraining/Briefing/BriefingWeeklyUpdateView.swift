@@ -34,16 +34,15 @@ struct BriefingWeeklyUpdateView: View {
                     print("item: ", item)
                 }
 
-                BriefingStandardProductView(geometry: geometry,
-                                            model: BriefingStandardProductView.mockData())
+                BriefingStandardProductView(geometry: geometry, model: BriefingStandardProductView.mockData())
 
                 SearchResultItemView(geometry: geometry, item: model.product, sidePadding: 32) { item in
                     print("item: ", item)
                 }
 
-                BriefingStandardProductDetailsOnlyView(geometry: geometry,
-                                                       model: BriefingStandardProductDetailsOnlyView.mockData())
+                BriefingStandardProductDetailsOnlyView(geometry: geometry, model: BriefingStandardProductDetailsOnlyView.mockData())
 
+                ProductPageOverlayedView(geometry: geometry, model: ProductPageOverlayedView.mockData2())
                 Spacer()
             }
             .padding(.top, 130)

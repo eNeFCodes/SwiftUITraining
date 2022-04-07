@@ -99,7 +99,7 @@ struct SearchPageView: View {
             .frame(width: abs(geometry.size.width), alignment: .center)
 
             VStack {
-                InputFieldView(text: $searchedText, config: makeSearchFieldConfig())
+                InputFieldView(text: $searchedText, config: makeSearchFieldConfig(), showTitle: !searchedText.isEmpty)
                     .padding(20)
 
                 ZStack {

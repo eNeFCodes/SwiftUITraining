@@ -16,9 +16,9 @@ struct ContentView: View {
             LoaderView(content: { geometry in
                 NavigationView {
                     //LoginContentView()
-                    BriefingView()
+                    //BriefingView()
                     //FTUEContentView()
-                    //SearchPageView()
+                    SearchPageView()
                     //ArticlePageView()
                     //ProductPageView()
                 }
