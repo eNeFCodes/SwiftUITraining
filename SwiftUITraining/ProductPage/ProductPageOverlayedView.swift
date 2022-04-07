@@ -9,7 +9,7 @@ import SwiftUI
 
 extension ProductPageOverlayedView {
     struct Model {
-        let contentDetails: String
+        let contentDetails: String?
         let collectionTitle: String
         let collectionDetails: String
 
@@ -23,16 +23,19 @@ struct ProductPageOverlayedView: View {
     let model: Model
 
     var body: some View {
-        VStack {
+        let addSpacing: CGFloat = (model.contentDetails ?? "").isEmpty ? 0 : 48
+        VStack(spacing: addSpacing) {
             let sidePadding: CGFloat = 32
-            let detailFont = FontCollection.font(for: FontCollection.FancyCutProB7.regular(size: 18))
-            Text(model.contentDetails)
-                .accessibilityLabel(model.contentDetails)
-                .font(detailFont)
-                .foregroundColor(ColorCollection.black)
-                .padding(.leading, sidePadding)
-                .padding(.trailing, sidePadding)
-                .frame(width: abs(geometry.size.width), alignment: .leading)
+            if let contentDetails = model.contentDetails {
+                let detailFont = FontCollection.font(for: FontCollection.FancyCutProB7.regular(size: 18))
+                Text(contentDetails)
+                    .accessibilityLabel(contentDetails)
+                    .font(detailFont)
+                    .foregroundColor(ColorCollection.black)
+                    .padding(.leading, sidePadding)
+                    .padding(.trailing, sidePadding)
+                    .frame(width: abs(geometry.size.width), alignment: .leading)
+            }
 
             ZStack {
                 VStack {
@@ -46,7 +49,6 @@ struct ProductPageOverlayedView: View {
                 .padding(.top, 135)
                 .frame(width: geometry.size.width, alignment: .trailing)
             }
-            .padding(.top, 48)
             .frame(width: geometry.size.width, alignment: .center)
         }
     }
@@ -72,7 +74,7 @@ struct ProductPageOverlayedView: View {
                         .frame(width: textContentWidth, height: 1, alignment: .leading)
 
                     HStack {
-                        let detailContentWidth = textContentWidth - 93
+                        let detailContentWidth = abs(textContentWidth - 93)
                         let detailFont = FontCollection.font(for: FontCollection.FancyCutProB7.regular(size: 16))
                         Text(model.collectionDetails)
                             .accessibilityLabel(model.collectionDetails)
@@ -153,6 +155,24 @@ struct ProductPageOverlayedView_Previews: PreviewProvider {
 extension ProductPageOverlayedView {
     static func mockData() -> ProductPageOverlayedView.Model {
         .init(contentDetails: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec augue tempus erat luctus consequat. In venenatis varius imperdiet. Donec non massa eu enim dapibus ullamcorper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec augue tempus erat luctus consequat. In venenatis varius imperdiet. Donec non massa eu enim dapibus ullamcorper.",
+              collectionTitle: "DISCOVER the collection".uppercased(),
+              collectionDetails: "Here's a selection of articles about Trinity Collection.",
+              products: [
+                .init(id: 0,
+                      title: "EYEBROW",
+                      subTitle: "A NEW CHAPTER ON NEW BOND STREET",
+                      imageName: "img_result5",
+                      date: "MAR. 1, 2020"),
+                .init(id: 0,
+                      title: "EYEBROW",
+                      subTitle: "A NEW CHAPTER ON NEW BOND STREET",
+                      imageName: "img_result5",
+                      date: "MAR. 1, 2020")
+              ])
+    }
+
+    static func mockData2() -> ProductPageOverlayedView.Model {
+        .init(contentDetails: "",
               collectionTitle: "DISCOVER the collection".uppercased(),
               collectionDetails: "Here's a selection of articles about Trinity Collection.",
               products: [
