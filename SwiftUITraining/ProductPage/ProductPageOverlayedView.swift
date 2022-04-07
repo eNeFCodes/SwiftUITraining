@@ -13,7 +13,7 @@ extension ProductPageOverlayedView {
         let collectionTitle: String
         let collectionDetails: String
 
-        let product: SearchPageView.Searched
+        let products: [SearchPageView.Searched]
     }
 }
 
@@ -41,14 +41,9 @@ struct ProductPageOverlayedView: View {
                 }
 
                 VStack {
-                    VStack {
-                        SearchResultItemView(geometry: geometry, item: model.product, sidePadding: sidePadding, showSeparator: false) { item in
-                            print("tapped: ", item)
-                        }
-                    }
-                    .padding(.top, 135)
-                    .frame(width: 150, alignment: .leading)
+                    buildTextContentScrollableViewStack(geometry: geometry, sidePadding: sidePadding)
                 }
+                .padding(.top, 135)
                 .frame(width: geometry.size.width, alignment: .trailing)
             }
             .padding(.top, 48)
@@ -125,6 +120,26 @@ struct ProductPageOverlayedView: View {
             }
         }
     }
+
+    private func buildTextContentScrollableViewStack(geometry: GeometryProxy, sidePadding: CGFloat) -> some View {
+        Group {
+            let startLeadPadding = abs(geometry.size.width - 180)
+            ScrollView(.horizontal, showsIndicators: false) {
+                ScrollViewReader { proxy in
+                    LazyHStack {
+                        ForEach(0..<model.products.count, id: \.self) { i in
+                            let product = model.products[i]
+                            let leadPadding = i == 0 ? startLeadPadding : 0
+                            SearchResultItemView(geometry: geometry, item: product, sidePadding: sidePadding, showSeparator: false) { item in
+                                print("tapped: ", item)
+                            }
+                            .padding(.leading, leadPadding)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 struct ProductPageOverlayedView_Previews: PreviewProvider {
@@ -140,10 +155,17 @@ extension ProductPageOverlayedView {
         .init(contentDetails: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec augue tempus erat luctus consequat. In venenatis varius imperdiet. Donec non massa eu enim dapibus ullamcorper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec augue tempus erat luctus consequat. In venenatis varius imperdiet. Donec non massa eu enim dapibus ullamcorper.",
               collectionTitle: "DISCOVER the collection".uppercased(),
               collectionDetails: "Here's a selection of articles about Trinity Collection.",
-              product: .init(id: 0,
-                             title: "EYEBROW",
-                             subTitle: "A NEW CHAPTER ON NEW BOND STREET",
-                             imageName: "img_result5",
-                             date: "MAR. 1, 2020"))
+              products: [
+                .init(id: 0,
+                      title: "EYEBROW",
+                      subTitle: "A NEW CHAPTER ON NEW BOND STREET",
+                      imageName: "img_result5",
+                      date: "MAR. 1, 2020"),
+                .init(id: 0,
+                      title: "EYEBROW",
+                      subTitle: "A NEW CHAPTER ON NEW BOND STREET",
+                      imageName: "img_result5",
+                      date: "MAR. 1, 2020")
+              ])
     }
 }
