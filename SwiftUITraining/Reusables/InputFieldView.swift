@@ -70,18 +70,20 @@ struct InputFieldView: View {
 
     @Binding var text: String
     var config: Config
+    @State private var showTitle: Bool = false
     
     var body: some View {
         let maxFieldHeight: CGFloat = text.isEmpty ? 49 : 77
         GeometryReader { geometry in
             VStack(spacing: 8) {
-                if !text.isEmpty {
+                if showTitle {
                     let titleFont = Font.custom("BrilliantCutProB7-Regular", size: 15)
                     Text(config.title)
                         .accessibilityLabel(config.title)
                         .foregroundColor(config.titleColor)
                         .font(titleFont)
                         .frame(width: geometry.size.width, height: 20, alignment: .leading)
+                        .transition(.move(edge: .bottom))
                 }
 
                 HStack(alignment: .center, spacing: 10) {
@@ -126,6 +128,11 @@ struct InputFieldView: View {
                 }
             }
             .frame(width: geometry.size.width, height: maxFieldHeight, alignment: .center)
+            .onChange(of: text) { newValue in
+                withAnimation {
+                    showTitle = !newValue.isEmpty
+                }
+            }
         }
         .frame(height: maxFieldHeight, alignment: .center)
     }
