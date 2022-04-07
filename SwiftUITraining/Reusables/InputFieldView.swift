@@ -70,7 +70,7 @@ struct InputFieldView: View {
 
     @Binding var text: String
     var config: Config
-    @State private var showTitle: Bool = false
+    @State var showTitle: Bool = false
     
     var body: some View {
         let maxFieldHeight: CGFloat = text.isEmpty ? 49 : 77
