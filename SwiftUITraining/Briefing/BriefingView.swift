@@ -25,15 +25,18 @@ struct BriefingView: View {
 
     @State private var navType: NavType = .star {
         didSet {
-            switch navType {
-            case .add:
-                isSearchPageActive = true
-            default:
-                isSearchPageActive = false
-            }
+            isFavoritePageActive = navType == .star
+            isLivePageActive = navType == .live
+            isResourcePageActive = navType == .resource
+            isAddPageActive = navType == .add
         }
     }
     @State private var isSearchPageActive: Bool = false
+    @State private var isFavoritePageActive: Bool = false
+    @State private var isLivePageActive: Bool = false
+    @State private var isResourcePageActive: Bool = false
+    @State private var isAddPageActive: Bool = false
+
     @EnvironmentObject private var appEnv: AppEnv
 
     let model: Model = BriefingView.mockData()
@@ -67,6 +70,22 @@ struct BriefingView: View {
             NavigationLink("", isActive: $isSearchPageActive) {
                 SearchPageView()
             }
+
+            NavigationLink("", isActive: $isFavoritePageActive) {
+                ProductPageView()
+            }
+
+            NavigationLink("", isActive: $isLivePageActive) {
+                ArticlePageView()
+            }
+
+            NavigationLink("", isActive: $isResourcePageActive) {
+                // TODO: add content here
+            }
+
+            NavigationLink("", isActive: $isAddPageActive) {
+                // TODO: add content here
+            }
         }
         .padding(.top, 20)
         .ignoresSafeArea()
@@ -80,7 +99,7 @@ struct BriefingView: View {
                                subTitle: "JEWELRY",
                                geometry: geometry,
                                sidePadding: 32) {
-            print("Trigger Nav Search")
+            isSearchPageActive = true
         } btnProfileAction: {
             print("Trigger Nav Profile")
         }
