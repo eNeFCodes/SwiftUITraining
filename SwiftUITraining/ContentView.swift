@@ -16,11 +16,12 @@ struct ContentView: View {
             LoaderView(content: { geometry in
                 NavigationView {
                     //LoginContentView()
-                    BriefingView()
+                    //BriefingView()
                     //FTUEContentView()
                     //SearchPageView()
                     //ArticlePageView()
                     //ProductPageView()
+                    ResourceLandingPage()
                 }
                 .navigationViewStyle(.stack)
                 .environmentObject(appEnv)

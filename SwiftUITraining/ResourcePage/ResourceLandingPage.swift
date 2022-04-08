@@ -9,7 +9,22 @@ import SwiftUI
 
 struct ResourceLandingPage: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader { geometry in
+            ResourceNavigationView(geometry: geometry, model: navModel())
+            
+            ResourceLandingTitleView(geometry: geometry, model: ResourceLandingTitleView.mockData())
+                .ignoresSafeArea()
+        }
+    }
+
+    private func navModel() -> ResourceNavigationViewModel {
+        ResourceNavigationViewModel(title: "CNT",
+                                    subTitle: "JEWELRY",
+                                    logo: "ic_cartier_logo") {
+
+        } btnProfileAction: {
+
+        }
     }
 }
 
