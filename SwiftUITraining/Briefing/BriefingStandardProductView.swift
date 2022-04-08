@@ -130,12 +130,14 @@ struct BriefingStandardProductView: View {
 
     private func buildTextContentDetailsViewStack(frameWidth: CGFloat, contentWidth: CGFloat) -> some View {
         VStack(spacing: 16) {
-            let detailsFont = FontCollection.font(for: FontCollection.FancyCutProB7.regular(size: 16))
+            let detailsFont = FontCollection.uiFont(for: FontCollection.FancyCutProB7.regular(size: 16))!
+            let detailsHeight = model.details.constrainedSize(with: .init(width: contentWidth, height: .infinity), minHeight: 22, font: detailsFont)
+
             Text(model.details)
                 .accessibilityLabel(model.details)
-                .font(detailsFont)
+                .font(detailsFont.toFont())
                 .foregroundColor(ColorCollection.black)
-                .frame(width: contentWidth, alignment: .leading)
+                .frame(width: contentWidth, height: detailsHeight, alignment: .leading)
 
             VStack(spacing: 0) {
                 let boldFont = FontCollection.font(for: FontCollection.FancyCutProB7.bold(size: 12))
