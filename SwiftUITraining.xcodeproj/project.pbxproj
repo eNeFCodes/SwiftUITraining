@@ -83,6 +83,8 @@
 		8FA91BFA28001126003747D7 /* ResourceLandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA91BF928001126003747D7 /* ResourceLandingPage.swift */; };
 		8FA91BFC28001169003747D7 /* ResourceNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA91BFB28001169003747D7 /* ResourceNavigationView.swift */; };
 		8FA91BFE2800138C003747D7 /* ResourceNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA91BFD2800138C003747D7 /* ResourceNavigationViewModel.swift */; };
+		8FA91C00280019D1003747D7 /* ResourceLandingTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA91BFF280019D1003747D7 /* ResourceLandingTitleView.swift */; };
+		8FA91C0228002415003747D7 /* ResourceLandingTitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA91C0128002415003747D7 /* ResourceLandingTitleViewModel.swift */; };
 		8FAE848727ED4F7600872BE9 /* SearchResultItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848627ED4F7600872BE9 /* SearchResultItemView.swift */; };
 		8FAE848927ED6A3300872BE9 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848827ED6A3300872BE9 /* Helpers.swift */; };
 		8FAE848B27ED6E3000872BE9 /* SearchMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE848A27ED6E3000872BE9 /* SearchMockData.swift */; };
@@ -177,6 +179,8 @@
 		8FA91BF928001126003747D7 /* ResourceLandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLandingPage.swift; sourceTree = "<group>"; };
 		8FA91BFB28001169003747D7 /* ResourceNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceNavigationView.swift; sourceTree = "<group>"; };
 		8FA91BFD2800138C003747D7 /* ResourceNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceNavigationViewModel.swift; sourceTree = "<group>"; };
+		8FA91BFF280019D1003747D7 /* ResourceLandingTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLandingTitleView.swift; sourceTree = "<group>"; };
+		8FA91C0128002415003747D7 /* ResourceLandingTitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLandingTitleViewModel.swift; sourceTree = "<group>"; };
 		8FAE848627ED4F7600872BE9 /* SearchResultItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultItemView.swift; sourceTree = "<group>"; };
 		8FAE848827ED6A3300872BE9 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8FAE848A27ED6E3000872BE9 /* SearchMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMockData.swift; sourceTree = "<group>"; };
@@ -441,6 +445,8 @@
 			isa = PBXGroup;
 			children = (
 				8FA91BF928001126003747D7 /* ResourceLandingPage.swift */,
+				8FA91BFF280019D1003747D7 /* ResourceLandingTitleView.swift */,
+				8FA91C0128002415003747D7 /* ResourceLandingTitleViewModel.swift */,
 				8FA91BFB28001169003747D7 /* ResourceNavigationView.swift */,
 				8FA91BFD2800138C003747D7 /* ResourceNavigationViewModel.swift */,
 			);
@@ -589,6 +595,7 @@
 				8F8E610427D5DE0D003AFA79 /* LoginWelcomeView.swift in Sources */,
 				8F8E610E27DAD394003AFA79 /* Biometrics.swift in Sources */,
 				8FAE849D27F4080B00872BE9 /* ScrollView+Ext.swift in Sources */,
+				8FA91C00280019D1003747D7 /* ResourceLandingTitleView.swift in Sources */,
 				8FA878F527E1EFF3008C2837 /* LoginButtonView.swift in Sources */,
 				8F44128A27D1BD1A009487A6 /* SwiftUITrainingApp.swift in Sources */,
 				8FFA4A9727F54ED1001E4128 /* ProductPageDetailsView.swift in Sources */,
@@ -608,6 +615,7 @@
 				8FA8790427E45712008C2837 /* FTUEIntroView.swift in Sources */,
 				8F8E610127D5D492003AFA79 /* LoginContentView.swift in Sources */,
 				8FFA4A9927F5690E001E4128 /* DotOnlyView.swift in Sources */,
+				8FA91C0228002415003747D7 /* ResourceLandingTitleViewModel.swift in Sources */,
 				8FAE849027F133C100872BE9 /* String+Ext.swift in Sources */,
 				8FA8791427EAF2A6008C2837 /* SearchPageView.swift in Sources */,
 				8FA8790827E84AF5008C2837 /* DotView.swift in Sources */,
