@@ -11,12 +11,18 @@ extension BriefingWeeklyUpdateView {
     struct Model {
         let title: String
         let product: SearchPageView.Searched
+        let product2: SearchPageView.Searched
+        let product3: BriefingStandardProductView.Model
+        let product4: SearchPageView.Searched
+        let product5: BriefingStandardProductDetailsOnlyView.Model
+        let product6: SearchPageView.Searched
+        let product7: ProductPageOverlayedView.Model
     }
 }
 
 struct BriefingWeeklyUpdateView: View {
     let geometry: GeometryProxy
-    let model: Model = BriefingWeeklyUpdateView.mockData()
+    let model: Model
 
     var body: some View {
         ZStack {
@@ -30,19 +36,23 @@ struct BriefingWeeklyUpdateView: View {
                     print("item: ", item)
                 }
 
-                SearchResultItemView(geometry: geometry, item: model.product, sidePadding: 32) { item in
+                SearchResultItemView(geometry: geometry, item: model.product2, sidePadding: 32) { item in
                     print("item: ", item)
                 }
 
-                BriefingStandardProductView(geometry: geometry, model: BriefingStandardProductView.mockData())
+                BriefingStandardProductView(geometry: geometry, model: model.product3)
 
-                SearchResultItemView(geometry: geometry, item: model.product, sidePadding: 32) { item in
+                SearchResultItemView(geometry: geometry, item: model.product4, sidePadding: 32) { item in
                     print("item: ", item)
                 }
 
-                BriefingStandardProductDetailsOnlyView(geometry: geometry, model: BriefingStandardProductDetailsOnlyView.mockData())
+                BriefingStandardProductDetailsOnlyView(geometry: geometry, model: model.product5)
 
-                ProductPageOverlayedView(geometry: geometry, model: ProductPageOverlayedView.mockData2())
+                SearchResultItemView(geometry: geometry, item: model.product6, sidePadding: 32) { item in
+                    print("item: ", item)
+                }
+
+                ProductPageOverlayedView(geometry: geometry, model: model.product7)
                 Spacer()
             }
             .padding(.top, 130)
@@ -104,18 +114,46 @@ struct BriefingWeeklyUpdateView: View {
 struct BriefingWeeklyUpdateView_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { geometry in
-            BriefingWeeklyUpdateView(geometry: geometry)
+            BriefingWeeklyUpdateView(geometry: geometry, model: BriefingWeeklyUpdateView.mockData {
+
+            })
         }
     }
 }
 
 extension BriefingWeeklyUpdateView {
-    static func mockData() -> BriefingWeeklyUpdateView.Model {
+    
+    static func mockData(product3Action: @escaping ()-> Void) -> BriefingWeeklyUpdateView.Model {
         .init(title: "THIS WEEK\nAROUND CNT",
               product: .init(id: 0,
-                             title: "panthere".uppercased(),
-                             subTitle: "The History of the Cartier Panthère Bracelet".uppercased(),
-                             imageName: "img_result4",
-                             date: "MAR. 1, 2020"))
+                             title: "EVENT".uppercased(),
+                             subTitle: "New BAIGNOIRE\nCOLLECTION".uppercased(),
+                             imageName: "img_result7",
+                             date: "MAR. 1, 2020"),
+              product2: .init(id: 2,
+                              title: "EVENT".uppercased(),
+                              subTitle: "Bibendum\nVehicula Etiam\nEgestas Amet".uppercased(),
+                              imageName: "img_result8",
+                              date: "MAR. 1, 2020"),
+              product3: .init(imageName: "img_ring",
+                              title: "TAKEAWAY",
+                              sutTitle: "Congratulate\nMaria".uppercased(),
+                              details: "Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before. Its five-year mission: to explore strange new worlds again.",
+                              time: "5 mins ago".uppercased(),
+                              author: "Jane Doe",
+                              authorDetails: "Lorem Ispum Role",
+                              location: "5th Avenue Mansion", action: product3Action),
+              product4: .init(id: 3,
+                              title: "EYEBROW".uppercased(),
+                              subTitle: "Bibendum\nVehicula Etiam\nEgestas Amet".uppercased(),
+                              imageName: "img_result6",
+                              date: "MAR. 1, 2020"),
+              product5: BriefingStandardProductDetailsOnlyView.mockData(),
+              product6: .init(id: 4,
+                              title: "panthere".uppercased(),
+                              subTitle: "The History of\nthe Cartier\nPanthère\nBracelet".uppercased(),
+                              imageName: "img_result8",
+                              date: "MAR. 1, 2020"),
+              product7: ProductPageOverlayedView.mockData())
     }
 }

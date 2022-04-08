@@ -51,7 +51,10 @@ struct BriefingView: View {
                     BriefingNeedToKnowView(geometry: geometry)
                         .padding(.top, 24)
 
-                    BriefingWeeklyUpdateView(geometry: geometry)
+                    let weeklyUpdateModel = BriefingWeeklyUpdateView.mockData {
+                        print("action triggered")
+                    }
+                    BriefingWeeklyUpdateView(geometry: geometry, model: weeklyUpdateModel)
                         .padding(.top, 44)
                 }
 
