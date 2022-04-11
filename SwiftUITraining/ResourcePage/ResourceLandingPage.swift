@@ -10,12 +10,19 @@ import SwiftUI
 struct ResourceLandingPage: View {
     var body: some View {
         GeometryReader { geometry in
-            ResourceNavigationView(geometry: geometry, model: navModel())
-            
-            ResourceLandingTitleView(geometry: geometry, model: ResourceLandingTitleView.mockData())
-                .ignoresSafeArea()
+            VStack(spacing: 40) {
+                ZStack {
+                    VStack {
+                        ResourceNavigationView(geometry: geometry, model: navModel())
+                        Spacer()
+                    }
+                    ResourceLandingTitleView(geometry: geometry, model: ResourceLandingTitleView.mockData())
+                        .ignoresSafeArea()
+                }
+                .padding(.bottom, -25)
 
-            TagView(geometry: geometry, alignment: .leading, model: TagView.mockData())
+                TagView(geometry: geometry, alignment: .leading, model: TagView.mockData())
+            }
         }
     }
 
