@@ -32,10 +32,10 @@ struct ResourceLandingTitleView: View {
             VStack {
                 let polygonPadding: CGFloat = 20
                 let polygonSidePadding: CGFloat = 50
-                let polygonFrameWidth: CGFloat = geometry.size.width - (polygonSidePadding * 2)
+                let polygonFrameWidth: CGFloat = abs(geometry.size.width - (polygonSidePadding * 2))
                 VStack(spacing: 8) {
                     let textContentFieldPadding: CGFloat = 28
-                    let textContentFieldWidth: CGFloat = polygonFrameWidth - (textContentFieldPadding * 2)
+                    let textContentFieldWidth: CGFloat = abs(polygonFrameWidth - (textContentFieldPadding * 2))
                     let subTitleFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.bold(size: 11))
                     let titleFont = FontCollection.font(for: FontCollection.BrilliantCutProB7.medium(size: 28))
 

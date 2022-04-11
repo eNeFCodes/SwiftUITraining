@@ -14,6 +14,8 @@ struct ResourceLandingPage: View {
             
             ResourceLandingTitleView(geometry: geometry, model: ResourceLandingTitleView.mockData())
                 .ignoresSafeArea()
+
+            TagView(geometry: geometry, alignment: .leading, model: TagView.mockData())
         }
     }
 
