@@ -13,18 +13,17 @@ struct TagView: View {
     let padding: CGFloat
     let alignment: Alignment
 
-    @StateObject var model: TagViewModel
+    @ObservedObject var model: TagViewModel
 
     init(geometry: GeometryProxy,
          padding: CGFloat = 32,
-         alignment: Alignment,
+         alignment: Alignment = .leading,
          model: TagViewModel) {
 
         self.geometry = geometry
         self.padding = padding
         self.alignment = alignment
-
-        _model = StateObject(wrappedValue: model)
+        self.model = model
     }
 
     var body: some View {
@@ -42,7 +41,7 @@ struct TagView: View {
 
             ScrollView {
                 LazyVStack(spacing: 16) {
-                    ForEach(model.buildSections(maxCanvasWidth: estimatedWidth), id: \.section) { section in
+                    ForEach(model.sections, id: \.section) { section in
                         LazyHStack(spacing: 16) {
                             ForEach(section.rows, id: \.index) { row in
                                 buildRowViewStack(for: row)
