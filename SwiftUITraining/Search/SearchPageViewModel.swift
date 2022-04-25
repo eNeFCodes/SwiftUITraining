@@ -55,9 +55,8 @@ extension SearchPageViewModel {
     func triggerInputFieldOnChangeAction(id: Int, text: String) {
         if text.isEmpty {
             searchResults = []
-        } else {
-            textChange.send((id, text))
         }
+        textChange.send((id, text))
     }
 
     func triggerInputFieldAction(id: Int, text: String) {
