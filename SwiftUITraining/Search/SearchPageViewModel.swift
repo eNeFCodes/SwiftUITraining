@@ -36,11 +36,36 @@ class SearchPageViewModel: ObservableObject {
     @Published var selectedItem: Searched?
 
     var toSearchItems: [SearchPageViewModel.Searched] = SearchMockData.toSearchItems
+
+    private var subscriptions = Set<AnyCancellable>()
+    private var textChange = PassthroughSubject<(id: Int, text: String), Never>()
+
+    init() {
+        textChange
+            .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] (id, text) in
+                guard let self = self else { return }
+                self.performFilter(id: id, text: text)
+            })
+            .store(in: &subscriptions)
+    }
 }
 
 extension SearchPageViewModel {
     func triggerInputFieldOnChangeAction(id: Int, text: String) {
-        print("triggered: \(id) -- \(text)")
+        if text.isEmpty {
+            searchResults = []
+        } else {
+            textChange.send((id, text))
+        }
+    }
+
+    func triggerInputFieldAction(id: Int, text: String) {
+        searchedText = ""
+        searchResults = []
+    }
+
+    private func performFilter(id: Int, text: String) {
         if text.isEmpty {
             searchResults = []
         } else {
@@ -48,10 +73,5 @@ extension SearchPageViewModel {
                 item.title.lowercased().hasPrefix(text.lowercased())
             })
         }
-    }
-
-    func triggerInputFieldAction(id: Int, text: String) {
-        searchedText = ""
-        searchResults = []
     }
 }
