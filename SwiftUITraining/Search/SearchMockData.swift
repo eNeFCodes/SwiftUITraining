@@ -8,7 +8,7 @@
 import Foundation
 
 struct SearchMockData {
-    typealias Searched = SearchPageView.Searched
+    typealias Searched = SearchPageViewModel.Searched
 
     static let popularSearches: [Searched] = [
         Searched(id: 0, title: "Just Un Clou"),

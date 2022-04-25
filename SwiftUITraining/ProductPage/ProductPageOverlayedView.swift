@@ -13,7 +13,7 @@ extension ProductPageOverlayedView {
         let collectionTitle: String
         let collectionDetails: String
 
-        let products: [SearchPageView.Searched]
+        let products: [SearchPageViewModel.Searched]
     }
 }
 

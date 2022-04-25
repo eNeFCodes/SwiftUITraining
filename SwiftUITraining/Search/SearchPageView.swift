@@ -9,40 +9,13 @@ import SwiftUI
 
 struct SearchPageView: View {
 
-    struct Searched: Identifiable, Hashable {
-        let id: Int
-        let title: String
-        let subTitle: String
-        let imageName: String
-        let date: String
-
-        init(id: Int,
-             title: String,
-             subTitle: String = "",
-             imageName: String = "",
-             date: String = "") {
-
-            self.id = id
-            self.title = title
-            self.subTitle = subTitle
-            self.imageName = imageName
-            self.date = date
-        }
-    }
-
     @EnvironmentObject private var appEnv: AppEnv
     @Environment(\.presentationMode) private var presentationMode
-    @State private var popularSearches: [Searched] = SearchMockData.popularSearches
 
-    @State private var searchResults: [Searched] = []
-
-    @State private var searchedText: String = "asdfadfaf"
-    @State private var selectedItem: Searched?
-
-    private var toSearchItems: [Searched] = SearchMockData.toSearchItems
+    @StateObject private var model: SearchPageViewModel = .init()
 
     var body: some View {
-        let shouldSwitchColor = !searchedText.isEmpty && !searchResults.isEmpty
+        let shouldSwitchColor = !model.searchedText.isEmpty && !model.searchResults.isEmpty
         let bgColorAll: Color = shouldSwitchColor ? .white : .black
         GeometryReader { geometry in
             ZStack {
@@ -99,11 +72,11 @@ struct SearchPageView: View {
             .frame(width: abs(geometry.size.width), alignment: .center)
 
             VStack {
-                InputFieldView(text: $searchedText, config: makeSearchFieldConfig(), showTitle: !searchedText.isEmpty)
+                InputFieldView(text: $model.searchedText, config: makeSearchFieldConfig(), showTitle: !model.searchedText.isEmpty)
                     .padding(20)
 
                 ZStack {
-                    if !searchedText.isEmpty && searchResults.isEmpty {
+                    if !model.searchedText.isEmpty && model.searchResults.isEmpty {
                         emptyResultView(geometry: geometry)
                     } else {
                         resultsView(geometry: geometry)
@@ -119,7 +92,7 @@ struct SearchPageView: View {
     }
 
     private func makeSearchFieldConfig() -> InputFieldView.Config {
-        if !searchResults.isEmpty {
+        if !model.searchResults.isEmpty {
             return InputFieldView.Config(id: 0,
                                          titleColor: .black,
                                          textColor: .black,
@@ -127,8 +100,8 @@ struct SearchPageView: View {
                                          showButton: true,
                                          icon: Image("ic_search_white"),
                                          activeIcon: Image("ic_close"),
-                                         onChangeAction: triggerInputFieldOnChangeAction,
-                                         action: triggerInputFieldAction)
+                                         onChangeAction: model.triggerInputFieldOnChangeAction,
+                                         action: model.triggerInputFieldAction)
         } else {
             return InputFieldView.Config(id: 0,
                                          titleColor: .white,
@@ -137,8 +110,8 @@ struct SearchPageView: View {
                                          showButton: true,
                                          icon: Image("ic_search_white"),
                                          activeIcon: Image("ic_close_white"),
-                                         onChangeAction: triggerInputFieldOnChangeAction,
-                                         action: triggerInputFieldAction)
+                                         onChangeAction: model.triggerInputFieldOnChangeAction,
+                                         action: model.triggerInputFieldAction)
         }
     }
 
@@ -170,7 +143,7 @@ struct SearchPageView: View {
     private func resultsView(geometry: GeometryProxy) -> some View {
         VStack(alignment: .leading, spacing: 10) {
             let searchedTitleFont = Font.custom("FancyCutCondProB7-Bold", size: 20)
-            let searchedTitle = !searchResults.isEmpty ? "\(searchResults.count) RESULTS" : "POPULAR SEARCHES"
+            let searchedTitle = !model.searchResults.isEmpty ? "\(model.searchResults.count) RESULTS" : "POPULAR SEARCHES"
             Text(searchedTitle)
                 .accessibilityLabel(searchedTitle)
                 .font(searchedTitleFont)
@@ -179,12 +152,12 @@ struct SearchPageView: View {
 
             ScrollView(.vertical) {
                 LazyVStack {
-                    if !searchResults.isEmpty {
-                        ForEach(searchResults) { searched in
+                    if !model.searchResults.isEmpty {
+                        ForEach(model.searchResults) { searched in
                             createResultItemView(for: searched, geometry: geometry)
                         }
                     } else {
-                        ForEach(popularSearches) { searched in
+                        ForEach(model.popularSearches) { searched in
                             createTappableField(for: searched, geometry: geometry)
                         }
                         .foregroundColor(.white)
@@ -195,17 +168,17 @@ struct SearchPageView: View {
         .frame(width: abs(geometry.size.width), alignment: .leading)
     }
 
-    private func createResultItemView(for item: Searched, geometry: GeometryProxy) -> some View {
+    private func createResultItemView(for item: SearchPageViewModel.Searched, geometry: GeometryProxy) -> some View {
         SearchResultItemView(geometry: geometry, item: item, action: resultActionHandler)
             .padding(.top, 20)
             .padding(.bottom, 20)
     }
 
-    private func resultActionHandler(item: Searched) {
+    private func resultActionHandler(item: SearchPageViewModel.Searched) {
         print("resultActionHandler: ", item)
     }
 
-    private func createTappableField(for item: Searched, geometry: GeometryProxy) -> some View {
+    private func createTappableField(for item: SearchPageViewModel.Searched, geometry: GeometryProxy) -> some View {
         Button {
             searchedItemTapped(item: item)
         } label: {
@@ -219,23 +192,7 @@ struct SearchPageView: View {
         .frame(width: abs(geometry.size.width), height: 40, alignment: .leading)
     }
 
-    private func triggerInputFieldOnChangeAction(id: Int, text: String) {
-        print("triggered: \(id) -- \(text)")
-        if text.isEmpty {
-            searchResults = []
-        } else {
-            searchResults = toSearchItems.filter({ item in
-                item.title.lowercased().hasPrefix(text.lowercased())
-            })
-        }
-    }
-
-    private func triggerInputFieldAction(id: Int, text: String) {
-        searchedText = ""
-        searchResults = []
-    }
-
-    private func searchedItemTapped(item: Searched) {
+    private func searchedItemTapped(item: SearchPageViewModel.Searched) {
         print("searchedItemTapped: \(item.id) -- \(item.title)")
     }
 }

@@ -10,12 +10,12 @@ import SwiftUI
 extension BriefingWeeklyUpdateView {
     struct Model {
         let title: String
-        let product: SearchPageView.Searched
-        let product2: SearchPageView.Searched
+        let product: SearchPageViewModel.Searched
+        let product2: SearchPageViewModel.Searched
         let product3: BriefingStandardProductView.Model
-        let product4: SearchPageView.Searched
+        let product4: SearchPageViewModel.Searched
         let product5: BriefingStandardProductDetailsOnlyView.Model
-        let product6: SearchPageView.Searched
+        let product6: SearchPageViewModel.Searched
         let product7: ProductPageOverlayedView.Model
     }
 }

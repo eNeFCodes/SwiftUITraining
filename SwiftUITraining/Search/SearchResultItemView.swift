@@ -10,10 +10,10 @@ import SwiftUI
 struct SearchResultItemView: View {
 
     let geometry: GeometryProxy
-    let item: SearchPageView.Searched
+    let item: SearchPageViewModel.Searched
     var sidePadding: CGFloat = 20
     var showSeparator: Bool = true
-    let action: (_ item: SearchPageView.Searched) -> Void
+    let action: (_ item: SearchPageViewModel.Searched) -> Void
 
     var body: some View {
         VStack(spacing: 8) {
@@ -93,11 +93,11 @@ extension SearchResultItemView {
 }
 
 struct SearchResultItemView_Previews: PreviewProvider {
-    static let item = SearchPageView.Searched(id: 0,
-                               title: "PANTHERE",
-                               subTitle: "JUSTE sedfsa Vehicula Etiam Egestas lorem ipsum",
-                               imageName: "img_result1",
-                               date: "May 1, 2020")
+    static let item = SearchPageViewModel.Searched(id: 0,
+                                                   title: "PANTHERE",
+                                                   subTitle: "JUSTE sedfsa Vehicula Etiam Egestas lorem ipsum",
+                                                   imageName: "img_result1",
+                                                   date: "May 1, 2020")
     static var previews: some View {
         GeometryReader { geometry in
             SearchResultItemView(geometry: geometry, item: item) { item in
