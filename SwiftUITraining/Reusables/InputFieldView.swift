@@ -31,8 +31,8 @@ struct InputFieldView: View {
              title: String = "Search CNT",
              titleColor: Color = .white,
              placeholder: String = "Search CNT",
-             placeholderTextColor: Color = .gray,
-             textColor: Color = .white,
+             placeholderTextColor: Color = Color("c_gray"),
+             textColor: Color = Color("c_green"),
 
              showSeparator: Bool = true,
              separatorColor: Color = .white,

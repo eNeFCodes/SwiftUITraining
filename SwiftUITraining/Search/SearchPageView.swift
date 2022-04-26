@@ -95,7 +95,7 @@ struct SearchPageView: View {
         if !model.searchResults.isEmpty {
             return InputFieldView.Config(id: 0,
                                          titleColor: .black,
-                                         textColor: .black,
+                                         textColor: Color("c_green"),
                                          separatorColor: .black,
                                          showButton: true,
                                          icon: Image("ic_search_white"),
@@ -105,7 +105,7 @@ struct SearchPageView: View {
         } else {
             return InputFieldView.Config(id: 0,
                                          titleColor: .white,
-                                         textColor: .white,
+                                         textColor: Color("c_white"),
                                          separatorColor: .white,
                                          showButton: true,
                                          icon: Image("ic_search_white"),
