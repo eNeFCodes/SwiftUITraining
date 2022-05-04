@@ -3,6 +3,16 @@
     {
       "filename" : "img_ring.png",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "img_ring-1.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {

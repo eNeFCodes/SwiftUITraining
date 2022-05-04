@@ -42,10 +42,16 @@ class SearchPageViewModel: ObservableObject {
 
     init() {
         textChange
-            .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
-            .sink(receiveValue: { [weak self] (id, text) in
+            .debounce(for: .seconds(1), scheduler: DispatchQueue.global(qos: .background))
+            .map { [weak self] (id, text) -> AnyPublisher<[SearchPageViewModel.Searched], Never> in
+                guard let self = self else { return PassthroughSubject<[SearchPageViewModel.Searched], Never>().eraseToAnyPublisher() }
+                return self.performFilter(for: text)
+            }
+            .switchToLatest()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] results in
                 guard let self = self else { return }
-                self.performFilter(id: id, text: text)
+                self.searchResults = results
             })
             .store(in: &subscriptions)
     }
@@ -55,8 +61,9 @@ extension SearchPageViewModel {
     func triggerInputFieldOnChangeAction(id: Int, text: String) {
         if text.isEmpty {
             searchResults = []
+        } else {
+            textChange.send((id, text))
         }
-        textChange.send((id, text))
     }
 
     func triggerInputFieldAction(id: Int, text: String) {
@@ -64,13 +71,14 @@ extension SearchPageViewModel {
         searchResults = []
     }
 
-    private func performFilter(id: Int, text: String) {
-        if text.isEmpty {
-            searchResults = []
+    private func performFilter(for query: String) -> AnyPublisher<[SearchPageViewModel.Searched], Never> {
+        if query.isEmpty {
+            return CurrentValueSubject([]).eraseToAnyPublisher()
         } else {
-            searchResults = toSearchItems.filter({ item in
-                item.title.lowercased().hasPrefix(text.lowercased())
+            let results = toSearchItems.filter({ item in
+                item.title.lowercased().hasPrefix(query.lowercased())
             })
+            return CurrentValueSubject(results).eraseToAnyPublisher()
         }
     }
 }
