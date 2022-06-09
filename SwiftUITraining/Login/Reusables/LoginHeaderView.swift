@@ -61,5 +61,6 @@ struct LoginHeaderView_Previews: PreviewProvider {
         GeometryReader { geometry in
             LoginHeaderView(geometry: geometry)
         }
+        .environmentObject(UserSettings())
     }
 }

@@ -39,13 +39,6 @@ struct LoginContentView: View {
                         NavigationLink("", isActive: $appEnv.isLoginModeAtlas) {
                             LoginAtlasView()
                         }
-                        
-//                        if appEnv.loginMode != .atlas {
-//                            NavigationLink("", isActive: $appEnv.isLoggedIn) {
-//                                FTUEContentView()
-//                            }
-//                        }
-
                         NavigationLink("", isActive: $appEnv.isLoggedIn) {
                             FTUEContentView()
                         }
@@ -61,5 +54,7 @@ struct LoginContentView: View {
 struct LoginContentView_Previews: PreviewProvider {
     static var previews: some View {
         LoginContentView()
+            .environmentObject(AppEnv())
+            .environmentObject(UserSettings())
     }
 }

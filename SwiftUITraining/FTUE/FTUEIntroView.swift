@@ -64,5 +64,6 @@ struct FTUEIntroView: View {
 struct FTUEIntroView_Previews: PreviewProvider {
     static var previews: some View {
         FTUEIntroView()
+            .environmentObject(AppEnv())
     }
 }

@@ -49,7 +49,7 @@ struct DotView: View {
     }
 
     private func dotIndicator(index: Int) -> some View {
-        Button("XXX") {
+        Button("") {
             activeIndex = index
         }
         .foregroundColor(.clear)
@@ -68,7 +68,7 @@ struct DotView: View {
     }
 
     private func activeDotIndicator(index: Int) -> some View {
-        Button("XXX") {
+        Button("") {
             activeIndex = index
         }
         .foregroundColor(.clear)

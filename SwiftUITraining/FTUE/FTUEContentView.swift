@@ -123,5 +123,6 @@ struct FTUEContentView: View {
 struct FTUEView_Previews: PreviewProvider {
     static var previews: some View {
         FTUEContentView()
+            .environmentObject(AppEnv())
     }
 }

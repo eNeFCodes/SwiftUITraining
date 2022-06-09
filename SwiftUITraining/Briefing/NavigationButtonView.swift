@@ -64,9 +64,26 @@ struct NavigationButtonView: View {
 }
 
 struct BriefingNavView_Previews: PreviewProvider {
-
+  
     static let buttons: [NavigationButtonItem] = [
-
+      NavigationButtonItem(id: 0,
+                                      icon: Image("ic_star_white"),
+                                      activeIcon: Image("ic_star"),
+                                      title: "A LA UNE",
+                                      isActive: true) { },
+      NavigationButtonItem(id: 1,
+                                      icon: Image("ic_eye_white"),
+                                      activeIcon: Image("ic_eye"),
+                                      title: "LIVE") { },
+      NavigationButtonItem(id: 2,
+                                      icon: Image("ic_resource_white"),
+                                      activeIcon: Image("ic_resource"),
+                                      title: "RESOURCES") { },
+      NavigationButtonItem(id: 3,
+                                      icon: Image("ic_plus"),
+                                      activeIcon: Image("ic_plus"),
+                                      title: "ADD",
+                                      bgColor: .orange) { }
     ]
 
     static var previews: some View {

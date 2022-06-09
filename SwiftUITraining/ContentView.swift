@@ -18,8 +18,8 @@ struct ContentView: View {
                     //LoginContentView()
                     //BriefingView()
                     //FTUEContentView()
-                    SearchPageView()
-                    //ArticlePageView()
+                    //SearchPageView()
+                    ArticlePageView()
                     //ProductPageView()
                     //ResourceLandingPage()
                 }

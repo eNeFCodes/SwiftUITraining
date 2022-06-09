@@ -47,7 +47,7 @@ struct LoginAtlasInputView: View {
                     appEnv.isLoading = true
                     model.processLogin { isLoggedIn in
                         appEnv.isLoading = false
-                        appEnv.isLoggedIn = isLoggedIn
+                        //appEnv.isLoggedIn = isLoggedIn
                     }
                 } label: {
                     Text(model.loginBtnTitle)
